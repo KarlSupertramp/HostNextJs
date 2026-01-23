@@ -78,7 +78,7 @@ export default function ShowroomPage() {
               title="Satellites"
               body="3D visualization of all plublicly documented satellites that orbit earth at this moment. Data provided by NORAD."
               href='/satellites/index.html'
-              imgSrc={"/satellites.png"}
+              imgSrc={"/thumbSat.png"}
             />              
           </Grid>
 
@@ -98,7 +98,7 @@ export default function ShowroomPage() {
               body="A sunday afternoon challenge. I tried to recreate the famous cube puzzle hardly anyone can solve. 
                     I wanted it to have a realistic look and feel and straight forward contolls."
               href='/cubeGame/index.html'
-              imgSrc={"/cubePuzzle.jpg"}
+              imgSrc={"/thumbCube.png"}
             />              
           </Grid>
         </Grid>
