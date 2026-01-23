@@ -62,7 +62,7 @@ function Feature({ title, body, href, imgSrc }) {
 export default function ShowroomPage() {
   return (
     <Box sx={{ py: 3 }}>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Typography variant="h3" component="h1" gutterBottom>
           Showroom
         </Typography>
@@ -72,7 +72,7 @@ export default function ShowroomPage() {
         </Typography>         
 
         <Grid container spacing={2} sx={{ mt: 6 }}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <Feature
               title="Satellites"
               body="3D visualization of all plublicly documented satellites that orbit earth at this moment. Data provided by NORAD."
@@ -81,7 +81,7 @@ export default function ShowroomPage() {
             />              
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <Feature
               title="Orbit Sandbox"
               body="A colorful simulation to explore mass, momentum, and gravity. Swipe or drag to create objects and watch 
@@ -91,7 +91,7 @@ export default function ShowroomPage() {
             />              
           </Grid>
 
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={4}>
             <Feature
               title="Cube Puzzle"
               body="A sunday afternoon challenge. I tried to recreate the famous cube puzzle hardly anyone can solve. 

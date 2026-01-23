@@ -28,7 +28,7 @@ const socials = [
 
 export default function ContactPage() {
   return (
-    <Container maxWidth="md" sx={{ py: 3 }}>
+    <Container maxWidth="lg" sx={{ py: 3 }}>
         <Box sx={{ mb: 4 }}>
             <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
                 Get in Touch
