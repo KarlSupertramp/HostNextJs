@@ -35,9 +35,7 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#32323ae0", 
-          borderBottom: "1px solid #bbb8e6",
-          color: "#eda916",
+          backgroundColor: "#eda916c2", 
           backdropFilter: "blur(4px)",
         },
   
@@ -63,9 +61,12 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          color: "#bbb8e6",
+          fontWeight: "bold",
+          color: "#eda916",
+          backgroundColor: "#282831",
           ":hover": {
-            color: "#eda916",
+            color: "#282831",
+            backgroundColor: "#eda916",
           },
         },
       },

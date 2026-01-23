@@ -8,7 +8,7 @@ import theme from "../theme";
 function NavButton({ href, label }) {
   return (
     <Link href={href}>
-      <Button>{label}</Button>
+      <Button variant="contained" >{label}</Button>
     </Link>
   );
 }
@@ -24,6 +24,8 @@ export default function RootLayout({ children }) {
               <Box 
                 sx={{
                   borderRadius: 1,
+                  border: 1,
+                  borderColor: "background.paper",
                   width: 60,
                   height: 60,
                   overflow: "hidden",
@@ -39,14 +41,14 @@ export default function RootLayout({ children }) {
                 />
               </Box>
               <Stack padding={2}>                
-                <Typography variant="h5">
+                <Typography sx={{ fontWeight: "bold", color: "background.paper" }} variant="h5">
                   Karl Martin
                 </Typography>
-                <Typography color={"text.secondary"}>
+                <Typography sx={{ fontWeight: "bold", color: "background.paper" }}>
                     UX Technologist // Developer              
                 </Typography>                      
               </Stack>
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 0, sm: 1}} sx={{ justifyContent: "right", flexGrow: 1 }}>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ m:1, justifyContent: "right", flexGrow: 1 }}>
                 {NavButton({ href: "/about", label: "About" })}
                 {NavButton({ href: "/showroom", label: "Showroom" })}
                 {NavButton({ href: "/contact", label: "Contact" })}
