@@ -63,7 +63,6 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          fontSize: "1rem",
           color: "#bbb8e6",
           ":hover": {
             color: "#eda916",

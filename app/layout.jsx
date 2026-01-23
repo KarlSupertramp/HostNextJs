@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
                   width: 60,
                   height: 60,
                   overflow: "hidden",
-                  display: "flex",
+
                   alignItems: "center",
                   justifyContent: "center"
                 }}
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
                     UX Technologist // Developer              
                 </Typography>                      
               </Stack>
-              <Stack direction="row" spacing={1} sx={{ ml: "auto" }}>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 0, sm: 1}} sx={{ justifyContent: "right", flexGrow: 1 }}>
                 {NavButton({ href: "/about", label: "About" })}
                 {NavButton({ href: "/showroom", label: "Showroom" })}
                 {NavButton({ href: "/contact", label: "Contact" })}
