@@ -1,14 +1,14 @@
 import * as React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { AppBar, Toolbar, Typography, Stack, Button, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography, Stack, Button, Box, Container } from "@mui/material";
 import Link from "next/link";
 import theme from "../theme";
 
 function NavButton({ href, label }) {
   return (
     <Link href={href}>
-      <Button variant="contained" >{label}</Button>
+      <Button sx={{minWidth: "130px"}} variant="contained" >{label}</Button>
     </Link>
   );
 }
@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body style={{ margin: 0 }}>
         <ThemeProvider theme={theme}>
-          <CssBaseline />
+          <CssBaseline />          
           <AppBar position="sticky" elevation={0}>
             <Toolbar>
               <Box 
@@ -29,7 +29,6 @@ export default function RootLayout({ children }) {
                   width: 60,
                   height: 60,
                   overflow: "hidden",
-
                   alignItems: "center",
                   justifyContent: "center"
                 }}
@@ -45,17 +44,31 @@ export default function RootLayout({ children }) {
                   Karl Martin
                 </Typography>
                 <Typography sx={{ fontWeight: "bold", color: "background.paper" }}>
-                    UX Technologist // Developer              
+                    UX Technologist / Developer              
                 </Typography>                      
               </Stack>
               <Stack direction={{ xs: "column", sm: "row" }} spacing={1} sx={{ m:1, justifyContent: "right", flexGrow: 1 }}>
-                {NavButton({ href: "/about", label: "About" })}
+                {NavButton({ href: "/about", label: "About Me" })}
                 {NavButton({ href: "/showroom", label: "Showroom" })}
                 {NavButton({ href: "/contact", label: "Contact" })}
               </Stack>              
             </Toolbar>
           </AppBar>     
           {children}
+          <Box
+            component="footer"
+            sx={{
+              marginTop: 4,
+              padding: 3,
+              textAlign: "center",
+            }}
+          >
+            <Container maxWidth="sm">
+              <Typography variant="body2" color="text.faded">
+                &copy; {new Date().getFullYear()} Karl Uwe Martin
+              </Typography>
+            </Container>
+          </Box>
         </ThemeProvider>
       </body>
     </html>

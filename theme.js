@@ -5,20 +5,32 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     mode: "light",
-    primary: { main: "#eda916" },
-    secondary: { main: "#fffcef" },
-    border: { main: "#bbb8e6" },
+    primary: 
+    { 
+      main: "#eda916",
+      offset: "#f5c870"
+    },
+    secondary: 
+    { 
+      main: "#fffcef",
+      offset: "#f2f0e8"
+    },
+    border: 
+    { 
+      main: "#e7d192" 
+    },
     background: {
       default: "#282831",
-      paper: "#32323a",
-    },
+        paper: "#32323a",
+      },
     text: {
       primary: "#eda916",
       secondary: "#fffcef",
+      faded: "#929087"
     }       
   },
   shape: {
-    borderRadius: 12,
+    borderRadius: 12
   },
   typography: {
     fontFamily: [
@@ -31,7 +43,7 @@ const theme = createTheme({
       "sans-serif",
     ].join(","),
   },
-  components: {
+  components: {   
     MuiAppBar: {
       styleOverrides: {
         root: {

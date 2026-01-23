@@ -51,7 +51,7 @@ export default function AboutPage() {
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {items.map((item) => (
           <Chip 
-            sx={{ minWidth: "100px", color: "white", borderColor: "border.main" }} 
+            sx={{ minWidth: "100px", color: "text.secondary", borderColor: "primary.offset", backgroundColor: "background.default" }} 
             key={item} 
             label={item} 
             variant="outlined"            
@@ -70,7 +70,7 @@ export default function AboutPage() {
 
         <Typography variant="body1" color="text.secondary" paragraph sx={{ mt: 3 }}>
           As a hybrid between developer and designer, I am always exploring new techniques
-          to refine my skills. With a background in both SOFTWARE DEVELOPMENT and USER EXPERIENCE DESIGN, I bridge the gap between functionality and aesthetics.
+          to refine my skills. With a background in both <b>Software Development</b> and <b>User Experience Design</b>, I bridge the gap between functionality and aesthetics.
         </Typography>
 
         <Typography variant="body1" color="text.secondary" paragraph>
@@ -85,8 +85,8 @@ export default function AboutPage() {
         </Typography>
 
         <Box sx={{ my: 4, p: 2, bgcolor: "background.paper", borderLeft: "2px solid", borderColor: "border.main" }}>
-          <Typography variant="h6" sx={{ textAlign: "center", fontStyle: "italic", fontWeight: "bold" }}>
-            "Every THING is an interface!"
+          <Typography sx={{ textAlign: "center", fontStyle: "italic", fontWeight: "bold" }}>
+            "Every <b>THING</b> is an interface!"
           </Typography>
         </Box>
 
@@ -98,33 +98,37 @@ export default function AboutPage() {
         </Typography>
 
         <Typography variant="body1" color="text.secondary" paragraph>
-          The majority of the projects I worked on in recent years are MIXED REALITY projects. I developed several applications for the Microsoft HoloLens since the
+          The majority of the projects I worked on in recent years are <b>Mixed Reality</b> projects. I developed several applications for the Microsoft HoloLens since the
           very day the first iteration of this device was availabe in Germany and even
           took part in an exclusive developer preview, where I spend a week in the Microsoft
           office in Berlin to get to know the HoloLens 2, before its official release.
         </Typography>
 
         <Typography variant="body1" color="text.secondary" paragraph>
-          I also worked on several VIRTUAL REALITY projects. Most of them were prototypes that some way or another were adopted in
-          a VR-Learning plattform that I also directly contibuted to as a Unity developer (<Typography component="span" sx={{ fontWeight: "bold" }}>3spin Learning</Typography>).
+          I also worked on several <b>Virtual Reality</b> projects. Most of them were prototypes that some way or another were adopted in
+          a VR-Learning platform that I also directly contributed to as a Unity developer (<Typography component="span" sx={{ fontWeight: "bold" }}>3spin Learning</Typography>).
         </Typography>
 
         <Box sx={{ my: 6 }} />
+        
+        <Typography variant="h3" component="h1" gutterBottom>
+          Skills
+        </Typography>
 
         <Grid container spacing={4}>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <ChipSection title="Development Tools & Skills" items={devTools} />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <ChipSection title="Programming Languages / Coding" items={languages} />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <ChipSection title="Platform Resumé" items={platforms} />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <ChipSection title="Other Creative Tools" items={creativeTools} />
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <ChipSection title="DevOps" items={devOps} />
           </Grid>
         </Grid>

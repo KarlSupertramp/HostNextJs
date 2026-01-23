@@ -23,7 +23,6 @@ function Feature({ title, body, href, imgSrc }) {
         color: "inherit",
         display: "flex",
         flexDirection: "column",
-        outline: 1,
         outlineColor: "border.main",
         "&:hover": {
           outline: 2,
