@@ -10,7 +10,7 @@ import {
   Button
 } from "@mui/material";
 
-import { BackButton, urlEndWith } from "../layout";
+import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
 
 function Feature({ title, body, href, imgSrc }) {

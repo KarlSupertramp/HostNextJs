@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Typography, Grid, Chip, Stack } from "@mui/material";
-import { BackButton, urlEndWith } from "../layout";
+import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
 
 export default function SkillsPage() {

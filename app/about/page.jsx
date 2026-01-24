@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Container, Typography } from "@mui/material";
-import { BackButton, urlEndWith } from "../layout";
+import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
 
 

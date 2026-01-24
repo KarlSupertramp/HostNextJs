@@ -1,10 +1,10 @@
 'use client';
 
-import { Box, Container, Typography, Stack, Chip, Button } from '@mui/material';
+import { Box, Container, Typography, Stack, Chip } from '@mui/material';
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
-import { urlEndWith, BackButton } from '../layout';
+import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
 
 const socials = [
@@ -40,7 +40,7 @@ export default function ContactPage() {
     <Container maxWidth="lg" sx={{ py: 3 }}>
 
         {isSubPage && <BackButton />}
-        
+
         <Box sx={{ mb: 4 }}>
             <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
                 Get in Touch

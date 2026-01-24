@@ -1,25 +1,8 @@
 import * as React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Typography, Box, Container, Button } from "@mui/material";
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-
+import { Typography, Box, Container } from "@mui/material";
 import theme from "../theme";
-
-export const urlEndWith = (substring) =>
-{
-  var href = window.location.href
-  return href.endsWith(substring);
-}
-
-export function BackButton() 
-{ 
-  return (
-    <Button href={"/"} sx={{ mb: 4 }} variant="contained">
-      <ChevronLeftIcon />
-    </Button>   
-  );
-}
 
 export default function RootLayout({ children }) {
   return (
