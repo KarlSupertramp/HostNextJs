@@ -15,9 +15,11 @@ import { useEffect, useState } from "react";
 import { IframeModal } from "../components/iframeModal";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-const isMobile = useMediaQuery("(max-width:1000px)");
 
 function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string, title: string) => void {} }) {
+  
+  const isMobile = useMediaQuery("(max-width:1000px)");
+
   return (
     <Card
       variant="outlined"
