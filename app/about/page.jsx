@@ -1,11 +1,23 @@
 "use client";
 
 import { Box, Container, Typography } from "@mui/material";
+import { BackButton, urlEndWith } from "../layout";
+import { useEffect, useState } from "react";
+
 
 export default function AboutPage() {
+
+  const [isSubPage, setIsSubPage] = useState(false);
+  useEffect(() => {
+    setIsSubPage(urlEndWith("/about"));
+  });
+
   return (
     <Box sx={{ py: 3 }}>
       <Container maxWidth="lg">
+
+        {isSubPage && <BackButton />}
+
         <Typography variant="h3" component="h1" gutterBottom>
           About Me
         </Typography>

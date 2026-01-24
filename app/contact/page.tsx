@@ -1,9 +1,11 @@
 'use client';
 
-import { Box, Container, Typography, Stack, Chip } from '@mui/material';
+import { Box, Container, Typography, Stack, Chip, Button } from '@mui/material';
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
+import { urlEndWith, BackButton } from '../layout';
+import { useEffect, useState } from "react";
 
 const socials = [
   {
@@ -27,8 +29,18 @@ const socials = [
 ];
 
 export default function ContactPage() {
+
+  const [isSubPage, setIsSubPage] = useState(false);
+  useEffect(() => {
+    setIsSubPage(urlEndWith("/contact"));
+  });
+
+
   return (
     <Container maxWidth="lg" sx={{ py: 3 }}>
+
+        {isSubPage && <BackButton />}
+        
         <Box sx={{ mb: 4 }}>
             <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
                 Get in Touch
@@ -37,7 +49,7 @@ export default function ContactPage() {
                 Have a question or want to collaborate? Feel free to reach out!
             </Typography>
         </Box>
-        <Box sx={{ mb: 2, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+        <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
             <Stack spacing={2}  gap={1}>
                 {socials.map((social) => ( 
                   <Chip
@@ -48,11 +60,11 @@ export default function ContactPage() {
                     clickable
                     color="primary"
                     variant="outlined"   
-                    sx={{ color: "white", borderColor: "border.main" }}       
+                    sx={{backgroundColor: "background.default" ,color: "white", borderColor: "border.main" }}       
                   />           
                 ))}
             </Stack>
-        </Box>
+        </Box>       
     </Container>
   );
 }

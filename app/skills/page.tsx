@@ -1,6 +1,8 @@
 "use client";
 
 import { Box, Container, Typography, Grid, Chip, Stack } from "@mui/material";
+import { BackButton, urlEndWith } from "../layout";
+import { useEffect, useState } from "react";
 
 export default function SkillsPage() {
   const devTools = [
@@ -42,28 +44,35 @@ export default function SkillsPage() {
   ];
 
   const devOps = ["Git", "Azure DevOps", "SCRUM / Secure SCRUM"];
-
+  
   const ChipSection = ({ title, items }) => (
-    <Box sx={{ mb: 2, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+    <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
       <Typography variant="h6" sx={{ mb: 2 }}>
         {title}
       </Typography>
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {items.map((item) => (
           <Chip 
-            sx={{ minWidth: "100px", color: "text.secondary", borderColor: "primary.offset", backgroundColor: "background.default" }} 
-            key={item} 
-            label={item} 
-            variant="outlined"            
-            />
+          sx={{ minWidth: "100px", color: "text.secondary", borderColor: "primary.offset", backgroundColor: "background.default" }} 
+          key={item} 
+          label={item} 
+          variant="outlined"            
+          />
         ))}
       </Stack>
     </Box>
   );
+  
+  const [isSubPage, setIsSubPage] = useState(false);
+  useEffect(() => {
+    setIsSubPage(urlEndWith("/skills"));
+  });
 
   return (
     <Box sx={{ py: 3 }}>
-      <Container maxWidth="lg">        
+      <Container maxWidth="lg">      
+        {isSubPage && <BackButton />}
+        
         <Typography variant="h3" component="h1" gutterBottom>
           Skills
         </Typography>
@@ -94,7 +103,7 @@ export default function SkillsPage() {
             🇩🇪 German<br />
             🇬🇧 English
           </Typography>
-        </Box>
+        </Box>      
       </Container>
     </Box>
   );

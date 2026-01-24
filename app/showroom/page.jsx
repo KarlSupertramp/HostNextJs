@@ -7,27 +7,23 @@ import {
   Typography,
   Grid,
   Card,
+  Button
 } from "@mui/material";
-import Link from "next/link";
+
+import { BackButton, urlEndWith } from "../layout";
+import { useEffect, useState } from "react";
 
 function Feature({ title, body, href, imgSrc }) {
   return (
     <Card
-      component={Link}
-      href={href}
       variant="outlined"
       sx={{
+        boxShadow: 3,
         height: "100%",
-        cursor: "pointer",
-        textDecoration: "none",
         color: "inherit",
         display: "flex",
         flexDirection: "column",
         outlineColor: "border.main",
-        "&:hover": {
-          outline: 2,
-          outlineColor: "primary.main",
-        },
       }}
     >
       <Box
@@ -47,7 +43,8 @@ function Feature({ title, body, href, imgSrc }) {
           }}
         />
       </Box>
-      <Box sx={{ p: 3 }}>
+
+      <Box sx={{ p: 3, flexGrow: 1 }}>
         <Typography variant="h6" gutterBottom>
           {title}
         </Typography>
@@ -55,24 +52,37 @@ function Feature({ title, body, href, imgSrc }) {
           {body}
         </Typography>
       </Box>
+      <Button href={href} sx={{ width: "auto", m: 2 }} variant="contained">
+        Open
+      </Button>     
     </Card>
   );
 }
 
+
 export default function ShowroomPage() {
+
+  const [isSubPage, setIsSubPage] = useState(false);
+  useEffect(() => {
+    setIsSubPage(urlEndWith("/showroom"));
+  });
+
   return (
     <Box sx={{ py: 3 }}>
       <Container maxWidth="lg">
+
+        {isSubPage && <BackButton />}
+
         <Typography variant="h3" component="h1" gutterBottom>
           Showroom
         </Typography>
         <Typography variant="body1" color="text.secondary" paragraph>
-          This SHOWROOM is my way of sharing projects that might otherwise sit forgotten in a repository. 
+          This <b>Showroom</b> is my way of sharing projects that might otherwise sit forgotten in a repository. 
           Most of my work is done in Unity, which conveniently supports WebGL deployment - so I'll do my best to make my demos as cross-platform as possible. 
         </Typography>         
 
         <Grid container spacing={2} sx={{ mt: 6 }}>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} md={3}>
             <Feature
               title="Satellites"
               body="3D visualization of all plublicly documented satellites that orbit earth at this moment. Data provided by NORAD."
@@ -81,7 +91,7 @@ export default function ShowroomPage() {
             />              
           </Grid>
 
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} md={3}>
             <Feature
               title="Orbit Sandbox"
               body="A colorful simulation to explore mass, momentum, and gravity. Swipe or drag to create objects and watch 
@@ -91,16 +101,26 @@ export default function ShowroomPage() {
             />              
           </Grid>
 
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={4} md={3}>
             <Feature
               title="Cube Puzzle"
-              body="A sunday afternoon challenge. I tried to recreate the famous cube puzzle hardly anyone can solve. 
+              body="A sunday afternoon challenge: Recreating the famous cube puzzle hardly anyone can solve. 
                     I wanted it to have a realistic look and feel and straight forward contolls."
               href='/cubeGame/index.html'
               imgSrc={"/thumbCube.png"}
             />              
           </Grid>
-        </Grid>
+
+          <Grid item xs={12} sm={4} md={3}>
+            <Feature
+              title="Flutter Template"
+              body="For teaching myself how to make applications in Flutter  I decided to make a template for a shop application.
+                    This may even help others get started with Flutter. Full code is available on GitHub."
+              href="https://github.com/KarlSupertramp/WebApi-Flutter-Template"
+              imgSrc={"/thumbFlutter.png"}
+            />              
+          </Grid>
+        </Grid>        
       </Container>
     </Box>
   );

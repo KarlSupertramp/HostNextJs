@@ -74,11 +74,11 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontWeight: "bold",
-          color: "#eda916",
-          backgroundColor: "#282831",
+          backgroundColor: "#eda916",
+          Color: "#282831",
           ":hover": {
-            color: "#282831",
-            backgroundColor: "#eda916",
+            backgroundColor: "#282831",
+            color: "#eda916",
           },
         },
       },
