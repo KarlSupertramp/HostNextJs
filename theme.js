@@ -20,8 +20,9 @@ const theme = createTheme({
       main: "#e7d192" 
     },
     background: {
-      default: "#282831",
+        default: "#282831",
         paper: "#32323a",
+        blurry: "#9796919d"
       },
     text: {
       primary: "#eda916",
@@ -47,8 +48,7 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: "#eda916c2", 
-          backdropFilter: "blur(4px)",
+          backgroundColor: "#eda916",
         },
   
       },
