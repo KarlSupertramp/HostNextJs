@@ -13,22 +13,11 @@ import {
 import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
 import { IframeModal } from "../components/iframeModal";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
+const isMobile = useMediaQuery("(max-width:1000px)");
 
 function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string, title: string) => void {} }) {
-
-const [width, setWidth] = useState<number>(window.innerWidth);
-
-  function handleWindowSizeChange() {
-      setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-      window.addEventListener('resize', handleWindowSizeChange);
-      return () => {
-          window.removeEventListener('resize', handleWindowSizeChange);
-      }
-  }, []);
-  const isMobile = width <= 1000;
-
   return (
     <Card
       variant="outlined"
