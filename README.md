@@ -1,6 +1,11 @@
-# MUI Marketing Page (standalone)
+# Repositiory for the official website of Karl Uwe Martin
 
-This is a minimal standalone Next.js + MUI project scaffold you can open in VS Code.
+Powered by: 
+https://nextjs.org/ 
+https://mui.com/material-ui/
+
+Official website:
+https://karluwemartin.de
 
 ## Run
 ```bash
