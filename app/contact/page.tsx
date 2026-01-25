@@ -37,34 +37,36 @@ export default function ContactPage() {
 
 
   return (
-    <Container maxWidth="lg" sx={{ py: 3 }}>
+      <Box sx={{ py: 3 }}>
+      
+      {isSubPage && <BackButton />}
 
-        {isSubPage && <BackButton />}
-
-        <Box sx={{ mb: 4 }}>
-            <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
-                Get in Touch
-            </Typography>
-            <Typography variant="body1" color="text.secondary">
-                Have a question or want to collaborate? Feel free to reach out!
-            </Typography>
-        </Box>
-        <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
-            <Stack spacing={2}  gap={1}>
-                {socials.map((social) => ( 
-                  <Chip
-                    key={social.label}
-                    icon={<social.icon />}
-                    label={social.label}
-                    onClick={() => window.open(social.href, '_blank')}
-                    clickable
-                    color="primary"
-                    variant="outlined"   
-                    sx={{backgroundColor: "background.default" ,color: "white", borderColor: "border.main" }}       
-                  />           
-                ))}
-            </Stack>
-        </Box>       
-    </Container>
+      <Container maxWidth="lg" sx={{ py: 3 }}>
+          <Box sx={{ mb: 4 }}>
+              <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
+                  Get in Touch
+              </Typography>
+              <Typography variant="body1" color="text.secondary">
+                  Have a question or want to collaborate? Feel free to reach out!
+              </Typography>
+          </Box>
+          <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+              <Stack spacing={2}  gap={1}>
+                  {socials.map((social) => ( 
+                    <Chip
+                      key={social.label}
+                      icon={<social.icon />}
+                      label={social.label}
+                      onClick={() => window.open(social.href, '_blank')}
+                      clickable
+                      color="primary"
+                      variant="outlined"   
+                      sx={{backgroundColor: "background.default" ,color: "white", borderColor: "border.main" }}       
+                    />           
+                  ))}
+              </Stack>
+          </Box>       
+      </Container>
+    </Box>
   );
 }

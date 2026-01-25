@@ -17,7 +17,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 
 function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string, title: string) => void {} }) {
-  
+
   const isMobile = useMediaQuery("(max-width:1000px)");
 
   return (
@@ -144,11 +144,11 @@ export default function ShowroomPage() {
   const closeIframe = () => setIframeOpen(false);
 
   return (
-    <Box sx={{ py: 3 }}>
-      <Container maxWidth="lg">
+     <Box sx={{ py: 3 }}>
+      
+      {isSubPage && <BackButton />}
 
-        {isSubPage && <BackButton />}
-
+      <Container maxWidth="lg" sx={{ py: 3 }}>        
         <Typography variant="h3" component="h1" gutterBottom>
           Showroom
         </Typography>
@@ -161,7 +161,8 @@ export default function ShowroomPage() {
           <Grid item xs={12} sm={4} md={3}>
             <FeatureWebGL
               title="Satellites"
-              body="3D visualization of all plublicly documented satellites that orbit earth at this moment. Data provided by NORAD."
+              body="3D visualization of all plublicly documented satellites that orbit earth at this moment. 
+                    Data provided by NORAD."
               href='/satellites/index.html'
               imgSrc={"/thumbSat.png"}
               onOpenIframe={openIframe}
@@ -193,7 +194,8 @@ export default function ShowroomPage() {
           <Grid item xs={12} sm={4} md={3}>
             <FeatureLink
               title="Flutter Template"
-              body="For teaching myself how to make applications in Flutter  I decided to make a template for a shop application.
+              body="For teaching myself how to make applications in Flutter  I decided to make a template for a
+                    shop application.
                     This may even help others get started with Flutter. Full code is available on GitHub."
               href="https://github.com/KarlSupertramp/WebApi-Flutter-Template"
               imgSrc={"/thumbFlutter.png"}

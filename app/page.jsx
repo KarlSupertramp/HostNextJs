@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <>
       <Head/>
-      <AboutPage />
-      <SkillsPage />
       <ShowroomPage />
+      <SkillsPage />
+      <AboutPage />
       <ContactPage />
     </>
   );

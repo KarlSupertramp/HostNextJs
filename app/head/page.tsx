@@ -41,8 +41,8 @@ export default function Head() {
               borderRadius: 1,
               border: 3,
               borderColor: "background.paper",
-              width: 100,
-              height: 100,
+              width: { xs: 80, sm: 100 },
+              height: { xs: 80, sm: 100 },
               overflow: "hidden",
               alignItems: "center",
               justifyContent: "center",
@@ -75,11 +75,11 @@ export default function Head() {
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={1}
-          sx={{ alignSelf: { xs: "flex-start", sm: "flex-end" } }}
+          sx={{ alignSelf: "flex-end" }}
         >
-          {NavButton({ href: "/about", label: "About Me" })}
           {NavButton({ href: "/showroom", label: "Showroom" })}
           {NavButton({ href: "/skills", label: "Skills" })}
+          {NavButton({ href: "/about", label: "About Me" })}
           {NavButton({ href: "/contact", label: "Contact" })}
         </Stack>
       </Container>

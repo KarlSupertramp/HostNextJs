@@ -4,7 +4,6 @@ import { Box, Container, Typography } from "@mui/material";
 import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
 
-
 export default function AboutPage() {
 
   const [isSubPage, setIsSubPage] = useState(false);
@@ -14,9 +13,10 @@ export default function AboutPage() {
 
   return (
     <Box sx={{ py: 3 }}>
-      <Container maxWidth="lg">
+      
+      {isSubPage && <BackButton />}
 
-        {isSubPage && <BackButton />}
+      <Container maxWidth="lg" sx={{ py: 3 }}>
 
         <Typography variant="h3" component="h1" gutterBottom>
           About Me
@@ -28,14 +28,14 @@ export default function AboutPage() {
           </Typography>
 
           <Typography variant="body1" color="text.secondary" paragraph sx={{ mt: 0 }}>
-          UX Design for me means to make complex systems not only intuitive but also a
-          pleasure to use. This not only means having a good eye for visual quality but also
-          a very good understanding of the structure any system. Being a software
-          developer enables me to go deeper into a systems core functionality to workout
-          bottlenecks, handicaps for the user and also the developers creating it. A big part of my
-          work is to help navigate complex discussions between designers, developers and
-          managers. Understanding goals and complications of both worlds can greatly
-          accelerate the problem solving at all stages of a project.
+            UX Design for me means to make complex systems not only intuitive but also a
+            pleasure to use. This not only means having a good eye for visual quality but also
+            a very good understanding of the structure any system. Being a software
+            developer enables me to go deeper into a systems core functionality to workout
+            bottlenecks, handicaps for the user and also the developers creating it. A big part of my
+            work is to help navigate complex discussions between designers, developers and
+            managers. Understanding goals and complications of both worlds can greatly
+            accelerate the problem solving at all stages of a project.
         </Typography>
 
 
