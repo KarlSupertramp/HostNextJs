@@ -144,10 +144,8 @@ export default function ShowroomPage() {
   const closeIframe = () => setIframeOpen(false);
 
   return (
-     <Box sx={{ py: 3 }}>
-      
+    <Box>      
       {isSubPage && <BackButton />}
-
       <Container maxWidth="lg" sx={{ py: 3 }}>        
         <Typography variant="h3" component="h1" gutterBottom>
           Showroom
