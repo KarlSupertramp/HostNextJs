@@ -39,7 +39,7 @@ export default function ContactPage() {
   return (
       <Box>      
       {isSubPage && <BackButton />}
-      <Container maxWidth="lg" sx={{ py: 3 }}>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
           <Box sx={{ mb: 4 }}>
               <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
                   Get in Touch

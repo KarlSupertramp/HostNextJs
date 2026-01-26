@@ -72,16 +72,28 @@ export default function Head() {
             </Typography>
           </Stack>
         </Stack>
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={1}
-          sx={{ alignSelf: "flex-end" }}
+        <Box
+          sx={{
+            alignSelf: "flex-end",
+            display: "grid",
+            gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "none" },
+            gap: 1,
+            gridAutoFlow: { sm: "column" },
+            justifyContent: { sm: "flex-end" },
+            ...( {
+              "@media (min-width:600px)": {
+                display: "flex",
+                flexDirection: "row",
+                gap: "5px",
+              },
+            }),
+          }}
         >
           {NavButton({ href: "/showroom", label: "Showroom" })}
           {NavButton({ href: "/skills", label: "Skills" })}
           {NavButton({ href: "/about", label: "About Me" })}
           {NavButton({ href: "/contact", label: "Contact" })}
-        </Stack>
+        </Box>
       </Container>
     </Box>
   );

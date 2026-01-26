@@ -78,16 +78,25 @@ export default function SkillsPage() {
     </Box>
   );
 
-  const SkillArticle = ({ title, body }) => (
-      <Box sx={{ mb: 4, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
-        <Typography mb={1} variant="h6">
-          {title}
-        </Typography>
-        <Typography variant="body1" color="text.secondary" paragraph sx={{ mt: 0 }}>
-          {body}
-        </Typography>
-      </Box>
-  );
+const SkillArticle = ({ title, body }) => (
+  <Box sx={{ mb: 4, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+    <Typography mb={1} variant="h6">
+      {title}
+    </Typography>
+
+    <Typography
+      component="div"
+      variant="body1"
+      color="text.secondary"
+      sx={{
+        mt: 0,
+        "& p": { margin: 0, marginBottom: "0.75rem" },
+        "& b, & strong": { fontWeight: 700, color: "text.primary" },
+      }}
+      dangerouslySetInnerHTML={{ __html: body }}
+    />
+  </Box>
+);
   
   const [isSubPage, setIsSubPage] = useState(false);
   useEffect(() => {
@@ -97,7 +106,7 @@ export default function SkillsPage() {
   return (
     <Box>      
       {isSubPage && <BackButton />}
-      <Container maxWidth="lg" sx={{ py: 3 }}>         
+      <Container maxWidth="lg" sx={{ py: 6 }}>         
         <Typography variant="h3" component="h1" gutterBottom>
           Skills
         </Typography>
@@ -113,41 +122,46 @@ export default function SkillsPage() {
       </SkillArticle>
 
       <SkillArticle
-        title="Project Management"
-        body="In my role as a UX Designer, I also act as Product Owner and Scrum Master to ensure user needs and 
-        project goals stay aligned. As Product Owner, I translate research and stakeholder input into clear 
-        requirements, prioritize the backlog, and define product goals that create real value. As Scrum Master,
-        I organize agile ceremonies, remove blockers, and support the team in working efficiently and collaboratively.
-        By combining these responsibilities, I connect design decisions with development planning, enabling faster 
-        feedback cycles and a smoother delivery of user-centered software solutions.">
-      </SkillArticle>
+          title="Project Management"
+          body={`
+            <p>
+              The backbone of successful projects is strong teamwork at every stage of the process. As a <b>Product Owner</b>,
+              I translate research and stakeholder input into clear requirements, prioritize the backlog, and define product goals
+              and a structured roadmap. Good communication skills and a healthy level of empathy are key to building an efficient team
+              that shares common goals.
+            </p>
+            <p>
+              As a <b>Scrum Master</b>, I organize team meetings, remove blockers, and support the team in working efficiently
+              and collaboratively. In my view, the conventional Scrum process has its flaws and doesn't apply equally well to every
+              team. I have never hesitated to adapt the workflow by introducing my own ideas and adjustments - an approach that has proven
+              successful in past projects.
+            </p>
+          `}
+        />
 
-      <SkillArticle
-        title="Frontend Development"
-        body="In frontend development, I build clean and responsive user interfaces that feel fast and intuitive to use.
-        I turn designs into reusable components, focus on clear structure and maintainable code, and pay close attention
-        to details like spacing, typography, and interaction states. I also make sure the UI behaves reliably by handling
-        edge cases, validating inputs, and providing helpful feedback to users. My goal is to deliver interfaces that look great,
-        work smoothly across devices, and are easy to extend as the product evolves.">
-      </SkillArticle>
+        <SkillArticle
+          title="Frontend & Mobile Development"
+          body={`
+          <p>
+            Growing up in the 90s meant grwoing up side-by-side with the internet and all the technologies that came along with it.
+             I disovered in various IT classes early on that I have a passion for creating interfaces. Over the years I used plain HTML/CSS, 
+             Wordpress, FTP, Typo3 etc. to host websites for schoolclasses, clubs and hobbies. Always staying up to date with the latest 
+             libraries and frameworks enabled me to create increasingly good solutions. <br/>
+            Since the release of the first smartphones, a brand new need for user friendly interfaces emerged. Screens of all sized and 
+            formats needed to be considered. <b>Responsive Layout</b> and <b>Cross Platform</b> deployability became more and more relevant. 
+            For me that meant to focus on technologies that can deploy interfaces across all common device types like Flutter, Electron and React.
+          </p>
+        `}>
+        </SkillArticle>
 
-      <SkillArticle
-        title="Cross-Platform Mobile Development"
-        body="When developing cross-platform mobile apps, I aim to deliver a consistent experience on both Android and iOS
-        without sacrificing performance or usability. I structure the app in a scalable way, reuse shared logic where it makes sense,
-        and adapt the UI to match platform-specific expectations. I also focus on offline behavior, navigation, and responsive layouts
-        to ensure the app feels natural in everyday use. By balancing shared code with smart platform adjustments, I can ship features
-        efficiently while keeping the user experience polished and reliable.">
-      </SkillArticle>
-
-      <SkillArticle
-        title="Mixed Reality Development"
-        body="In mixed reality development, I create interactive experiences that blend digital content with the real world.
-        I focus on natural input methods like hand tracking, gestures, and spatial interaction, making sure controls feel comfortable
-        and easy to understand. I also pay attention to performance and stability, because frame rate, tracking quality, and latency
-        directly affect immersion. By combining solid engineering with user-centered design, I build MR applications that feel responsive,
-        intuitive, and practical for real-world use cases.">
-      </SkillArticle>
+        <SkillArticle
+          title="Unity Development (Realtime 3D)"
+          body="In mixed reality development, I create interactive experiences that blend digital content with the real world.
+          I focus on natural input methods like hand tracking, gestures, and spatial interaction, making sure controls feel comfortable
+          and easy to understand. I also pay attention to performance and stability, because frame rate, tracking quality, and latency
+          directly affect immersion. By combining solid engineering with user-centered design, I build MR applications that feel responsive,
+          intuitive, and practical for real-world use cases.">
+        </SkillArticle>
 
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6}>

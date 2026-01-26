@@ -14,7 +14,7 @@ export default function AboutPage() {
   return (
     <Box>      
       {isSubPage && <BackButton />}
-      <Container maxWidth="lg" sx={{ py: 3 }}>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
 
         <Typography variant="h3" component="h1" gutterBottom>
           About Me
