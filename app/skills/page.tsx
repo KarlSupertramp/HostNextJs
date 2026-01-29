@@ -81,7 +81,7 @@ export default function SkillsPage() {
 
 
   
-const SkillArticle = ({ title, body, chips } : {title: string, body: string, chips: string[]}) => (
+const SkillArticle = ({ title, body } : {title: string, body: string}) => (
   <Box sx={{ mb: 4, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
     <Typography mb={1} variant="h6">
       {title}
