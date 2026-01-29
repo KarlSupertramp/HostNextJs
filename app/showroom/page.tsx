@@ -65,7 +65,7 @@ function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string,
       }}
     >
       <FeatureContent body={body} title={title} imgSrc={imgSrc} />
-      {isMobile ? 
+      {!isMobile ? 
         <Button
           onClick={() => onOpenIframe(href, title)} 
           sx={{ fontWeight: "bold", width: "auto", m: 2 }} 
