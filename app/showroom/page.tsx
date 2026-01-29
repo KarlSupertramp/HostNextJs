@@ -14,7 +14,40 @@ import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
 import { IframeModal } from "../components/iframeModal";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTranslations } from "next-intl";
 
+function FeatureContent({title, body, imgSrc})
+{
+  return(
+  <>
+    <Box
+        sx={{
+          overflow: "hidden",
+          height: "40%",
+          borderRadius: "4px 4px 0 0",
+        }}
+      >
+        <img
+          src={imgSrc}
+          style={{
+            width: "100%",
+            maxHeight: "250px",
+            objectFit: "cover",
+            display: "block",
+          }}
+        />
+      </Box>
+      <Box sx={{ p: 2, flexGrow: 1 }}>
+        <Typography variant="h6" gutterBottom>
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {body}
+        </Typography>
+      </Box>
+    </>
+  );
+}
 
 function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string, title: string) => void {} }) {
 
@@ -25,54 +58,28 @@ function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string,
       variant="outlined"
       sx={{
         boxShadow: 3,
-        height: "100%",
         color: "inherit",
         display: "flex",
         flexDirection: "column",
-        outlineColor: "border.main",
+        height: { xs: "auto", sm: "100%" }
       }}
     >
-      <Box
-        sx={{
-          overflow: "hidden",
-          height: "40%",
-          borderRadius: "4px 4px 0 0",
-        }}
-      >
-        <img
-          src={imgSrc}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            display: "block",
-          }}
-        />
-      </Box>
-
-      <Box sx={{ p: 3, flexGrow: 1 }}>
-        <Typography variant="h6" gutterBottom>
-          {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {body}
-        </Typography>
-      </Box>
-      {!isMobile ?  
-        <Button 
+      <FeatureContent body={body} title={title} imgSrc={imgSrc} />
+      {isMobile ? 
+        <Button
           onClick={() => onOpenIframe(href, title)} 
-          sx={{ width: "auto", m: 2 }} 
+          sx={{ fontWeight: "bold", width: "auto", m: 2 }} 
           variant="contained">
           Play
         </Button> 
         : 
         <Button 
           href={href}
-          sx={{ width: "auto", m: 2 }} 
+          sx={{ fontWeight: "bold", width: "auto", m: 2 }} 
           variant="contained">
           Play
         </Button> 
-        }
+      }
     </Card>
   );
 }
@@ -83,40 +90,16 @@ function FeatureLink({ title, body, href, imgSrc }) {
       variant="outlined"
       sx={{
         boxShadow: 3,
-        height: "100%",
-        color: "inherit",
         display: "flex",
         flexDirection: "column",
-        outlineColor: "border.main",
+        height: { xs: "auto", sm: "100%" }
       }}
     >
-      <Box
-        sx={{
-          overflow: "hidden",
-          height: "40%",
-          borderRadius: "4px 4px 0 0",
-        }}
-      >
-        <img
-          src={imgSrc}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            display: "block",
-          }}
-        />
-      </Box>
-
-      <Box sx={{ p: 3, flexGrow: 1 }}>
-        <Typography variant="h6" gutterBottom>
-          {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {body}
-        </Typography>
-      </Box>
-      <Button href={href} sx={{ width: "auto", m: 2 }} variant="contained">
+      <FeatureContent body={body} title={title} imgSrc={imgSrc} />
+      <Button 
+        href={href} 
+        sx={{ fontWeight: "bold", width: "auto", m: 2 }}
+        variant="contained">
         Visit
       </Button>    
     </Card>
@@ -142,6 +125,7 @@ export default function ShowroomPage() {
   };
 
   const closeIframe = () => setIframeOpen(false);
+  const t = useTranslations('Showroom');
 
   return (
     <Box>      
@@ -151,16 +135,14 @@ export default function ShowroomPage() {
           Showroom
         </Typography>
         <Typography variant="body1" color="text.secondary" paragraph>
-          This <b>Showroom</b> is my way of sharing projects that might otherwise sit forgotten in a repository. 
-          Most of my work is done in Unity, which conveniently supports WebGL deployment - so I'll do my best to make my demos as cross-platform as possible. 
+          {t("showroomHead")}
         </Typography>         
 
         <Grid container spacing={2} sx={{ mt: 6 }}>
           <Grid item xs={12} sm={4} md={3}>
             <FeatureWebGL
               title="Satellites"
-              body="3D visualization of all plublicly documented satellites that orbit earth at this moment. 
-                    Data provided by NORAD."
+              body={t.rich("satellitesDescription")}
               href='/satellites/index.html'
               imgSrc={"/thumbSat.png"}
               onOpenIframe={openIframe}
@@ -170,19 +152,17 @@ export default function ShowroomPage() {
           <Grid item xs={12} sm={4} md={3}>
             <FeatureWebGL
               title="Orbit Sandbox"
-              body="A colorful simulation to explore mass, momentum, and gravity. Swipe or drag to create objects and watch 
-                    them interact with the central star."
+              body={t.rich("orbitSandboxDescription")}
               href='/orbitSandbox/index.html'
               imgSrc={"/orbitSandbox.jpg"}
-                onOpenIframe={openIframe}
+              onOpenIframe={openIframe}
             />              
           </Grid>
 
           <Grid item xs={12} sm={4} md={3}>
             <FeatureWebGL
               title="Cube Puzzle"
-              body="A sunday afternoon challenge: Recreating the famous cube puzzle hardly anyone can solve. 
-                    I wanted it to have a realistic look and feel and straight forward contolls."
+              body={t.rich("cubePuzzleDescription")}
               href='/cubeGame/index.html'
               imgSrc={"/thumbCube.png"}
               onOpenIframe={openIframe}
@@ -191,10 +171,8 @@ export default function ShowroomPage() {
 
           <Grid item xs={12} sm={4} md={3}>
             <FeatureLink
-              title="Flutter Template"
-              body="For teaching myself how to make applications in Flutter  I decided to make a template for a
-                    shop application.
-                    This may even help others get started with Flutter. Full code is available on GitHub."
+              title="Shop-App Tempate"
+              body={t.rich("flutterDescription")}
               href="https://github.com/KarlSupertramp/WebApi-Flutter-Template"
               imgSrc={"/thumbFlutter.png"}
             />              

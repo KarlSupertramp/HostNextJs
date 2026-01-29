@@ -13,7 +13,7 @@ export default function Home() {
       <Head/>
       <ShowroomPage />
       <SkillsPage />
-      <AboutPage />
+      {/*<AboutPage />*/}
       <ContactPage />
     </>
   );

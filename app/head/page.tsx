@@ -3,14 +3,16 @@ import * as React from "react";
 import { Typography, Stack, Button, Box, Container } from "@mui/material";
 import Link from "next/link";
 
+import { LocaleSwitcher } from "../components/localeSwitcher";
+
 function NavButton({ href, label }) {
   return (
     <Link href={href}>
       <Button 
         variant="contained"
         sx={{
-            minWidth: "130px",
             fontWeight: "bold",
+            minWidth: "130px",
             color: "#eda916",
             backgroundColor: "#282831",
             ":hover": {
@@ -25,6 +27,7 @@ function NavButton({ href, label }) {
 }
 
 export default function Head() {
+
   return (
     <Box sx={{ display: "flex", p: 3, bgcolor: "primary.main" }}>
       <Container
@@ -91,8 +94,9 @@ export default function Head() {
         >
           {NavButton({ href: "/showroom", label: "Showroom" })}
           {NavButton({ href: "/skills", label: "Skills" })}
-          {NavButton({ href: "/about", label: "About Me" })}
+          {/* {NavButton({ href: "/about", label: "About Me" })} */}
           {NavButton({ href: "/contact", label: "Contact" })}
+          {<LocaleSwitcher/>}
         </Box>
       </Container>
     </Box>

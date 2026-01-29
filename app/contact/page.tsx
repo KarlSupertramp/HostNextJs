@@ -6,6 +6,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 const socials = [
   {
@@ -35,6 +36,7 @@ export default function ContactPage() {
     setIsSubPage(urlEndWith("/contact"));
   });
 
+  const t = useTranslations('Contact');
 
   return (
       <Box>      
@@ -42,10 +44,10 @@ export default function ContactPage() {
       <Container maxWidth="lg" sx={{ py: 6 }}>
           <Box sx={{ mb: 4 }}>
               <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
-                  Get in Touch
+                  {t("title")}
               </Typography>
               <Typography variant="body1" color="text.secondary">
-                  Have a question or want to collaborate? Feel free to reach out!
+                  {t("head")}
               </Typography>
           </Box>
           <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
@@ -59,7 +61,11 @@ export default function ContactPage() {
                       clickable
                       color="primary"
                       variant="outlined"   
-                      sx={{backgroundColor: "background.default" ,color: "white", borderColor: "border.main" }}       
+                      sx={{
+                        backgroundColor: "background.default",
+                        color: "white", 
+                        borderColor: "border.main"
+                      }}       
                     />           
                   ))}
               </Stack>

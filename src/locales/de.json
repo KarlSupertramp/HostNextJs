@@ -1,0 +1,35 @@
+{
+  "Showroom": {
+    "showroomHead": "Probiere einige meiner Arbeiten aus und verschaffe dir einen Eindruck. Hier findest du eine Mischung aus visuellen Experimenten, Open-Source-Projekten und anderen zufälligen Ideen, die ich in den letzten Jahren umgesetzt habe.",
+    "satellitesDescription": "3D-Visualisierung aller öffentlich dokumentierten Satelliten, die sich derzeit in einer Umlaufbahn um die Erde befinden. Die Daten werden von NORAD bereitgestellt.",
+    "orbitSandboxDescription": "Eine farbenfrohe Simulation zur Erkundung von Masse, Impuls und Gravitation. Wische oder ziehe, um Objekte zu erstellen, und beobachte, wie sie mit dem zentralen Stern interagieren.",
+    "flutterDescription": "Flutter-Template für eine Shop-App – inklusive funktionsfähigem Backend mit REST-API. Der Code ist auf GitHub verfügbar.",
+    "cubePuzzleDescription": "Nachbildung des berühmten Würfelpuzzles, das kaum jemand lösen kann. Mir war wichtig, ein realistisches Look-and-Feel sowie eine klare und intuitive Steuerung umzusetzen."
+  },
+  "Skills": {
+    "ux1": "User Experience Design (UXD) konzentriert sich darauf, Anwendungen zu gestalten, die intuitiv, effizient und angenehm zu bedienen sind. Ich verbinde Nutzerbedürfnisse mit technischer Umsetzung, indem ich Ziele und Workflows in klare Interfaces, konsistente Interaktionen und vorhersehbares Systemverhalten übersetze. Aus programmatischer Sicht umfasst UXD nicht nur die visuelle Gestaltung, sondern auch Performance, Reaktionsfähigkeit, Barrierefreiheit, Fehlerbehandlung und Feedback. Durch nutzerzentriertes Design und Entwicklung reduziere ich Reibung, verbessere die Usability und schaffe Software, die sich zuverlässig und leicht bedienbar anfühlt.",
+    "management1": "Das Fundament erfolgreicher Projekte ist eine starke Zusammenarbeit in allen Phasen des Prozesses. Als Product Owner übersetze ich Rechercheergebnisse und Stakeholder-Input in klare Anforderungen, priorisiere das Backlog und definiere Produktziele sowie eine strukturierte Roadmap. Gute Kommunikationsfähigkeiten und ein gesundes Maß an Empathie sind entscheidend, um ein effizientes Team mit gemeinsamen Zielen aufzubauen.",
+    "management2": "Als Scrum Master organisiere ich Team-Meetings, beseitige Blockaden und unterstütze das Team dabei, effizient und kollaborativ zu arbeiten. Meiner Ansicht nach hat der klassische Scrum-Prozess seine Schwächen und passt nicht gleichermaßen auf jedes Team. Deshalb habe ich nie gezögert, Workflows durch eigene Ideen und Anpassungen weiterzuentwickeln – ein Ansatz, der sich in vergangenen Projekten als erfolgreich erwiesen hat.",
+    "frontend1": "In den 90ern aufzuwachsen bedeutete, parallel mit dem Internet und den dazugehörigen Technologien groß zu werden. Bereits früh entdeckte ich in verschiedenen IT-Kursen meine Leidenschaft für die Gestaltung von Benutzeroberflächen. Über die Jahre habe ich mit reinem HTML/CSS, WordPress, FTP, Typo3 und weiteren Technologien Websites für Schulklassen, Vereine und private Projekte umgesetzt. Durch das stetige Arbeiten mit aktuellen Libraries und Frameworks konnte ich meine Lösungen kontinuierlich verbessern.",
+    "frontend2": "Mit dem Erscheinen der ersten Smartphones entstand ein völlig neuer Bedarf an benutzerfreundlichen Interfaces. Displays in unterschiedlichsten Größen und Formaten mussten berücksichtigt werden. Responsive Layouts und plattformübergreifende Deployments wurden zunehmend wichtiger. Für mich bedeutete das, mich auf Technologien zu fokussieren, mit denen sich Interfaces auf allen gängigen Gerätetypen bereitstellen lassen – wie Flutter, Electron und React.",
+    "unity1": "Unity ist großartig!",
+
+    "devTools": "Entwicklungs-Tools",
+    "programming": "Programmierung",
+    "platforms": "Plattform Resumé",
+    "creativeTools": "Kreativ-Tools",
+
+    "fluentLanguages": "Fließende Sprachen",
+    "en": "Englisch",
+    "de": "Deutsch"
+  },
+  "About": {},
+  "Contact": {
+    "title": "Kontakt",
+    "head": "Du hast eine Frage oder möchtest zusammenarbeiten? Melde dich gerne!"
+  },
+  "Nav": {
+    "contact": "Kontakt",
+    "aboutMe": "Über mich"
+  }
+}

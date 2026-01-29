@@ -8,6 +8,7 @@ import CodeIcon from '@mui/icons-material/SettingsEthernet';
 import BrushIcon from '@mui/icons-material/Brush';
 import DevicesOtherIcon from '@mui/icons-material/DevicesOther';
 import CloudSyncIcon from '@mui/icons-material/CloudSync';
+import { useTranslations } from "next-intl";
 
 export default function SkillsPage() {
   const devTools = [
@@ -68,17 +69,19 @@ export default function SkillsPage() {
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {items.map((item) => (
           <Chip 
-          sx={{ minWidth: "100px", color: "text.secondary", borderColor: "primary.offset", backgroundColor: "background.default" }} 
-          key={item} 
-          label={item} 
-          variant="outlined"            
+            sx={{ minWidth: "100px", color: "text.secondary", borderColor: "primary.offset", backgroundColor: "background.default" }} 
+            key={item} 
+            label={item} 
+            variant="outlined"            
           />
         ))}
       </Stack>
     </Box>
   );
 
-const SkillArticle = ({ title, body }) => (
+
+  
+const SkillArticle = ({ title, body, chips } : {title: string, body: string, chips: string[]}) => (
   <Box sx={{ mb: 4, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
     <Typography mb={1} variant="h6">
       {title}
@@ -103,6 +106,8 @@ const SkillArticle = ({ title, body }) => (
     setIsSubPage(urlEndWith("/skills"));
   });
 
+  const t = useTranslations('Skills');
+
   return (
     <Box>      
       {isSubPage && <BackButton />}
@@ -113,68 +118,33 @@ const SkillArticle = ({ title, body }) => (
 
        <SkillArticle
         title="User Experience Design"
-        body="User Experience Design (UXD) focuses on creating applications that are intuitive, efficient,
-          and enjoyable to use. I connect user needs with technical implementation by turning goals and workflows into
-          clear interfaces, consistent interactions, and predictable system behavior. From a programming perspective,
-          UXD is not only about visuals - it also includes performance, responsiveness, accessibility, error handling,
-          and feedback. By designing and building with the user in mind, I help reduce friction, improve usability,
-          and create software that feels reliable and easy to navigate.">
-      </SkillArticle>
+        body={t("ux1")}/>
 
       <SkillArticle
           title="Project Management"
-          body={`
-            <p>
-              The backbone of successful projects is strong teamwork at every stage of the process. As a <b>Product Owner</b>,
-              I translate research and stakeholder input into clear requirements, prioritize the backlog, and define product goals
-              and a structured roadmap. Good communication skills and a healthy level of empathy are key to building an efficient team
-              that shares common goals.
-            </p>
-            <p>
-              As a <b>Scrum Master</b>, I organize team meetings, remove blockers, and support the team in working efficiently
-              and collaboratively. In my view, the conventional Scrum process has its flaws and doesn't apply equally well to every
-              team. I have never hesitated to adapt the workflow by introducing my own ideas and adjustments - an approach that has proven
-              successful in past projects.
-            </p>
-          `}
-        />
-
+          body={`<p>${t("management1")}</p>
+                    ${t("management2")}`}/>
         <SkillArticle
           title="Frontend & Mobile Development"
-          body={`
-          <p>
-            Growing up in the 90s meant grwoing up side-by-side with the internet and all the technologies that came along with it.
-             I disovered in various IT classes early on that I have a passion for creating interfaces. Over the years I used plain HTML/CSS, 
-             Wordpress, FTP, Typo3 etc. to host websites for schoolclasses, clubs and hobbies. Always staying up to date with the latest 
-             libraries and frameworks enabled me to create increasingly good solutions. <br/>
-            Since the release of the first smartphones, a brand new need for user friendly interfaces emerged. Screens of all sized and 
-            formats needed to be considered. <b>Responsive Layout</b> and <b>Cross Platform</b> deployability became more and more relevant. 
-            For me that meant to focus on technologies that can deploy interfaces across all common device types like Flutter, Electron and React.
-          </p>
-        `}>
-        </SkillArticle>
+          body={`<p>${t("frontend1")}</p>
+                    ${t("frontend2")}`}/>
 
         <SkillArticle
           title="Unity Development (Realtime 3D)"
-          body="In mixed reality development, I create interactive experiences that blend digital content with the real world.
-          I focus on natural input methods like hand tracking, gestures, and spatial interaction, making sure controls feel comfortable
-          and easy to understand. I also pay attention to performance and stability, because frame rate, tracking quality, and latency
-          directly affect immersion. By combining solid engineering with user-centered design, I build MR applications that feel responsive,
-          intuitive, and practical for real-world use cases.">
-        </SkillArticle>
+          body={ `${t("unity1")}`}/>    
 
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<HandymanIcon />} title="Development Tools" items={devTools} />
+            <ChipSection icon={<HandymanIcon />} title={t("devTools")} items={devTools} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<CodeIcon />} title="Coding" items={languages} />
+            <ChipSection icon={<CodeIcon />} title={t("programming")} items={languages} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<DevicesOtherIcon />} title="Platform Resumé" items={platforms} />
+            <ChipSection icon={<DevicesOtherIcon />} title={t("platforms")} items={platforms} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<BrushIcon />} title="Other Creative Tools" items={creativeTools} />
+            <ChipSection icon={<BrushIcon />} title={t("creativeTools")} items={creativeTools} />
           </Grid>
           <Grid item xs={12} sm={6}>
             <ChipSection icon={<CloudSyncIcon />} title="DevOps" items={devOps} />
@@ -183,11 +153,11 @@ const SkillArticle = ({ title, body }) => (
 
         <Box sx={{ my: 4 }}>
           <Typography variant="h5" sx={{ mb: 2 }}>
-            Fluent Languages
+            {t("fluentLanguages")}
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            🇩🇪 German<br />
-            🇬🇧 English
+            🇩🇪 {t("de")}<br />
+            🇬🇧 {t("en")}
           </Typography>
         </Box>      
       </Container>
