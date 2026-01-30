@@ -22,7 +22,7 @@ const theme = createTheme({
     background: {
         default: "#282831",
         paper: "#32323a",
-        blurry: "#9796919d"
+        blurry: "#32323a52"
       },
     text: {
       primary: "#eda916",

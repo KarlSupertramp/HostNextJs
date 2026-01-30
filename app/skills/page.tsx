@@ -61,7 +61,7 @@ export default function SkillsPage() {
   ];
   
   const ChipSection = ({ title, items, icon }) => (
-    <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+    <Box sx={{ boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
       <Stack spacing={2} direction="row" alignItems="center" mb={2}>
         {icon}
         <Typography variant="h6">{title}</Typography>
@@ -82,7 +82,7 @@ export default function SkillsPage() {
 
   
 const SkillArticle = ({ title, body } : {title: string, body: string}) => (
-  <Box sx={{ mb: 4, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+  <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
     <Typography mb={1} variant="h6">
       {title}
     </Typography>
@@ -109,11 +109,11 @@ const SkillArticle = ({ title, body } : {title: string, body: string}) => (
   const t = useTranslations('Skills');
 
   return (
-    <Box>      
+    <Box bgcolor={"background.default"} >      
       {isSubPage && <BackButton />}
       <Container maxWidth="lg" sx={{ py: 6 }}>         
-        <Typography variant="h3" component="h1" gutterBottom>
-          Skills
+        <Typography variant="h4" component="h1" mb={2}>
+         {t("head")}
         </Typography>
 
        <SkillArticle
@@ -133,9 +133,12 @@ const SkillArticle = ({ title, body } : {title: string, body: string}) => (
           title="Unity Development (Realtime 3D)"
           body={`<p>${t("unity1")}</p>
                   <p>${t("unity2")}</p>
-                  <p>${t("unity3")}</p>`}/>
+                    ${t("unity3")}`}/>
 
-        <Grid container spacing={4}>
+        <Typography mt={6} mb={2} variant="h5" component="h1">
+          {t("tools")}
+        </Typography>
+        <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <ChipSection icon={<HandymanIcon />} title={t("devTools")} items={devTools} />
           </Grid>

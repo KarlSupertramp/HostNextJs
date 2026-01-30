@@ -2,7 +2,7 @@ import * as React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Typography, Box, Container } from "@mui/material";
-import theme from "../theme";
+import theme from "./theme";
 import ClientIntlProvider from "../src/i18n/ClientIntlProvider";
 import {getMessages} from 'next-intl/server';
 

@@ -131,7 +131,7 @@ export default function ShowroomPage() {
     <Box>      
       {isSubPage && <BackButton />}
       <Container maxWidth="lg" sx={{ py: 6 }}>        
-        <Typography variant="h3" component="h1" gutterBottom>
+        <Typography variant="h4" component="h1" gutterBottom>
           Showroom
         </Typography>
         <Typography variant="body1" color="text.secondary" paragraph>

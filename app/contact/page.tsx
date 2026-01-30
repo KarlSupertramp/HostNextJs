@@ -43,7 +43,7 @@ export default function ContactPage() {
       {isSubPage && <BackButton />}
       <Container maxWidth="lg" sx={{ py: 6 }}>
           <Box sx={{ mb: 4 }}>
-              <Typography variant="h3" component="h1" sx={{ mb: 2 }}>
+              <Typography variant="h4" sx={{ mb: 2 }}>
                   {t("title")}
               </Typography>
               <Typography variant="body1" color="text.secondary">
