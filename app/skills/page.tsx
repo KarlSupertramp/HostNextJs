@@ -131,7 +131,9 @@ const SkillArticle = ({ title, body } : {title: string, body: string}) => (
 
         <SkillArticle
           title="Unity Development (Realtime 3D)"
-          body={ `${t("unity1")}`}/>    
+          body={`<p>${t("unity1")}</p>
+                  <p>${t("unity2")}</p>
+                  <p>${t("unity3")}</p>`}/>
 
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6}>
