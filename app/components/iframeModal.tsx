@@ -36,20 +36,26 @@ export function IframeModal({
   const shouldRenderIframe = open || !unmountOnClose;
 
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      PaperProps={{
+   <Dialog
+    open={open}
+    onClose={onClose}
+    slotProps={{
+      backdrop: {
         sx: {
-          minWidth: 1000,
-          height: "85vh",
-          backgroundColor: "background.blurry",
-          borderRadius: 1,
-          overflow: "hidden",
-          backdropFilter: "blur(4px)",
+          backgroundColor: "rgba(0, 0, 0, 0.75)",
+          backdropFilter: "blur(6px)",
         },
-      }}
-    >
+      },
+    }}
+    PaperProps={{
+      sx: {
+        minWidth: 1000,
+        height: "85vh",
+        backgroundColor: "background.paper",
+        borderRadius: 1,
+        overflow: "hidden",
+      },
+    }}>
       <DialogTitle
         sx={{
           display: "flex",
