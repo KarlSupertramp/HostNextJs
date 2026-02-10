@@ -22,14 +22,15 @@ export function BackButton()
         <Stack direction={"row"} gap={1}>          
           <Button href={"/"}
           sx={{
-            boxShadow: 3,
+            boxShadow: 2,
+            borderRadius: 2,
             maxWidth: "50px",
             fontWeight: "bold",
-            color: "#eda916",
-            backgroundColor: "#282831",
+            color: "primary.main",
+            backgroundColor: "primary.dark",
             ":hover": {
-              color: "#282831",
-              backgroundColor: "#eda916",
+              color: "primary.dark",
+            backgroundColor: "primary.main",
               },
             }}>
             <ChevronLeftIcon />

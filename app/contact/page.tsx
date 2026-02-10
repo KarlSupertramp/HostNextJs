@@ -50,21 +50,22 @@ export default function ContactPage() {
                   {t("head")}
               </Typography>
           </Box>
-          <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+          <Box sx={{ mb: 2, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
               <Stack spacing={2}  gap={1}>
                   {socials.map((social) => ( 
                     <Chip
                       key={social.label}
-                      icon={<social.icon />}
+                      icon={<social.icon color="primary" />}
                       label={social.label}
                       onClick={() => window.open(social.href, '_blank')}
                       clickable
-                      color="primary"
-                      variant="outlined"   
                       sx={{
                         backgroundColor: "background.default",
-                        color: "white", 
-                        borderColor: "border.main"
+                        color: "text.secondary",
+                        boxShadow: 1,
+                         ":hover": {
+                            backgroundColor: "primary.hover",
+                        },
                       }}       
                     />           
                   ))}

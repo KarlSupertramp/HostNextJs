@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Typography, Grid, Chip, Stack } from "@mui/material";
+import { Box, Container, Typography, Grid, Chip, Stack, Divider } from "@mui/material";
 import { BackButton, urlEndWith } from "../components/backbutton";
 import { useEffect, useState } from "react";
 import HandymanIcon from '@mui/icons-material/Handyman';
@@ -61,18 +61,18 @@ export default function SkillsPage() {
   ];
   
   const ChipSection = ({ title, items, icon }) => (
-    <Box sx={{ boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+    <Box sx={{  bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
       <Stack spacing={2} direction="row" alignItems="center" mb={2}>
         {icon}
         <Typography variant="h6">{title}</Typography>
       </Stack>
+      
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {items.map((item) => (
           <Chip 
-            sx={{ minWidth: "100px", color: "text.secondary", borderColor: "primary.offset", backgroundColor: "background.default" }} 
+            sx={{ boxShadow: 1 ,minWidth: "100px", color: "text.secondary", backgroundColor: "background.default" }} 
             key={item} 
-            label={item} 
-            variant="outlined"            
+            label={item}  
           />
         ))}
       </Stack>
@@ -81,8 +81,8 @@ export default function SkillsPage() {
 
 
   
-const SkillArticle = ({ title, body } : {title: string, body: string}) => (
-  <Box sx={{ mb: 2, boxShadow: 3, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+const SkillArticle = ({ title, body, chips = [] } : {title: string, body: string, chips?: string[]}) => (
+  <Box sx={{ mb: 2, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
     <Typography mb={1} variant="h6">
       {title}
     </Typography>
@@ -98,6 +98,19 @@ const SkillArticle = ({ title, body } : {title: string, body: string}) => (
       }}
       dangerouslySetInnerHTML={{ __html: body }}
     />
+
+    <Divider sx={{ my: 2 }} />
+
+    <Stack mt={2} direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+      {chips.map((item) => (
+        <Chip 
+          sx={{ boxShadow: 1 ,minWidth: "100px", color: "text.secondary", backgroundColor: "background.default" }} 
+          key={item} 
+          label={item}  
+        />
+      ))}
+    </Stack>
+
   </Box>
 );
   
@@ -117,23 +130,29 @@ const SkillArticle = ({ title, body } : {title: string, body: string}) => (
         </Typography>
 
        <SkillArticle
-        title="User Experience Design"
-        body={t("ux1")}/>
+          title="User Experience Design"
+          body={t("ux1")}
+          chips={["Usability", "Design Thinking", "User Focussed"]}/>
 
-      <SkillArticle
+        <SkillArticle
           title="Project Management"
           body={`<p>${t("management1")}</p>
-                    ${t("management2")}`}/>
+                    ${t("management2")}`}
+          chips={["Product Owner", "Scrum Master"]}/>
+
         <SkillArticle
           title="Frontend & Mobile Development"
           body={`<p>${t("frontend1")}</p>
-                    ${t("frontend2")}`}/>
+                    ${t("frontend2")}`}
+          chips={["Cross Platform", "Responsive Layout"]}/>
 
         <SkillArticle
-          title="Unity Development (Realtime 3D)"
+          title="Unity Development"
           body={`<p>${t("unity1")}</p>
                   <p>${t("unity2")}</p>
-                    ${t("unity3")}`}/>
+                    ${t("unity3")}`}
+          chips={["Automotive Interfaces", "Mixed Reality", "Realtime 3D", "Data Visualization", "Prototyping" ]}/>
+
 
         <Typography mt={6} mb={2} variant="h5" component="h1">
           {t("tools")}

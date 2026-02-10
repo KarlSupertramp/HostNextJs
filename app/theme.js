@@ -8,19 +8,17 @@ const theme = createTheme({
     primary: 
     { 
       main: "#eda916",
-      offset: "#f5c870"
+      offset: "#f5c870",
+      hover: "#57513d",
+      dark: "#32323a"
     },
-    secondary: 
-    { 
-      main: "#fffcef",
-      offset: "#f2f0e8"
-    },
+  
     border: 
     { 
       main: "#e7d192" 
     },
     background: {
-        default: "#282831",
+        default: "#46464b",
         paper: "#32323a",
         blurry: "#32323a52"
       },
@@ -52,7 +50,14 @@ const theme = createTheme({
         },
   
       },
-    },    
+    },
+    MuiDivider: {
+      styleOverrides: {
+        root: {
+          borderColor: "#f5c870",
+        },
+      },
+    },
     MuiCard: {
       styleOverrides: {
         root: {
@@ -74,9 +79,9 @@ const theme = createTheme({
       styleOverrides: {
         root: {          
           backgroundColor: "#eda916",
-          Color: "#282831",
+          Color: "#46464b",
           ":hover": {
-            backgroundColor: "#282831",
+            backgroundColor: "#46464b",
             color: "#eda916",
           },
         },     

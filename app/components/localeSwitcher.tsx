@@ -12,15 +12,16 @@ const otherLang = () => locale == "en" ? "de" : "en";
 return (  
     <>    
         <Button  
-            sx={{         
+            sx={{        
+                borderRadius: 2,  
                 minWidth: "80px",
-                boxShadow: 3,
+                boxShadow: 1,
                 fontWeight: "bold",
-                color: "#eda916",
-                backgroundColor: "#282831",
+                color: "primary.main",
+                backgroundColor: "primary.dark",
                 ":hover": {
-                    color: "#282831",
-                    backgroundColor: "#eda916",
+                    color: "primary.dark",
+                    backgroundColor: "primary.main",
                 },
             }}
             onClick={() => setLocale(otherLang())}>

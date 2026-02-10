@@ -8,16 +8,17 @@ import { LocaleSwitcher } from "../components/localeSwitcher";
 function NavButton({ href, label }) {
   return (
     <Link href={href}>
-      <Button 
-        variant="contained"
+      <Button        
         sx={{
+            boxShadow: 3,
+            borderRadius: 2, 
             fontWeight: "bold",
             minWidth: "130px",
-            color: "#eda916",
-            backgroundColor: "#282831",
+            color: "primary.main",
+            backgroundColor: "primary.dark",
             ":hover": {
-                color: "#282831",
-                backgroundColor: "#eda916",
+                color: "primary.dark",
+                backgroundColor: "primary.main",
             },
             }}>
             {label}
