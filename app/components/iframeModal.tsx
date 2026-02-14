@@ -41,7 +41,7 @@ export function IframeModal({
     open={open}
     onClose={onClose}
     slotProps={{
-      paper: {
+       paper: {
         sx: {
           minWidth: 1000,
           height: "85vh",
@@ -102,7 +102,7 @@ export function IframeModal({
             key={url}
             src={url}
             onLoad={() => setLoading(false)}
-            sx={{ width: "100%", height: "100%", border: "none", display: "block", }}
+            sx={{ width: "100%", height: "100%", border: "none", display: "block", backgroundColor: "background.default" }}
             allow="clipboard-read; clipboard-write; fullscreen"            
           />
         ) : (
