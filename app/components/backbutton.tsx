@@ -11,14 +11,20 @@ export const urlEndWith = (substring) =>
 export function BackButton() 
 { 
   return (
-    <Box sx={{ mb: 2, display: "flex", p: 3, bgcolor: "primary.main" }}>
+    <Box sx={{ display: "flex", bgcolor: "background.default" }}>
       <Container
         maxWidth="lg"
         sx={{
+          px: 5,
+          py: 3,
+          bgcolor: "primary.main",
+          borderBottomRightRadius: 32,
+          borderBottomLeftRadius: 32,
+          boxShadow: 3,
           display: "flex",
           flexDirection: "column",
           gap: 2,
-        }}>          
+        }}>        
         <Stack direction={"row"} gap={1}>          
           <Button href={"/"}
           sx={{

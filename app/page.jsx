@@ -11,10 +11,10 @@ export default function Home() {
   return (
     <>
       <Head/>
-      <ShowroomPage />
-      <SkillsPage />
+      <ShowroomPage id={"showroom-section"}/>
+      <SkillsPage id={"skills-section"} />
       {/*<AboutPage />*/}
-      <ContactPage />
+      <ContactPage id={"contact-section"} />
     </>
   );
 }

@@ -29,7 +29,7 @@ const socials = [
   }
 ];
 
-export default function ContactPage() {
+export default function ContactPage({ id }: { id?: string }) {
 
   const [isSubPage, setIsSubPage] = useState(false);
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function ContactPage() {
   const t = useTranslations('Contact');
 
   return (
-      <Box>      
+      <Box id={id}>      
       {isSubPage && <BackButton />}
       <Container maxWidth="lg" sx={{ py: 6 }}>
           <Box sx={{ mb: 4 }}>
@@ -63,8 +63,8 @@ export default function ContactPage() {
                         backgroundColor: "background.default",
                         color: "text.secondary",
                         boxShadow: 1,
-                         ":hover": {
-                            backgroundColor: "primary.hover",
+                        ":hover": {
+                          backgroundColor: "primary.hover",
                         },
                       }}       
                     />           

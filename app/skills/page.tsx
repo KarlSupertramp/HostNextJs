@@ -10,7 +10,7 @@ import DevicesOtherIcon from '@mui/icons-material/DevicesOther';
 import CloudSyncIcon from '@mui/icons-material/CloudSync';
 import { useTranslations } from "next-intl";
 
-export default function SkillsPage() {
+export default function SkillsPage({ id }: { id?: string }){
   const devTools = [
     "Unity",
     "Visual Studio / VS Code",
@@ -66,6 +66,8 @@ export default function SkillsPage() {
         {icon}
         <Typography variant="h6">{title}</Typography>
       </Stack>
+
+      <Divider sx={{ my: 2 }} />
       
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {items.map((item) => (
@@ -81,25 +83,30 @@ export default function SkillsPage() {
 
 
   
-const SkillArticle = ({ title, body, chips = [] } : {title: string, body: string, chips?: string[]}) => (
+const SkillArticle = ({ title, paragraphs, chips = [] } : {title: string, paragraphs: string[], chips?: string[]}) => (  
   <Box sx={{ mb: 2, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
     <Typography mb={1} variant="h6">
       {title}
     </Typography>
 
-    <Typography
-      component="div"
-      variant="body1"
-      color="text.secondary"
-      sx={{
-        mt: 0,
-        "& p": { margin: 0, marginBottom: "0.75rem" },
-        "& b, & strong": { fontWeight: 700, color: "text.primary" },
-      }}
-      dangerouslySetInnerHTML={{ __html: body }}
-    />
+    {paragraphs.map((paragraph, index) => {
+      return (
+        <Typography
+          key={index}
+          component="p"
+          variant="body1"
+          color="text.secondary"
+          sx={{
+            mb: 1.5,
+            "& b, & strong": { fontWeight: 700, color: "text.primary" },
+          }}
+        >
+          {paragraph}
+        </Typography>
+      );
+    })}
 
-    <Divider sx={{ my: 2 }} />
+    <Divider sx={{ my: 3 }} />
 
     <Stack mt={2} direction="row" spacing={1} flexWrap="wrap" useFlexGap>
       {chips.map((item) => (
@@ -122,55 +129,50 @@ const SkillArticle = ({ title, body, chips = [] } : {title: string, body: string
   const t = useTranslations('Skills');
 
   return (
-    <Box bgcolor={"background.default"} >      
+    <Box id={id} bgcolor={"background.default"} >      
       {isSubPage && <BackButton />}
-      <Container maxWidth="lg" sx={{ py: 6 }}>         
+      <Container  maxWidth="lg" sx={{ py: 6 }}>         
         <Typography variant="h4" component="h1" mb={2}>
          {t("head")}
         </Typography>
 
        <SkillArticle
           title="User Experience Design"
-          body={t("ux1")}
+          paragraphs={[t("ux1")]}
           chips={["Usability", "Design Thinking", "User Focussed"]}/>
 
         <SkillArticle
-          title="Project Management"
-          body={`<p>${t("management1")}</p>
-                    ${t("management2")}`}
+          title="Project Management"         
+          paragraphs={[t("management1"), t("management2")]}
           chips={["Product Owner", "Scrum Master"]}/>
 
         <SkillArticle
           title="Frontend & Mobile Development"
-          body={`<p>${t("frontend1")}</p>
-                    ${t("frontend2")}`}
+          paragraphs={[t("frontend1"), t("frontend2")]}
           chips={["Cross Platform", "Responsive Layout"]}/>
 
         <SkillArticle
           title="Unity Development"
-          body={`<p>${t("unity1")}</p>
-                  <p>${t("unity2")}</p>
-                    ${t("unity3")}`}
+          paragraphs={[t("unity1"), t("unity2"), t("unity3")]}
           chips={["Automotive Interfaces", "Mixed Reality", "Realtime 3D", "Data Visualization", "Prototyping" ]}/>
-
 
         <Typography mt={6} mb={2} variant="h5" component="h1">
           {t("tools")}
         </Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+        <Grid size={12} container spacing={2}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <ChipSection icon={<HandymanIcon />} title={t("devTools")} items={devTools} />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <ChipSection icon={<CodeIcon />} title={t("programming")} items={languages} />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <ChipSection icon={<DevicesOtherIcon />} title={t("platforms")} items={platforms} />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <ChipSection icon={<BrushIcon />} title={t("creativeTools")} items={creativeTools} />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <ChipSection icon={<CloudSyncIcon />} title="DevOps" items={devOps} />
           </Grid>
         </Grid>

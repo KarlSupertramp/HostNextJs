@@ -7,6 +7,7 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
+  Divider,
   IconButton,
   Typography,
 } from "@mui/material";
@@ -40,20 +41,20 @@ export function IframeModal({
     open={open}
     onClose={onClose}
     slotProps={{
+      paper: {
+        sx: {
+          minWidth: 1000,
+          height: "85vh",
+          backgroundColor: "background.default",
+          borderRadius: 1,
+          overflow: "hidden",
+        },
+      },
       backdrop: {
         sx: {
           backgroundColor: "rgba(0, 0, 0, 0.75)",
           backdropFilter: "blur(6px)",
         },
-      },
-    }}
-    PaperProps={{
-      sx: {
-        minWidth: 1000,
-        height: "85vh",
-        backgroundColor: "background.paper",
-        borderRadius: 1,
-        overflow: "hidden",
       },
     }}>
       <DialogTitle
@@ -75,6 +76,8 @@ export function IframeModal({
           <CloseIcon />
         </IconButton>
       </DialogTitle>
+
+      <Divider sx={{mx: 2}} />
 
       <DialogContent sx={{ p: 0, position: "relative", height: "100%" }}>
         {loading && (
@@ -99,8 +102,8 @@ export function IframeModal({
             key={url}
             src={url}
             onLoad={() => setLoading(false)}
-            sx={{ width: "100%", height: "100%", border: "none", display: "block" }}
-            allow="clipboard-read; clipboard-write; fullscreen"
+            sx={{ width: "100%", height: "100%", border: "none", display: "block", }}
+            allow="clipboard-read; clipboard-write; fullscreen"            
           />
         ) : (
           <Box sx={{ p: 3 }}>

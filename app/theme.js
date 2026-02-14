@@ -87,6 +87,13 @@ const theme = createTheme({
         },     
       },
     },
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: {
+          scrollBehavior: "smooth", 
+        },
+      },
+    },
   },
 });
 
