@@ -136,8 +136,8 @@ export default function ShowroomPage({ id }: { id?: string }) {
           {t("showroomHead")}
         </Typography>         
 
-        <Grid size={12} container spacing={2} sx={{ mt: 6 }}>
-          <Grid size={{ xs: 12, sm: 4, md: 3 }}>
+        <Grid container spacing={2} sx={{ mt: 6 }}>
+          <Grid item xs={12} sm={4} md={3} >
             <FeatureWebGL
               title="Satellites"
               body={t.rich("satellitesDescription")}
@@ -147,7 +147,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
             />              
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 4, md: 3 }}>
+          <Grid item xs={12} sm={4} md={3} >
             <FeatureWebGL
               title="Orbit Sandbox"
               body={t.rich("orbitSandboxDescription")}
@@ -157,7 +157,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
             />              
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 4, md: 3 }}>
+          <Grid item xs={12} sm={4} md={3} >
             <FeatureWebGL
               title="Cube Puzzle"
               body={t.rich("cubePuzzleDescription")}
@@ -167,7 +167,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
             />              
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 4, md: 3 }}>
+          <Grid item xs={12} sm={4} md={3} >
             <FeatureLink
               title="Shop-App Tempate"
               body={t.rich("flutterDescription")}

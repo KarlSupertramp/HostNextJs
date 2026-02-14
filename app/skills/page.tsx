@@ -159,20 +159,21 @@ const SkillArticle = ({ title, paragraphs, chips = [] } : {title: string, paragr
         <Typography mt={6} mb={2} variant="h5" component="h1">
           {t("tools")}
         </Typography>
-        <Grid size={12} container spacing={2}>
-          <Grid size={{ xs: 12, md: 6 }}>
+        
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
             <ChipSection icon={<HandymanIcon />} title={t("devTools")} items={devTools} />
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid item xs={12} sm={6}>
             <ChipSection icon={<CodeIcon />} title={t("programming")} items={languages} />
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid item xs={12} sm={6}>
             <ChipSection icon={<DevicesOtherIcon />} title={t("platforms")} items={platforms} />
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid item xs={12} sm={6}>
             <ChipSection icon={<BrushIcon />} title={t("creativeTools")} items={creativeTools} />
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}>
+          <Grid item xs={12} sm={6}>
             <ChipSection icon={<CloudSyncIcon />} title="DevOps" items={devOps} />
           </Grid>
         </Grid>

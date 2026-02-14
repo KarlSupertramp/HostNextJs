@@ -41,20 +41,20 @@ export function IframeModal({
     open={open}
     onClose={onClose}
     slotProps={{
-       paper: {
-        sx: {
-          minWidth: 1000,
-          height: "85vh",
-          backgroundColor: "background.default",
-          borderRadius: 1,
-          overflow: "hidden",
-        },
-      },
       backdrop: {
         sx: {
           backgroundColor: "rgba(0, 0, 0, 0.75)",
           backdropFilter: "blur(6px)",
         },
+      },
+    }}
+    PaperProps={{
+      sx: {
+        minWidth: 1000,
+        height: "85vh",
+        backgroundColor: "background.paper",
+        borderRadius: 1,
+        overflow: "hidden",
       },
     }}>
       <DialogTitle
