@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Container, Link, Stack, Typography } from "@mui/material";
 
 export default function  Footer() {
