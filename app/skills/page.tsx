@@ -1,8 +1,6 @@
 "use client";
 
 import { Box, Container, Typography,  Chip, Stack, Divider, Grid } from "@mui/material";
-import { BackButton, urlEndWith } from "../components/backbutton";
-import { useEffect, useState } from "react";
 import HandymanIcon from '@mui/icons-material/Handyman';
 import CodeIcon from '@mui/icons-material/SettingsEthernet';
 import BrushIcon from '@mui/icons-material/Brush';
@@ -72,7 +70,13 @@ export default function SkillsPage({ id }: { id?: string }){
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {items.map((item) => (
           <Chip 
-            sx={{ boxShadow: 1 ,minWidth: "100px", color: "text.secondary", backgroundColor: "background.default" }} 
+            sx={{
+              fontWeight: "bold",
+              boxShadow: 1,
+              minWidth: "100px", 
+              color: "text.secondary", 
+              backgroundColor: "background.default" 
+            }} 
             key={item} 
             label={item}  
           />
@@ -111,7 +115,13 @@ const SkillArticle = ({ title, paragraphs, chips = [] } : {title: string, paragr
     <Stack mt={2} direction="row" spacing={1} flexWrap="wrap" useFlexGap>
       {chips.map((item) => (
         <Chip 
-          sx={{ boxShadow: 1 ,minWidth: "100px", color: "text.secondary", backgroundColor: "background.default" }} 
+          sx={{ 
+            fontWeight: "bold", 
+            boxShadow: 1 ,
+            minWidth: "100px", 
+            color: "text.secondary", 
+            backgroundColor: "background.default" 
+          }} 
           key={item} 
           label={item}  
         />
@@ -119,18 +129,12 @@ const SkillArticle = ({ title, paragraphs, chips = [] } : {title: string, paragr
     </Stack>
 
   </Box>
-);
-  
-  const [isSubPage, setIsSubPage] = useState(false);
-  useEffect(() => {
-    setIsSubPage(urlEndWith("/skills"));
-  });
+  );  
 
   const t = useTranslations('Skills');
 
   return (
     <Box id={id} bgcolor={"background.default"} >      
-      {isSubPage && <BackButton />}
       <Container  maxWidth="lg" sx={{ py: 6 }}>         
         <Typography variant="h4" component="h1" mb={2}>
          {t("head")}

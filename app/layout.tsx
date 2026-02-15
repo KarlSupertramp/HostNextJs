@@ -16,21 +16,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
           <CssBaseline />        
           <ClientIntlProvider initialMessages={messages}>
             {children}
-          </ClientIntlProvider> 
-          <Box
-            component="footer"
-            sx={{
-              marginTop: 4,
-              padding: 3,
-              textAlign: "center",
-            }}
-          >
-            <Container maxWidth="sm">
-              <Typography variant="body2" color="text.faded">
-                &copy; {new Date().getFullYear()} Karl Uwe Martin
-              </Typography>
-            </Container>
-          </Box>
+          </ClientIntlProvider>           
         </ThemeProvider>
       </body>
     </html>

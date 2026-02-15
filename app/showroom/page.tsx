@@ -9,9 +9,6 @@ import {
   Card,
   Button
 } from "@mui/material";
-
-import { BackButton, urlEndWith } from "../components/backbutton";
-import { useEffect, useState } from "react";
 import { IframeModal } from "../components/iframeModal";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
@@ -107,11 +104,6 @@ function FeatureLink({ title, body, href, imgSrc }) {
 
 export default function ShowroomPage({ id }: { id?: string }) {
 
-  const [isSubPage, setIsSubPage] = useState(false);
-  useEffect(() => {
-    setIsSubPage(urlEndWith("/showroom"));
-  });
-
   const [iframeOpen, setIframeOpen] = React.useState(false);
   const [iframeUrl, setIframeUrl] = React.useState<string | null>(null);
   const [iframeTitle, setIframeTitle] = React.useState<string | undefined>(undefined);
@@ -126,13 +118,12 @@ export default function ShowroomPage({ id }: { id?: string }) {
   const t = useTranslations('Showroom');
 
   return (
-    <Box id={id}>      
-      {isSubPage && <BackButton />}
+    <Box sx={{bgcolor: "background.defaultDark"}} id={id}>
       <Container maxWidth="lg" sx={{ py: 6 }}>        
         <Typography variant="h4" component="h1" gutterBottom>
           Showroom
         </Typography>
-        <Typography variant="body1" color="text.secondary" paragraph>
+        <Typography variant="body1" color="text.secondary">
           {t("showroomHead")}
         </Typography>         
 

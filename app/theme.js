@@ -11,21 +11,23 @@ const theme = createTheme({
       offset: "#f5c870",
       hover: "#57513d",
       dark: "#32323a"
-    },
-  
+    },  
     border: 
     { 
       main: "#e7d192" 
     },
     background: {
         default: "#46464b",
+        defaultDark: "#414146",
+        defaultLight: "#4e4e55",
         paper: "#32323a",
         blurry: "#32323a52"
       },
     text: {
       primary: "#eda916",
       secondary: "#fffcef",
-      faded: "#929087"
+      faded: "#929087",
+      dark: "#32323a"
     }       
   },
   shape: {

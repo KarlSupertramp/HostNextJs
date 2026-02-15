@@ -1,31 +1,7 @@
 "use client"; 
 
 import { Typography, Stack, Button, Box, Container } from "@mui/material";
-import Link from "next/link";
-
 import { LocaleSwitcher } from "../components/localeSwitcher";
-
-function NavButton({ href, label }) {
-  return (
-    <Link href={href}>
-      <Button        
-        sx={{
-            boxShadow: 2,
-            borderRadius: 2, 
-            fontWeight: "bold",
-            minWidth: "130px",
-            color: "primary.main",
-            backgroundColor: "primary.dark",
-            ":hover": {
-                color: "primary.dark",
-                backgroundColor: "primary.main",
-            },
-            }}>
-            {label}
-        </Button>
-    </Link>
-  );
-}
 
 function NavScrollButton({ targetId, label }) {
    const handleScroll = () => {
@@ -56,10 +32,12 @@ function NavScrollButton({ targetId, label }) {
   );
 }
 
-export default function Head() {
-
+export default function Head({ id }: { id?: string }) {
   return (
-    <Box sx={{ justifyContent: "center", display: "flex", bgcolor: "background.default" }}>
+    <Box id={id} sx={{ 
+      justifyContent: "center",
+      display: "flex",
+      bgcolor: "background.default" }}>
       <Container
         maxWidth="lg"
         sx={{
@@ -132,11 +110,10 @@ export default function Head() {
         >
           {NavScrollButton({ targetId: "showroom-section", label: "Showroom" })}
           {NavScrollButton({ targetId: "skills-section", label: "Skills" })}
-          {/* {NavButton({ href: "/about", label: "About Me" })} */}
           {NavScrollButton({ targetId: "contact-section", label: "Contact" })}
           {<LocaleSwitcher/>}
         </Box>
-      </Container>
+      </Container>         
     </Box>
   );
 }
