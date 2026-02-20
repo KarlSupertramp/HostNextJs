@@ -12,6 +12,7 @@ import {
 import { IframeModal } from "../components/iframeModal";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
+import Waterlevel from "../components/waterlevel";
 
 function FeatureContent({title, body, imgSrc})
 {
@@ -127,7 +128,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
           {t("showroomHead")}
         </Typography>         
 
-        <Grid container spacing={2} sx={{ mt: 6 }}>
+        <Grid container spacing={2} sx={{ mb: 3, mt: 6 }}>
           <Grid item xs={12} sm={4} md={3} >
             <FeatureWebGL
               title="Satellites"
@@ -165,6 +166,9 @@ export default function ShowroomPage({ id }: { id?: string }) {
               href="https://github.com/KarlSupertramp/WebApi-Flutter-Template"
               imgSrc={"/thumbFlutter.png"}
             />              
+          </Grid>
+          <Grid item xs={12} >            
+            <Waterlevel timeSpanDays={30}/>
           </Grid>
         </Grid>        
       </Container>
