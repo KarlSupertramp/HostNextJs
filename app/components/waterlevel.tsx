@@ -1,175 +1,6 @@
 import { LineChart } from '@mui/x-charts/LineChart';
-import {
-  useBrush,
-  useDrawingArea,
-  useLineSeries,
-  useXScale,
-} from '@mui/x-charts/hooks';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
-import { Card, Container, Link, Typography } from '@mui/material';
-
-function CustomBrushOverlay() {
-  const theme = useTheme();
-  const drawingArea = useDrawingArea();
-  const brush = useBrush();
-  const xScale = useXScale<'point'>();
-  const series = useLineSeries('wl');
-
-  if (!brush || !series) {
-    return null;
-  }
-
-  const { left, top, width, height } = drawingArea;
-
-  // Clamp coordinates to drawing area
-  const clampX = (x: number) => Math.max(left, Math.min(left + width, x));
-  const clampedStartX = clampX(brush.start.x!);
-  const clampedCurrentX = clampX(brush.current.x!);
-
-  const minX = Math.min(clampedStartX, clampedCurrentX);
-  const maxX = Math.max(clampedStartX, clampedCurrentX);
-  const rectWidth = maxX - minX;
-
-  const color = theme.palette.primary.main;
-
-  if (rectWidth < 1) {
-    return null;
-  }
-
-  const getIndex = (x: number) =>
-    Math.floor(
-      (x - Math.min(...xScale.range()) + xScale.step() / 2) / xScale.step(),
-    );
-  // Calculate the approximate data indices based on x position
-  const startIndex = getIndex(clampedStartX);
-  const currentIndex = getIndex(clampedCurrentX);
-
-  const startValue = series.data[startIndex]!;
-  const currentValue = series.data[currentIndex]!;
-  const difference = currentValue - startValue;
-  const percentChange = ((difference / startValue) * 100).toFixed(2);
-
-  // Get the date labels
-  const startDate = (xScale.domain()[startIndex] as string) || '';
-  const currentDate = (xScale.domain()[currentIndex] as string) || '';
-
-  function formatToShortDate(timestamp: string): string {
-    const date = new Date(timestamp);
-    const formatted = date.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit"
-                });
-  return formatted;
-}
-
-  return (
-    <g>
-      {/* Start line */}
-      <line
-        x1={clampedStartX}
-        y1={top}
-        x2={clampedStartX}
-        y2={top + height}
-        stroke={color}
-        strokeWidth={2}
-        strokeDasharray="5,5"
-        pointerEvents="none"
-      />
-
-      {/* Current line */}
-      <line
-        x1={clampedCurrentX}
-        y1={top}
-        x2={clampedCurrentX}
-        y2={top + height}
-        stroke={color}
-        strokeWidth={2}
-        strokeDasharray="5,5"
-        pointerEvents="none"
-      />
-
-      {/* Selection rectangle */}
-      <rect
-        x={minX}
-        y={top}
-        width={rectWidth}
-        height={height}
-        fill={color}
-        fillOpacity={0.1}
-        pointerEvents="none"
-      />
-
-      {/* Start label */}
-      <g transform={`translate(${clampedStartX}, ${top + 15})`}>
-        <rect x={-30} y={0} width={60} height={40} fill={color} rx={4} />
-        {/* Date label */}
-        <text x={0} y={16} textAnchor="middle" fill="white" fontSize={10}>
-          {formatToShortDate(startDate)}
-        </text>
-        {/* Value label */}
-        <text
-          x={0}
-          y={32}
-          textAnchor="middle"
-          fill="white"
-          fontSize={11}
-          fontWeight="bold"
-        >
-          {startValue.toFixed(2)}
-        </text>
-      </g>
-
-      {/* End label */}
-      <g transform={`translate(${clampedCurrentX}, ${top + 15})`}>
-        <rect x={-30} y={0} width={60} height={40} fill={color} rx={4} />
-        {/* Date label */}
-        <text x={0} y={16} textAnchor="middle" fill="white" fontSize={10}>
-          {formatToShortDate(currentDate)}
-        </text>
-        {/* Value label */}
-        <text
-          x={0}
-          y={32}
-          textAnchor="middle"
-          fill="white"
-          fontSize={11}
-          fontWeight="bold"
-        >
-          {currentValue.toFixed(2)}
-        </text>
-      </g>
-
-      {/* Difference label in the middle */}
-      <g transform={`translate(${(minX + maxX) / 2}, ${top + height - 30})`}>
-        <rect
-          x={-50}
-          y={0}
-          width={100}
-          height={26}
-          fill={
-            difference >= 0 ? theme.palette.success.main : theme.palette.error.main
-          }
-          rx={4}
-        />
-        <text
-          x={0}
-          y={17}
-          textAnchor="middle"
-          fill="white"
-          fontSize={12}
-          fontWeight="bold"
-        >
-          {difference >= 0 ? '+' : ''}
-          {difference.toFixed(2)} ({percentChange}%)
-        </text>
-      </g>
-    </g>
-  );
-}
+import { Card, Link, Typography } from '@mui/material';
 
 
 export default function Waterlevel({ timeSpanDays } : { timeSpanDays: number }) {
@@ -227,8 +58,6 @@ export default function Waterlevel({ timeSpanDays } : { timeSpanDays: number }) 
               id: 'heidelberg',
             },
           ]}
-          
-          brushConfig={{ enabled: true }}
           xAxis={[
             {
               data: dataSpeyer.map((d) => d.timestamp),
@@ -244,9 +73,7 @@ export default function Waterlevel({ timeSpanDays } : { timeSpanDays: number }) 
                 });
               },     
             },            
-          ]}
-          >
-          <CustomBrushOverlay />
+          ]}>
         </LineChart>        
          <Link justifyContent={"right"} href={"https://www.pegelonline.wsv.de"} fontSize={"0.8em"} variant="body2" color="text.primary" mx={3}>API: pegelonline.wsv.de</Link>
       </Card>
