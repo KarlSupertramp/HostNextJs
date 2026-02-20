@@ -8,7 +8,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
-import { Card, Container, Typography } from '@mui/material';
+import { Card, Container, Link, Typography } from '@mui/material';
 
 function CustomBrushOverlay() {
   const theme = useTheme();
@@ -210,7 +210,7 @@ export default function Waterlevel({ timeSpanDays } : { timeSpanDays: number }) 
         borderRadius: 2,
         p: 1
       }}> 
-        <Typography variant="body2" color="text.secondary" m={3}>Knowing the water level of the rivers in my area is crutial for a fisherman like myself:</Typography>
+        <Typography variant="body2" color="text.secondary" m={3}>Knowing the water level of the rivers in my area is crutial for a fisherman like myself.</Typography>
         <LineChart
           height={300}
           series={[
@@ -247,8 +247,8 @@ export default function Waterlevel({ timeSpanDays } : { timeSpanDays: number }) 
           ]}
           >
           <CustomBrushOverlay />
-        </LineChart>
-       
+        </LineChart>        
+         <Link justifyContent={"right"} href={"https://www.pegelonline.wsv.de"} fontSize={"0.8em"} variant="body2" color="text.primary" mx={3}>API: pegelonline.wsv.de</Link>
       </Card>
   );
 }
