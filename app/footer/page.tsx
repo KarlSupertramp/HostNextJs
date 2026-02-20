@@ -37,6 +37,7 @@ export default function  Footer() {
 					<Link onClick={() => {handleScroll("showroom-section")}} color="text.dark">Showroom</Link>
 					<Link onClick={() => {handleScroll("skills-section")}} color="text.dark">Skills</Link>	
 					<Link onClick={() => {handleScroll("contact-section")}} color="text.dark">Contact</Link>
+					<Link href={"/blog"} color="text.dark">Blog</Link>
 				</Stack>
 				<Typography alignSelf={"center"} variant="body2" color="text.dark">
 					&copy; {new Date().getFullYear()} Karl Martin
