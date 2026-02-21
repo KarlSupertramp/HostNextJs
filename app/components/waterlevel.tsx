@@ -78,7 +78,8 @@ export default function Waterlevel() {
         p: 1
       }}> 
         <Typography variant="body2" color="text.secondary" m={3}>{t("waterlevelHead")}</Typography>
-        <Stack gap={1} mx={3} direction={"row"}>      
+        <Stack gap={1} mx={3} direction={{ xs: "column", sm: "row" }}>   
+
           <FormControlLabel
             label={t("days")}
             control={ 
@@ -129,7 +130,7 @@ export default function Waterlevel() {
             },
             "& .MuiChartsAxis-tickLabel": {
               fill: theme.palette.border.main,
-            },
+            }
           }}
           colors={[ theme.palette.data.cyan, theme.palette.data.blue ]}
           series={series}
