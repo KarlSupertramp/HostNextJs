@@ -4,7 +4,9 @@
     "satellitesDescription": "3D-Visualisierung aller öffentlich dokumentierten Satelliten, die sich derzeit in einer Umlaufbahn um die Erde befinden. Die Daten werden von NORAD bereitgestellt.",
     "orbitSandboxDescription": "Eine farbenfrohe Simulation zur Erkundung von Masse, Impuls und Gravitation. Wische oder ziehe, um Objekte zu erstellen, und beobachte, wie sie mit dem zentralen Stern interagieren.",
     "flutterDescription": "Flutter-Template für eine Shop-App – inklusive funktionsfähigem Backend mit REST-API. Der Code ist auf GitHub verfügbar.",
-    "cubePuzzleDescription": "Nachbildung des berühmten Würfelpuzzles, das kaum jemand lösen kann. Mir war wichtig, ein realistisches Look-and-Feel sowie eine klare und intuitive Steuerung umzusetzen."
+    "cubePuzzleDescription": "Nachbildung des berühmten Würfelpuzzles, das kaum jemand lösen kann. Mir war wichtig, ein realistisches Look-and-Feel sowie eine klare und intuitive Steuerung umzusetzen.",
+    "days": "Tag/e",
+    "waterlevelHead": "Als Angler ist für mich wichtig, die aktuellen Wasserstände der Flüsse meiner Region zu kennen."
   },
   "Skills": {
     "ux1": "User Experience Design (UXD) konzentriert sich darauf, Anwendungen zu gestalten, die intuitiv, effizient und angenehm zu bedienen sind. Ich verbinde Nutzerbedürfnisse mit technischer Umsetzung, indem ich Ziele und Workflows in klare Interfaces, konsistente Interaktionen und vorhersehbares Systemverhalten übersetze. Aus programmatischer Sicht umfasst UXD nicht nur die visuelle Gestaltung, sondern auch Performance, Reaktionsfähigkeit, Barrierefreiheit, Fehlerbehandlung und Feedback. Durch nutzerzentriertes Design und Entwicklung reduziere ich Reibung, verbessere die Usability und schaffe Software, die sich zuverlässig und leicht bedienbar anfühlt.",

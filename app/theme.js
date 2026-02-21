@@ -28,6 +28,15 @@ const theme = createTheme({
       secondary: "#fffcef",
       faded: "#929087",
       dark: "#32323a"
+    },
+    data:
+    {
+      blue: "#1779c9",
+      orange: "#ed7716",
+      green: "#2caf2c",
+      red: "#c9112a",
+      cyan: "#15acc0",
+      pink: "#d32289",
     }       
   },
   shape: {

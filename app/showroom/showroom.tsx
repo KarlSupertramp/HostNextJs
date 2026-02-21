@@ -168,7 +168,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
             />              
           </Grid>
           <Grid item xs={12} >            
-            <Waterlevel timeSpanDays={30}/>
+            <Waterlevel />
           </Grid>
         </Grid>        
       </Container>

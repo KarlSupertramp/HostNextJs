@@ -7,7 +7,6 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-  Divider,
   IconButton,
   Typography,
 } from "@mui/material";
@@ -65,7 +64,8 @@ export function IframeModal({
         }}
       >
         <Typography
-          variant="h5"
+          variant="body1"
+          fontWeight="bold"
           sx={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}
           title={title ?? url ?? ""}
         >
@@ -77,8 +77,6 @@ export function IframeModal({
         </IconButton>
       </DialogTitle>
 
-      <Divider sx={{mx: 2}} />
-
       <DialogContent sx={{ p: 0, position: "relative", height: "100%" }}>
         {loading && (
           <Box
@@ -88,7 +86,7 @@ export function IframeModal({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              bgcolor: "background.paper",
+              bgcolor: "background.defaultLight",
               zIndex: 1,
             }}
           >
