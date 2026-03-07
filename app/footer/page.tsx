@@ -33,11 +33,11 @@ export default function  Footer() {
           flexDirection: "column"
         }}>
 				<Stack justifyContent={"center"} gap={1} direction={"row"}>
-					<Link onClick={() => {handleScroll("head-section")}} color="text.dark">Home</Link>
-					<Link onClick={() => {handleScroll("showroom-section")}} color="text.dark">Showroom</Link>
-					<Link onClick={() => {handleScroll("skills-section")}} color="text.dark">Skills</Link>	
-					<Link onClick={() => {handleScroll("contact-section")}} color="text.dark">Contact</Link>
-					<Link href={"/blog"} color="text.dark">Blog</Link>
+					<Link sx={{ cursor: "pointer" }} onClick={() => {handleScroll("head-section")}} color="text.dark">Home</Link>
+					<Link sx={{ cursor: "pointer" }} onClick={() => {handleScroll("showroom-section")}} color="text.dark">Showroom</Link>
+					<Link sx={{ cursor: "pointer" }} onClick={() => {handleScroll("skills-section")}} color="text.dark">Skills</Link>	
+					<Link sx={{ cursor: "pointer" }} onClick={() => {handleScroll("contact-section")}} color="text.dark">Contact</Link>
+					{/*<Link sx={{ cursor: "pointer" }} href={"/blog"} color="text.dark">Blog</Link>*/}
 				</Stack>
 				<Typography alignSelf={"center"} variant="body2" color="text.dark">
 					&copy; {new Date().getFullYear()} Karl Martin

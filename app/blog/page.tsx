@@ -68,22 +68,13 @@ export default function Blog() {
       date: "2026-02-15",
       title: "My First Blog Post",
       paragraphs: [
-        "Hello world! This is my first blog post.",
-        "I am writing this blog using Next.js and MUI.",
+        "Hello world! You are not supposed to see this, yet!",
       ],
       links: [
         { text: "Learn Next.js", href: "https://nextjs.org" },
         { text: "Learn MUI", href: "https://mui.com" },
       ],
-    },
-    {
-      date: "2026-02-15",
-      title: "Another Post",
-      paragraphs: [
-        "This is my second post.",
-        "I can easily add more content here.",
-      ],
-    },
+    }
   ];
 
   return (

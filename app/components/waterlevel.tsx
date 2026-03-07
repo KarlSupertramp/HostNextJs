@@ -120,7 +120,7 @@ export default function Waterlevel() {
 
         </Stack>        
         <LineChart   
-          height={180}
+          height={210}
           sx={{
              "& .MuiChartsAxis-line": {
               stroke: theme.palette.border.main,
