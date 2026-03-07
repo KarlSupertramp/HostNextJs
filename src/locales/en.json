@@ -4,7 +4,9 @@
     "satellitesDescription": "3D visualization of all plublicly documented satellites that orbit earth at this moment. Data provided by NORAD.",
     "orbitSandboxDescription": "A colorful simulation to explore mass, momentum, and gravity. Swipe or drag to create objects and watch them interact with the central star.",
     "flutterDescription": "Flutter Template for a Shop-App - including a functional backend with REST-API. Code is available on GitHub.",
-    "cubePuzzleDescription": "Recreating the famous cube puzzle hardly anyone can solve. I wanted it to have a realistic look and feel and straight forward contolls."
+    "cubePuzzleDescription": "Recreating the famous cube puzzle hardly anyone can solve. I wanted it to have a realistic look and feel and straight forward contolls.",
+    "days": "Day/s",
+    "waterlevelHead": "Knowing the water level of the rivers in my area is crutial for a fisherman like myself."
   },
   "Skills" : {
     "ux1" : "User Experience Design (UXD) focuses on creating applications that are intuitive, efficient, and enjoyable to use. I connect user needs with technical implementation by turning goals and workflows into clear interfaces, consistent interactions, and predictable system behavior. From a programming perspective, UXD is not only about visuals - it also includes performance, responsiveness, accessibility, error handling, and feedback. By designing and building with the user in mind, I help reduce friction, improve usability, and create software that feels reliable and easy to navigate.",
