@@ -14,6 +14,9 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import PhonelinkIcon from '@mui/icons-material/Phonelink';
 import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 
+import Image from "next/image";
+import UnityLogo from "../../public/UnityLogo_White.svg";
+
 
 export default function SkillsPage({ id }: { id?: string }){
   const devTools = [
@@ -115,19 +118,19 @@ export default function SkillsPage({ id }: { id?: string }){
     >
       {bgIcon && 
         <Box
-          sx={{
-            position: "absolute",
-            right: 25,
-            top: "50%",
-            transform: "translateY(-50%)",
-            pointerEvents: "none",
-            opacity: 0.2,    
-            maskImage:
-            "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0.1))",
-            WebkitMaskImage:
-            "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0.1))",
-          }}
-          >
+        sx={{
+          position: "absolute",
+          right: 25,
+          top: "50%",
+          transform: "translateY(-50%)",
+          pointerEvents: "none",
+          opacity: 0.2,    
+          maskImage:
+          "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0.1))",
+          WebkitMaskImage:
+          "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0.1))",
+        }}
+        >         
           {bgIcon}
         </Box>
       }
@@ -186,25 +189,25 @@ export default function SkillsPage({ id }: { id?: string }){
         </Typography>
 
        <SkillArticle
-          bgIcon={<DrawIcon sx={{ fontSize: 220 }} />}
+          bgIcon={<DrawIcon sx={{ color:"white", fontSize: 220 }} />}
           title="User Experience Design"
           paragraphs={[t("ux1")]}
           chips={["Usability", "Design Thinking", "User Focussed"]}/>
 
         <SkillArticle
-          bgIcon={<AssignmentIcon sx={{ fontSize: 220 }} />}
+          bgIcon={<AssignmentIcon sx={{ color:"white", fontSize: 220 }} />}
           title="Project Management"         
           paragraphs={[t("management1"), t("management2")]}
           chips={["Product Owner", "Scrum Master"]}/>
 
         <SkillArticle  
-          bgIcon={<PhonelinkIcon sx={{ fontSize: 220 }} />}
+          bgIcon={<PhonelinkIcon sx={{ color:"white", fontSize: 220 }} />}
           title="Frontend & Mobile Development"
           paragraphs={[t("frontend1"), t("frontend2")]}
           chips={["Cross Platform", "Responsive Layout"]}/>
 
         <SkillArticle
-          bgIcon={<VideogameAssetIcon sx={{ fontSize: 220 }} />}
+          bgIcon={<Image width={250} src={UnityLogo} alt={"unity"}/>}
           title="Unity Development"
           paragraphs={[t("unity1"), t("unity2"), t("unity3")]}
           chips={["Automotive Interfaces", "Mixed Reality", "Realtime 3D", "Data Visualization", "Prototyping" ]}/>

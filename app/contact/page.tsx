@@ -13,12 +13,12 @@ const socials = [
     label: "github.com/KarlSupertramp",
     ariaLabel: "GitHub"
   },
-  {
+  /*{
     href: "https://www.linkedin.com/in/karl-martin-b95981183/",
     icon: LinkedInIcon,
     label: "linkedin.com/in/karl-martin-b95981183",
     ariaLabel: "LinkedIn"
-  },
+  },*/
   {
     href: "mailto:KarlUweMartin@gmail.com",
     icon: EmailIcon,
