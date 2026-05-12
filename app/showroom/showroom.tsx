@@ -167,6 +167,17 @@ export default function ShowroomPage({ id }: { id?: string }) {
               imgSrc={"/thumbFlutter.png"}
             />              
           </Grid>
+
+          <Grid item xs={12} sm={4} md={3} >
+            <FeatureWebGL
+              title="Drone Simulator"
+              body={t.rich("droneSimDescription")}
+              href='/droneSim/index.html'
+              imgSrc={"/thumbDrone.png"}
+              onOpenIframe={openIframe}
+            />              
+          </Grid>
+
           <Grid item xs={12} >            
             <Waterlevel />
           </Grid>
