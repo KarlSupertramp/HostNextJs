@@ -14,14 +14,16 @@ const theme = createTheme({
     },  
     border: 
     { 
-      main: "#e7d192" 
+      main: "#e7d192",
+      secondary: "#2587c9"
     },
     background: {
         default: "#46464b",
         defaultDark: "#414146",
         defaultLight: "#4e4e55",
         paper: "#32323a",
-        blurry: "#32323a52"
+        blurry: "#32323a52",
+        blue: "#3a4250"
       },
     text: {
       primary: "#eda916",

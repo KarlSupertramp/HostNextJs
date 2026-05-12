@@ -11,24 +11,26 @@ export default function AboutPage() {
     <Box>      
       <Container maxWidth="lg" sx={{ py: 2 }}> 
 
-        <Typography variant="body1" color="text.secondary" paragraph sx={{ mt: 0 }}>
+        <Typography variant="body2" color="text.secondary" paragraph sx={{ mt: 0 }}>
           {t("about0")}
         </Typography>
 
-        <Typography variant="body1" color="text.secondary" paragraph sx={{ mt: 0 }}>
+        <Typography variant="body2" color="text.secondary" paragraph sx={{ mt: 0 }}>
           {t("about1")}
         </Typography>
 
-        <Typography variant="body1" color="text.secondary" paragraph sx={{ mt: 0 }}>
+        <Typography variant="body2" color="text.secondary" paragraph sx={{ mt: 0 }}>
           {t("about2")}
         </Typography>
 
         <Box sx={{      
           width: "70%", 
           mx: "auto",
-          mb: 4, 
-          p: 2,
-          bgcolor: "background.defaultLight",
+          mb: 2, 
+          p: 1,
+          bgcolor: "background.blue",
+          border: 1,
+          borderColor: "border.secondary",
           borderBottomLeftRadius: 100,
           borderBottomRightRadius: 100,
           borderTopRightRadius: 100 }}>
@@ -37,7 +39,7 @@ export default function AboutPage() {
           </Typography>
         </Box>
 
-        <Typography variant="body1" color="text.secondary" paragraph>
+        <Typography variant="body2" color="text.secondary" paragraph>
         {t("about3")}
         </Typography>       
       </Container>

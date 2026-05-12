@@ -41,7 +41,7 @@ export default function ContactPage({ id }: { id?: string }) {
             {t("head")}
           </Typography>
         </Box>
-        <Box sx={{ mb: 2, bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+        <Box sx={{ mb: 2, bgcolor: "background.paper", p: 3, borderRadius: 2 }}>
           <Stack spacing={2} gap={1}>
             {socials.map((social) => (
               <Chip

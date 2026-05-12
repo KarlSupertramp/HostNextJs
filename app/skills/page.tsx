@@ -69,13 +69,13 @@ export default function SkillsPage({ id }: { id?: string }){
   ];
   
   const ChipSection = ({ title, items, icon }) => (
-    <Box sx={{  bgcolor: "background.paper", p: 2, borderRadius: 2 }}>
+    <Box sx={{  bgcolor: "background.paper", p: 3, borderRadius: 2 }}>
       <Stack spacing={2} direction="row" alignItems="center" mb={2}>
         {icon}
         <Typography variant="h6">{title}</Typography>
       </Stack>
 
-      <Divider sx={{ my: 2 }} />
+      <Divider sx={{ my: 2, borderColor: "border.secondary"}} />
       
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {items.map((item) => (
@@ -110,7 +110,7 @@ export default function SkillsPage({ id }: { id?: string }){
       sx={{
         mb: 2,
         bgcolor: "background.paper",
-        p: 2,
+        p: 3,
         borderRadius: 2,
         position: "relative",
         overflow: "hidden",
@@ -144,7 +144,7 @@ export default function SkillsPage({ id }: { id?: string }){
           <Typography
             key={index}
             component="p"
-            variant="body1"
+            variant="body2"
             color="text.secondary"    
             sx={{
               mb: 1.5,
@@ -159,7 +159,7 @@ export default function SkillsPage({ id }: { id?: string }){
         );
       })}
 
-      <Divider sx={{ my: 3 }} />
+      <Divider  sx={{ my: 3, borderColor: "border.secondary" }} />
 
       <Stack mt={2} direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {chips.map((item) => (
@@ -218,19 +218,19 @@ export default function SkillsPage({ id }: { id?: string }){
         
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<HandymanIcon />} title={t("devTools")} items={devTools} />
+            <ChipSection icon={<HandymanIcon sx={{color: "white"}}  />} title={t("devTools")} items={devTools} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<CodeIcon />} title={t("programming")} items={languages} />
+            <ChipSection icon={<CodeIcon sx={{color: "white"}} />} title={t("programming")} items={languages} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<DevicesOtherIcon />} title={t("platforms")} items={platforms} />
+            <ChipSection icon={<DevicesOtherIcon sx={{color: "white"}}  />} title={t("platforms")} items={platforms} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<BrushIcon />} title={t("creativeTools")} items={creativeTools} />
+            <ChipSection icon={<BrushIcon sx={{color: "white"}}  />} title={t("creativeTools")} items={creativeTools} />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ChipSection icon={<CloudSyncIcon />} title="DevOps" items={devOps} />
+            <ChipSection icon={<CloudSyncIcon sx={{color: "white"}}  />} title="DevOps" items={devOps} />
           </Grid>
         </Grid>
 

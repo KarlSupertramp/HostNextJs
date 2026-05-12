@@ -124,7 +124,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
         <Typography variant="h4" component="h1" gutterBottom>
           Showroom
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body2" color="text.secondary">
           {t("showroomHead")}
         </Typography>         
 
