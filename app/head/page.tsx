@@ -33,8 +33,7 @@ function NavScrollButton({ targetId, label }) {
 }
 
 export default function Head({ id }: { id?: string }) {
-  return (
-    <Box id={id} sx={{ 
+  return <Box id={id} sx={{ 
       justifyContent: "center",
       display: "flex",
       bgcolor: "background.default" }}>
@@ -115,6 +114,6 @@ export default function Head({ id }: { id?: string }) {
         </Box>
       </Container>         
     </Box>
-  );
+  
 }
 
