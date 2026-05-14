@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import WebAssetIcon from '@mui/icons-material/WebAsset';
 
 type IframeModalProps = {
   open: boolean;
@@ -28,12 +29,31 @@ export function IframeModal({
   unmountOnClose = true,
 }: IframeModalProps) {
   const [loading, setLoading] = React.useState(false);
+  const iframeRef = React.useRef<HTMLIFrameElement>(null);
 
   React.useEffect(() => {
     if (open && url) setLoading(true);
   }, [open, url]);
 
   const shouldRenderIframe = open || !unmountOnClose;
+
+  function useFullscreen() {
+    if (!iframeRef.current) return;
+
+    try {
+      const canvas = iframeRef.current.contentDocument?.querySelector("#unity-canvas");
+      if (canvas?.requestFullscreen) {
+        canvas.requestFullscreen();
+        return;
+      }
+    } catch (e) {
+      // Cross-origin iframe, try iframe fullscreen instead
+    }
+
+    if (iframeRef.current.requestFullscreen) {
+      iframeRef.current.requestFullscreen();
+    }
+  }
 
   return (
    <Dialog
@@ -61,20 +81,26 @@ export function IframeModal({
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          gap: 1,
         }}
       >
         <Typography
           variant="body1"
           fontWeight="bold"
-          sx={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}
+          sx={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}
           title={title ?? url ?? ""}
         >
           {title ?? url ?? "Iframe"}
         </Typography>
 
-        <IconButton onClick={onClose} aria-label="Close">
-          <CloseIcon />
-        </IconButton>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+          <IconButton onClick={useFullscreen} aria-label="Fullscreen" size="small">
+            <WebAssetIcon />
+          </IconButton>
+          <IconButton onClick={onClose} aria-label="Close" size="small">
+            <CloseIcon />
+          </IconButton>
+        </Box>
       </DialogTitle>
 
       <DialogContent sx={{ p: 0, position: "relative", height: "100%" }}>
@@ -97,6 +123,7 @@ export function IframeModal({
         {shouldRenderIframe && url ? (
           <Box
             component="iframe"
+            ref={iframeRef}
             key={url}
             src={url}
             onLoad={() => setLoading(false)}
