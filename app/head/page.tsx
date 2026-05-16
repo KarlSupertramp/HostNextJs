@@ -88,7 +88,7 @@ export default function Head({ id }: { id?: string }) {
           </Stack>
           </Stack>
 
-        <Stack justifyContent={"center"} direction={"row"} gap={1}>
+        <Stack justifyContent={"center"} direction={"row"} gap={2}>
           <NavScrollButton targetId="showroom-section" label="Showroom" />
           <NavScrollButton targetId="skills-section" label="Skills" />
           <NavScrollButton targetId="contact-section" label={t("contact")} />    

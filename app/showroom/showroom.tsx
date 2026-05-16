@@ -65,15 +65,13 @@ function FeatureModal({ title, body, href, imgSrc, onOpen = (href: string, title
       {!isMobile ? 
         <Button
           onClick={() => onOpen(href, title)} 
-          sx={{ borderRadius: 2, width: "auto", m: 2 }} 
-          variant="contained">
+          sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
           Start
         </Button> 
         : 
         <Button 
           href={href}
-          sx={{ borderRadius: 2, width: "auto", m: 2 }} 
-          variant="contained">
+          sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
           Start
         </Button> 
       }
@@ -94,9 +92,8 @@ function FeatureLink({ title, body, href, imgSrc }) {
     >
       <FeatureContent body={body} title={title} imgSrc={imgSrc} />
       <Button 
-        href={href} 
-        sx={{ borderRadius: 2, width: "auto", m: 2 }}
-        variant="contained">
+        href={href}       
+        sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
         Visit
       </Button>    
     </Card>

@@ -25,7 +25,7 @@ export default function ContactPage({ id }: { id?: string }) {
 
   return (
     <Box sx={{ bgcolor: "background.defaultDark" }} id={id}>
-      <Container maxWidth="lg" sx={{ py: 3 }}>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
         <Box sx={{ mb: 4 }}>
           <Typography variant="h4" sx={{ mb: 2 }}>
             {t("title")}
@@ -52,7 +52,7 @@ export default function ContactPage({ id }: { id?: string }) {
                   },
                   ":hover": {
                     backgroundColor: "#434a53",
-                    color: "#7ab3e9",
+                    color: "#eda916",
                   },
                 }}
               />

@@ -15,10 +15,10 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
+        backgroundColor: "background.defaultDark",
         justifyContent: "center",
         display: "flex",
         textAlign: "center",
-        mt: 3
       }}>
       <Container
         sx={{
@@ -29,7 +29,6 @@ export default function Footer() {
           borderTopRightRadius: 32,
           borderTopLeftRadius: 32,
           display: "flex",
-          boxShadow: 3,
           flexDirection: "column"
         }}>
         <Stack justifyContent={"center"} gap={1} direction={"row"}>
