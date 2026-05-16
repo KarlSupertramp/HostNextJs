@@ -24,7 +24,7 @@ export function BackButton()
           flexDirection: "column",
           gap: 2,
         }}>        
-        <Stack direction={"row"} gap={1}>          
+        <Stack justifyContent={"space-between"} direction={"row"} gap={1}>          
           <Button href={"/"}
           sx={{
             boxShadow: 2,

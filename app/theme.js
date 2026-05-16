@@ -93,7 +93,10 @@ const theme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {     
-          color: "#7ab3e9"          
+          color: "#7ab3e9",
+           ":hover": {
+            color: "#eda916",
+          },
         },     
       },
     },

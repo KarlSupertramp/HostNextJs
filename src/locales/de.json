@@ -33,6 +33,7 @@
     "de": "Deutsch"
   }, 
   "About": {
+    "title": "Über mich",
     "about0": "Ich bin Karl, ein 35 Jahre alter Entwickler aus Deutschland. Seit über 12 Jahren gestalte ich digitale Interfaces unterschiedlichster Art.",
     "about1": "Als Hybrid aus Entwickler und Designer erkunde ich ständig neue Techniken, um meine Fähigkeiten weiterzuentwickeln. Mit einem Hintergrund in Softwareentwicklung und User Experience Design schlage ich die Brücke zwischen Funktionalität und Ästhetik.",
     "about2": "UX-Design bedeutet für mich, komplexe Systeme nicht nur intuitiv, sondern auch angenehm nutzbar zu machen. Dazu gehört nicht nur ein gutes Gespür für visuelle Qualität, sondern auch ein tiefes Verständnis für die Struktur eines Systems. Als Softwareentwickler kann ich tief in die Kernfunktionalität eines Systems eintauchen, um Engpässe, Hürden für Nutzer sowie Herausforderungen für Entwickler zu identifizieren. Ein großer Teil meiner Arbeit besteht darin, komplexe Diskussionen zwischen Designern, Entwicklern und Managern zu moderieren. Das Verständnis für Ziele und Herausforderungen beider Welten kann die Problemlösung in allen Projektphasen erheblich beschleunigen.",
@@ -43,7 +44,6 @@
     "head": "Du hast eine Frage oder möchtest zusammenarbeiten? Melde dich gerne!"
   },
   "Nav": {
-    "contact": "Kontakt",
-    "aboutMe": "Über mich"
+    "contact": "Kontakt"
   }
 }

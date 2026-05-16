@@ -1,7 +1,9 @@
 "use client"; 
 
-import { Typography, Stack, Button, Box, Container } from "@mui/material";
+import { Typography, Stack, Link, Box, Container } from "@mui/material";
 import { LocaleSwitcher } from "../components/localeSwitcher";
+import { useTranslations } from "next-intl";
+
 
 function NavScrollButton({ targetId, label }: { targetId: string; label: string }) {
   const handleScroll = () => {
@@ -12,40 +14,39 @@ function NavScrollButton({ targetId, label }: { targetId: string; label: string 
   };
 
   return (
-    <Button
+    <Link
+      sx={{ cursor: "pointer", alignSelf: "center" }}
       onClick={handleScroll}
-      sx={{
-        borderRadius: 2,
-        boxShadow: 1,
-        minWidth: "120px"       
-      }}
     >
       {label}
-    </Button>
+    </Link>
   );
 }
 
 export default function Head({ id }: { id?: string }) {
+
+  const t = useTranslations('Nav');  
+
   return <Box id={id} 
       sx={{ 
         justifyContent: "center",
         display: "flex",
         bgcolor: "background.default" }}>
+
       <Container
         maxWidth="lg"
         sx={{
-          px: 5,
-          py: 3,
-          mx: 2,
+          py: 2,
           bgcolor: "background.defaultLight",
           borderBottomRightRadius: 32,
           borderBottomLeftRadius: 32,
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          alignItems: { xs: "flex-start", md: "center" },
-          justifyContent: { lg: "space-between" },
           gap: 2,
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          alignItems: { xs: "flex-start", sm: "center" },
+          justifyContent: "space-between"      
         }}>
+
         <Stack sx={{ flexDirection: "row", gap: 2, alignItems: "center" }}>
           <Box
             sx={{
@@ -62,42 +63,37 @@ export default function Head({ id }: { id?: string }) {
             <img
               src="https://avatars.githubusercontent.com/u/12151775?v=4"
               alt="ProfilePicture"
-              style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(85%)" }}
+              style={{ 
+                width: "100%", 
+                height: "100%",
+                 objectFit: "cover" 
+                }}
             />
           </Box>
 
           <Stack>
             <Typography
               sx={{
-                //fontWeight: "bold",
                 color: "text.primary",     
               }}
-              variant="h4"
+              variant="h5"
             >
               Karl Martin
             </Typography>
             <Typography 
-            variant="body1"
-            sx={{ color: "border.secondary" }}>
+            variant="body2"
+            sx={{ color: "text.faded" }}>
               UX Technologist
             </Typography>
           </Stack>
-        </Stack>
+          </Stack>
 
-        <Box
-          sx={{
-            display: { xs: "grid", md: "flex" },
-            gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "repeat(2, 1fr)", md: "none" },
-            gap: 1,
-            gridAutoFlow: { md: "column" },
-            alignItems: "center",
-            alignSelf: "flex-end",
-            ml: { md: "auto" },
-          }}
-        >
+        <Stack justifyContent={"center"} direction={"row"} gap={1}>
           <NavScrollButton targetId="showroom-section" label="Showroom" />
           <NavScrollButton targetId="skills-section" label="Skills" />
-          <NavScrollButton targetId="contact-section" label="Contact" />
+          <NavScrollButton targetId="contact-section" label={t("contact")} />    
+        </Stack>
+        <Box>          
           <LocaleSwitcher />
         </Box>
       </Container>         

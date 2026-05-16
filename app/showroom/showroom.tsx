@@ -12,7 +12,6 @@ import {
 import { IframeModal } from "../components/iframeModal";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
-import Waterlevel from "../components/waterlevel";
 import { WaterLevelModal } from "../components/waterlevelModal";
 
 function FeatureContent({title, body, imgSrc})
