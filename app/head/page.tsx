@@ -3,8 +3,8 @@
 import { Typography, Stack, Button, Box, Container } from "@mui/material";
 import { LocaleSwitcher } from "../components/localeSwitcher";
 
-function NavScrollButton({ targetId, label }) {
-   const handleScroll = () => {
+function NavScrollButton({ targetId, label }: { targetId: string; label: string }) {
+  const handleScroll = () => {
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -17,7 +17,7 @@ function NavScrollButton({ targetId, label }) {
       sx={{
         borderRadius: 2,
         boxShadow: 1,
-        minWidth: "130px",      
+        minWidth: "120px"       
       }}
     >
       {label}
@@ -41,8 +41,8 @@ export default function Head({ id }: { id?: string }) {
           borderBottomRightRadius: 32,
           borderBottomLeftRadius: 32,
           display: "flex",
-          flexDirection: { xs: "column", lg: "row" },
-          alignItems: { xs: "flex-start", lg: "center" },
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: { xs: "flex-start", md: "center" },
           justifyContent: { lg: "space-between" },
           gap: 2,
         }}>
@@ -50,7 +50,6 @@ export default function Head({ id }: { id?: string }) {
           <Box
             sx={{
               borderRadius: 1,
-              //border: 2,
               borderColor: "border.secondary",
               width: 75,
               height: 75,
@@ -59,11 +58,11 @@ export default function Head({ id }: { id?: string }) {
               justifyContent: "center",
               flexShrink: 0,
             }}
-          >
+          > 
             <img
               src="https://avatars.githubusercontent.com/u/12151775?v=4"
               alt="ProfilePicture"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(85%)" }}
             />
           </Box>
 
@@ -79,7 +78,7 @@ export default function Head({ id }: { id?: string }) {
             </Typography>
             <Typography 
             variant="body1"
-            sx={{ color: "text.secondary" }}>
+            sx={{ color: "border.secondary" }}>
               UX Technologist
             </Typography>
           </Stack>
@@ -87,21 +86,19 @@ export default function Head({ id }: { id?: string }) {
 
         <Box
           sx={{
-            display: "grid",
-            gridTemplateColumns: { xs: "repeat(2, 1fr)", lg: "none" },
+            display: { xs: "grid", md: "flex" },
+            gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "repeat(2, 1fr)", md: "none" },
             gap: 1,
-            gridAutoFlow: { lg: "column" },
-            "@media (min-width:1200px)": {
-              display: "flex",
-              flexDirection: "row",
-              gap: "5px",
-            },
+            gridAutoFlow: { md: "column" },
+            alignItems: "center",
+            alignSelf: "flex-end",
+            ml: { md: "auto" },
           }}
         >
-          {NavScrollButton({ targetId: "showroom-section", label: "Showroom" })}
-          {NavScrollButton({ targetId: "skills-section", label: "Skills" })}
-          {NavScrollButton({ targetId: "contact-section", label: "Contact" })}
-          {<LocaleSwitcher/>}
+          <NavScrollButton targetId="showroom-section" label="Showroom" />
+          <NavScrollButton targetId="skills-section" label="Skills" />
+          <NavScrollButton targetId="contact-section" label="Contact" />
+          <LocaleSwitcher />
         </Box>
       </Container>         
     </Box>  

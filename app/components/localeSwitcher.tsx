@@ -18,7 +18,7 @@ return (
                 boxShadow: 1,                   
             }}
             onClick={() => setLocale(otherLang())}>
-                <LanguageIcon sx={{mr: 1}} />
+                <LanguageIcon  sx={{ mr: 1}} />
                 {otherLang()}
         </Button> 
     </>

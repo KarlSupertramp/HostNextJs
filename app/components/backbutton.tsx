@@ -11,16 +11,15 @@ export const urlEndWith = (substring) =>
 export function BackButton() 
 { 
   return (
-    <Box sx={{ display: "flex", bgcolor: "background.default" }}>
+    <Box sx={{ display: "flex" }}>
       <Container
         maxWidth="lg"
         sx={{
           px: 5,
-          py: 3,
-          bgcolor: "primary.main",
+          py: 2,
+          bgcolor: "background.defaultLight",
           borderBottomRightRadius: 32,
           borderBottomLeftRadius: 32,
-          boxShadow: 3,
           display: "flex",
           flexDirection: "column",
           gap: 2,
@@ -31,13 +30,7 @@ export function BackButton()
             boxShadow: 2,
             borderRadius: 2,
             maxWidth: "50px",
-            fontWeight: "bold",
-            color: "primary.main",
-            backgroundColor: "primary.dark",
-            ":hover": {
-              color: "primary.dark",
-            backgroundColor: "primary.main",
-              },
+            fontWeight: "bold"            
             }}>
             <ChevronLeftIcon />
           </Button>   

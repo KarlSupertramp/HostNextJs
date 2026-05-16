@@ -13,6 +13,7 @@ import { IframeModal } from "../components/iframeModal";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
 import Waterlevel from "../components/waterlevel";
+import { WaterLevelModal } from "../components/waterlevelModal";
 
 function FeatureContent({title, body, imgSrc})
 {
@@ -47,7 +48,7 @@ function FeatureContent({title, body, imgSrc})
   );
 }
 
-function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string, title: string) => void {} }) {
+function FeatureModal({ title, body, href, imgSrc, onOpen = (href: string, title: string) => void {} }) {
 
   const isMobile = useMediaQuery("(max-width:1000px)");
 
@@ -64,7 +65,7 @@ function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string,
       <FeatureContent body={body} title={title} imgSrc={imgSrc} />
       {!isMobile ? 
         <Button
-          onClick={() => onOpenIframe(href, title)} 
+          onClick={() => onOpen(href, title)} 
           sx={{ borderRadius: 2, width: "auto", m: 2 }} 
           variant="contained">
           Start
@@ -116,7 +117,16 @@ export default function ShowroomPage({ id }: { id?: string }) {
     setIframeOpen(true);
   };
 
+  const [waterOpen, setWaterOpen] = React.useState(false);
+  const [waterTitle, setWaterTitle] = React.useState<string | undefined>(undefined);
+
+  const openWaterLevel = (title?: string) => {
+    setWaterTitle(title);
+    setWaterOpen(true);
+  };
+
   const closeIframe = () => setIframeOpen(false);
+  const closeWaterLevel = () => setWaterOpen(false);
   const t = useTranslations('Showroom');
 
   return (
@@ -131,32 +141,32 @@ export default function ShowroomPage({ id }: { id?: string }) {
 
         <Grid container spacing={2} sx={{ mb: 3, mt: 6 }}>
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureWebGL
+            <FeatureModal
               title="Satellites"
               body={t.rich("satellitesDescription")}
               href='/satellites/index.html'
               imgSrc={"/thumbSat.png"}
-              onOpenIframe={openIframe}
+              onOpen = {openIframe}
             />              
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureWebGL
+            <FeatureModal
               title="Orbit Sandbox"
               body={t.rich("orbitSandboxDescription")}
               href='/orbitSandbox/index.html'
               imgSrc={"/orbitSandbox.jpg"}
-              onOpenIframe={openIframe}
+              onOpen = {openIframe}
             />              
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureWebGL
+            <FeatureModal
               title="Cube Puzzle"
               body={t.rich("cubePuzzleDescription")}
               href='/cubeGame/index.html'
-              imgSrc={"/thumbCube.png"}
-              onOpenIframe={openIframe}
+              imgSrc = {"/thumbCube.png"}
+              onOpen = {openIframe}
             />              
           </Grid>
 
@@ -170,21 +180,28 @@ export default function ShowroomPage({ id }: { id?: string }) {
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureWebGL
+            <FeatureModal
               title="Drone Simulator"
               body={t.rich("droneSimDescription")}
               href='/droneSim/index.html'
               imgSrc={"/thumbDrone.png"}
-              onOpenIframe={openIframe}
+              onOpen = {openIframe}
             />              
           </Grid>
 
-          <Grid item xs={12} >            
-            <Waterlevel />
+          <Grid item xs={12} sm={4} md={3} >
+            <FeatureModal
+              title="Water Levels"
+              body={t.rich("waterlevelHead")}
+              href="/waterlevelPage"
+              imgSrc={"/thumbWaterlevels.png"}
+              onOpen = {openWaterLevel}
+            />              
           </Grid>
         </Grid>        
       </Container>
       <IframeModal open={iframeOpen} url={iframeUrl} title={iframeTitle} onClose={closeIframe} />
+      <WaterLevelModal open={waterOpen} title={"Water Levels - Rhein/Neckar"} onClose={closeWaterLevel} />
     </Box>
   );
 }

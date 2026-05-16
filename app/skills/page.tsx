@@ -117,11 +117,7 @@ export default function SkillsPage({ id }: { id?: string }){
           top: "50%",
           transform: "translateY(-50%)",
           pointerEvents: "none",
-          opacity: 0.2,    
-          maskImage:
-          "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0.1))",
-          WebkitMaskImage:
-          "linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0.1))",
+          opacity: 0.1       
         }}
         >         
           {bgIcon}

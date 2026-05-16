@@ -1,6 +1,6 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { useEffect, useState } from 'react';
-import {  Card, Checkbox, FormControlLabel, Link, MenuItem, Select, SelectChangeEvent, Stack, Typography, useTheme } from '@mui/material';
+import {  Box, Card, Checkbox, FormControlLabel, Link, MenuItem, Select, SelectChangeEvent, Stack, Typography, useTheme } from '@mui/material';
 import { useTranslations } from 'next-intl';
 
 export default function Waterlevel() {
@@ -73,13 +73,8 @@ export default function Waterlevel() {
   ].filter(Boolean);
 
   return (    
-      <Card sx={{
-        boxShadow: 0,
-        borderRadius: 2,
-        p: 1
-      }}> 
-        <Typography variant="body2" color="text.secondary" m={3}>{t("waterlevelHead")}</Typography>
-        <Stack gap={1} mx={3} direction={{ xs: "column", sm: "row" }}>   
+      <Box p={2} height={"80%"}>
+        <Stack gap={1} mx={1} direction={{ xs: "column", sm: "row" }}>   
 
           <FormControlLabel
             label={t("days")}
@@ -131,8 +126,7 @@ export default function Waterlevel() {
           />
 
         </Stack>        
-        <LineChart   
-          height={210}
+        <LineChart
           sx={{
              "& .MuiChartsAxis-line": {
               stroke: theme.palette.border.main,
@@ -145,7 +139,7 @@ export default function Waterlevel() {
             }
           }}
           colors={[ theme.palette.data.cyan, theme.palette.data.blue ]}
-          series={series}
+          series={series}          
           xAxis={[
             {
               data: dataSpeyer.map((d) => d.timestamp),
@@ -164,6 +158,6 @@ export default function Waterlevel() {
           ]}>
         </LineChart>        
         <Link href={"https://www.pegelonline.wsv.de"} fontSize={"0.8em"} variant="body2" mx={3}>API: pegelonline.wsv.de</Link>
-      </Card>
+      </Box>
   );
 }

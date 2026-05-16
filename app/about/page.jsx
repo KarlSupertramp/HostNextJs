@@ -33,7 +33,7 @@ export default function AboutPage() {
           borderBottomLeftRadius: 100,
           borderBottomRightRadius: 100,
           borderTopRightRadius: 100 }}>
-          <Typography color="text.primary" variant="h6" sx={{ textAlign: "center", fontStyle: "italic"}}>
+          <Typography color="text.primary" variant="body1" sx={{ textAlign: "center", fontStyle: "italic"}}>
             " Every <b>THING</b> is an interface! "
           </Typography>
         </Box>
