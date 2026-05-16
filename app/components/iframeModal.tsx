@@ -71,7 +71,7 @@ export function IframeModal({
       sx: {
         minWidth: 1000,
         height: "85vh",
-        backgroundColor: "background.paper",
+        backgroundColor: "background.defaultLight",
         borderRadius: 1,
         overflow: "hidden",
       },
@@ -85,8 +85,7 @@ export function IframeModal({
         }}
       >
         <Typography
-          variant="body1"
-          fontWeight="bold"
+          variant="body1"     
           sx={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}
           title={title ?? url ?? ""}
         >

@@ -63,6 +63,16 @@ const theme = createTheme({
         },     
       },
     },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {     
+          color: "#f3ede3",
+           ":hover": {
+            color: "#7ab3e9",
+          },      
+        },     
+      },
+    },
     MuiCard: {
       styleOverrides: {
         root: {          
