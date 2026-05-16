@@ -15,14 +15,7 @@ return (
             sx={{        
                 borderRadius: 2,  
                 minWidth: "80px",
-                boxShadow: 1,
-                fontWeight: "bold",
-                color: "primary.main",
-                backgroundColor: "primary.dark",
-                ":hover": {
-                    color: "primary.dark",
-                    backgroundColor: "primary.main",
-                },
+                boxShadow: 1,                   
             }}
             onClick={() => setLocale(otherLang())}>
                 <LanguageIcon sx={{mr: 1}} />

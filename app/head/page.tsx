@@ -15,16 +15,9 @@ function NavScrollButton({ targetId, label }) {
     <Button
       onClick={handleScroll}
       sx={{
-        boxShadow: 2,
         borderRadius: 2,
-        fontWeight: "bold",
-        minWidth: "130px",
-        color: "primary.main",
-        backgroundColor: "primary.dark",
-        ":hover": {
-          color: "primary.dark",
-          backgroundColor: "primary.main",
-        },
+        boxShadow: 1,
+        minWidth: "130px",      
       }}
     >
       {label}
@@ -33,33 +26,34 @@ function NavScrollButton({ targetId, label }) {
 }
 
 export default function Head({ id }: { id?: string }) {
-  return <Box id={id} sx={{ 
-      justifyContent: "center",
-      display: "flex",
-      bgcolor: "background.default" }}>
+  return <Box id={id} 
+      sx={{ 
+        justifyContent: "center",
+        display: "flex",
+        bgcolor: "background.default" }}>
       <Container
         maxWidth="lg"
         sx={{
           px: 5,
           py: 3,
           mx: 2,
-          bgcolor: "primary.main",
+          bgcolor: "background.defaultLight",
           borderBottomRightRadius: 32,
           borderBottomLeftRadius: 32,
-          boxShadow: 3,
           display: "flex",
-          flexDirection: "column",
+          flexDirection: { xs: "column", lg: "row" },
+          alignItems: { xs: "flex-start", lg: "center" },
+          justifyContent: { lg: "space-between" },
           gap: 2,
         }}>
-        <Stack sx={{ flexDirection: "row", gap: 2 }}>
+        <Stack sx={{ flexDirection: "row", gap: 2, alignItems: "center" }}>
           <Box
             sx={{
               borderRadius: 1,
-              border: 3,
-              boxShadow: 2,
-              borderColor: "background.paper",
-              width: { xs: 80, sm: 128 },
-              height: { xs: 80, sm: 128 },
+              //border: 2,
+              borderColor: "border.secondary",
+              width: 75,
+              height: 75,
               overflow: "hidden",
               alignItems: "center",
               justifyContent: "center",
@@ -76,15 +70,16 @@ export default function Head({ id }: { id?: string }) {
           <Stack>
             <Typography
               sx={{
-                fontWeight: "bold",
-                color: "background.paper",
-                fontSize: { xs: "h4.fontSize", sm: "h3.fontSize" },
+                //fontWeight: "bold",
+                color: "text.primary",     
               }}
               variant="h4"
             >
               Karl Martin
             </Typography>
-            <Typography variant="h6" sx={{ fontWeight: "bold", color: "background.paper" }}>
+            <Typography 
+            variant="body1"
+            sx={{ color: "text.secondary" }}>
               UX Technologist
             </Typography>
           </Stack>
@@ -92,19 +87,15 @@ export default function Head({ id }: { id?: string }) {
 
         <Box
           sx={{
-            alignSelf: "flex-end",
             display: "grid",
-            gridTemplateColumns: { xs: "repeat(2, 1fr)", sm: "none" },
+            gridTemplateColumns: { xs: "repeat(2, 1fr)", lg: "none" },
             gap: 1,
-            gridAutoFlow: { sm: "column" },
-            justifyContent: { sm: "flex-end" },
-            ...( {
-              "@media (min-width:600px)": {
-                display: "flex",
-                flexDirection: "row",
-                gap: "5px",
-              },
-            }),
+            gridAutoFlow: { lg: "column" },
+            "@media (min-width:1200px)": {
+              display: "flex",
+              flexDirection: "row",
+              gap: "5px",
+            },
           }}
         >
           {NavScrollButton({ targetId: "showroom-section", label: "Showroom" })}
@@ -113,7 +104,6 @@ export default function Head({ id }: { id?: string }) {
           {<LocaleSwitcher/>}
         </Box>
       </Container>         
-    </Box>
-  
+    </Box>  
 }
 

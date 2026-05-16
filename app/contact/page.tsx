@@ -2,7 +2,6 @@
 
 import { Box, Container, Typography, Stack, Chip } from '@mui/material';
 import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import { useTranslations } from "next-intl";
 
@@ -13,12 +12,6 @@ const socials = [
     label: "github.com/KarlSupertramp",
     ariaLabel: "GitHub"
   },
-  /*{
-    href: "https://www.linkedin.com/in/karl-martin-b95981183/",
-    icon: LinkedInIcon,
-    label: "linkedin.com/in/karl-martin-b95981183",
-    ariaLabel: "LinkedIn"
-  },*/
   {
     href: "mailto:KarlUweMartin@gmail.com",
     icon: EmailIcon,
@@ -41,21 +34,25 @@ export default function ContactPage({ id }: { id?: string }) {
             {t("head")}
           </Typography>
         </Box>
-        <Box sx={{ mb: 2, bgcolor: "background.paper", p: 3, borderRadius: 2 }}>
+        <Box sx={{ mb: 2, bgcolor: "background.defaultLight", p: 3, borderRadius: 2 }}>
           <Stack spacing={2} gap={1}>
             {socials.map((social) => (
               <Chip
                 key={social.label}
-                icon={<social.icon color="primary" />}
+                icon={<social.icon />}
                 label={social.label}
                 onClick={() => window.open(social.href, '_blank')}
                 clickable
                 sx={{
-                  backgroundColor: "background.default",
+                  backgroundColor: "#35393f",
                   color: "text.secondary",
                   boxShadow: 1,
+                  "& .MuiChip-icon": {
+                    color: "text.secondary"
+                  },
                   ":hover": {
-                    backgroundColor: "primary.hover",
+                    backgroundColor: "#434a53",
+                    color: "#7ab3e9",
                   },
                 }}
               />

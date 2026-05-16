@@ -65,16 +65,16 @@ function FeatureWebGL({ title, body, href, imgSrc, onOpenIframe = (href: string,
       {!isMobile ? 
         <Button
           onClick={() => onOpenIframe(href, title)} 
-          sx={{ borderRadius: 2, fontWeight: "bold", width: "auto", m: 2 }} 
+          sx={{ borderRadius: 2, width: "auto", m: 2 }} 
           variant="contained">
-          Play
+          Start
         </Button> 
         : 
         <Button 
           href={href}
-          sx={{ borderRadius: 2, fontWeight: "bold", width: "auto", m: 2 }} 
+          sx={{ borderRadius: 2, width: "auto", m: 2 }} 
           variant="contained">
-          Play
+          Start
         </Button> 
       }
     </Card>
@@ -85,6 +85,7 @@ function FeatureLink({ title, body, href, imgSrc }) {
   return (
     <Card
       sx={{
+        boxShadow: 0,
         borderRadius: 2,
         display: "flex",
         flexDirection: "column",
@@ -94,7 +95,7 @@ function FeatureLink({ title, body, href, imgSrc }) {
       <FeatureContent body={body} title={title} imgSrc={imgSrc} />
       <Button 
         href={href} 
-        sx={{ borderRadius: 2, fontWeight: "bold", width: "auto", m: 2 }}
+        sx={{ borderRadius: 2, width: "auto", m: 2 }}
         variant="contained">
         Visit
       </Button>    

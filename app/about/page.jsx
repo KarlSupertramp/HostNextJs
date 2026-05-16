@@ -8,9 +8,8 @@ export default function AboutPage() {
   const t = useTranslations("About");
 
   return (
-    <Box>      
-      <Container maxWidth="lg" sx={{ py: 2 }}> 
-
+    <Box>   
+      <Container maxWidth="lg" sx={{ py: 4 }}>
         <Typography variant="body2" color="text.secondary" paragraph sx={{ mt: 0 }}>
           {t("about0")}
         </Typography>
@@ -26,16 +25,16 @@ export default function AboutPage() {
         <Box sx={{      
           width: "70%", 
           mx: "auto",
-          mb: 2, 
-          p: 1,
-          bgcolor: "background.blue",
+          my: 3, 
+          p: 2,
+          bgcolor: "background.defaultLight",
           border: 1,
           borderColor: "border.secondary",
           borderBottomLeftRadius: 100,
           borderBottomRightRadius: 100,
           borderTopRightRadius: 100 }}>
-          <Typography sx={{ textAlign: "center", fontStyle: "italic"}}>
-            "Every <b>THING</b> is an interface!"
+          <Typography color="text.primary" variant="h6" sx={{ textAlign: "center", fontStyle: "italic"}}>
+            " Every <b>THING</b> is an interface! "
           </Typography>
         </Box>
 

@@ -69,7 +69,7 @@ export default function SkillsPage({ id }: { id?: string }){
   ];
   
   const ChipSection = ({ title, items, icon }) => (
-    <Box sx={{  bgcolor: "background.paper", p: 3, borderRadius: 2 }}>
+    <Box sx={{ bgcolor: "background.defaultLight", p: 3, borderRadius: 2 }}>
       <Stack spacing={2} direction="row" alignItems="center" mb={2}>
         {icon}
         <Typography variant="h6">{title}</Typography>
@@ -79,14 +79,7 @@ export default function SkillsPage({ id }: { id?: string }){
       
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {items.map((item) => (
-          <Chip 
-            sx={{
-              fontWeight: "bold",
-              boxShadow: 1,
-              minWidth: "100px", 
-              color: "text.secondary", 
-              backgroundColor: "background.default" 
-            }} 
+          <Chip           
             key={item} 
             label={item}  
           />
@@ -109,7 +102,7 @@ export default function SkillsPage({ id }: { id?: string }){
     <Box
       sx={{
         mb: 2,
-        bgcolor: "background.paper",
+        bgcolor: "background.defaultLight",
         p: 3,
         borderRadius: 2,
         position: "relative",
@@ -163,14 +156,7 @@ export default function SkillsPage({ id }: { id?: string }){
 
       <Stack mt={2} direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         {chips.map((item) => (
-          <Chip
-            sx={{
-              fontWeight: "bold",
-              boxShadow: 1,
-              minWidth: "100px",
-              color: "text.secondary",
-              backgroundColor: "background.default",
-            }}
+          <Chip          
             key={item}
             label={item}
           />

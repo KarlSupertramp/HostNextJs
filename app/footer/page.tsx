@@ -2,47 +2,47 @@
 
 import { Box, Container, Link, Stack, Typography } from "@mui/material";
 
-export default function  Footer() {
+export default function Footer() {
 
-	const handleScroll = (targetId: string) => {
+  const handleScroll = (targetId: string) => {
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
-	return (
-		<Box
-			component="footer"
-			sx={{
-				justifyContent: "center",
-				display: "flex",	
-				textAlign: "center",
-				mt: 3
-			}}>
-			<Container
-				sx={{
+  return (
+    <Box
+      component="footer"
+      sx={{
+        justifyContent: "center",
+        display: "flex",
+        textAlign: "center",
+        mt: 3
+      }}>
+      <Container
+        sx={{
           px: 5,
           py: 3,
           mx: 2,
-          bgcolor: "primary.main",
+          bgcolor: "background.defaultLight",
           borderTopRightRadius: 32,
           borderTopLeftRadius: 32,
           display: "flex",
-					boxShadow: 3,
+          boxShadow: 3,
           flexDirection: "column"
         }}>
-				<Stack justifyContent={"center"} gap={1} direction={"row"}>
-					<Link sx={{ cursor: "pointer" }} onClick={() => {handleScroll("head-section")}} color="text.dark">Home</Link>
-					<Link sx={{ cursor: "pointer" }} onClick={() => {handleScroll("showroom-section")}} color="text.dark">Showroom</Link>
-					<Link sx={{ cursor: "pointer" }} onClick={() => {handleScroll("skills-section")}} color="text.dark">Skills</Link>	
-					<Link sx={{ cursor: "pointer" }} onClick={() => {handleScroll("contact-section")}} color="text.dark">Contact</Link>
-					{/*<Link sx={{ cursor: "pointer" }} href={"/blog"} color="text.dark">Blog</Link>*/}
-				</Stack>
-				<Typography alignSelf={"center"} variant="body2" color="text.dark">
-					&copy; {new Date().getFullYear()} Karl Martin
-				</Typography>
-			</Container>
-		</Box>	
-	);
+        <Stack justifyContent={"center"} gap={1} direction={"row"}>
+          <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("head-section") }}>Home</Link>
+          <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("showroom-section") }} >Showroom</Link>
+          <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("skills-section") }}>Skills</Link>
+          <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("contact-section") }}>Contact</Link>
+          {/*<Link sx={{ cursor: "pointer" }} href={"/blog"} color="text.dark">Blog</Link>*/}
+        </Stack>
+        <Typography alignSelf={"center"} variant="body2" color="text.faded" mt={2}>
+          &copy; {new Date().getFullYear()} Karl Martin - karluwemartin.de
+        </Typography>
+      </Container>
+    </Box>
+  );
 }

@@ -74,6 +74,7 @@ export default function Waterlevel() {
 
   return (    
       <Card sx={{
+        boxShadow: 0,
         borderRadius: 2,
         p: 1
       }}> 
@@ -88,7 +89,18 @@ export default function Waterlevel() {
               id="daysSelect"
               value={days}
               onChange={handleChange}
-              sx={{ mr: 1, border:0, backgroundColor: "background.defaultLight"}}
+              sx={{
+                mr: 1,
+                border:0, 
+                backgroundColor: "button.default",
+              }}
+              MenuProps={{
+                PaperProps: {
+                  sx: {
+                    backgroundColor: "button.default",
+                  },  
+                },
+              }}
               >
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={3}>3</MenuItem>
@@ -101,7 +113,7 @@ export default function Waterlevel() {
           <FormControlLabel
             label="Rhein"
             control={
-              <Checkbox
+              <Checkbox       
                 checked={showRhein}
                 onChange={(e) => setShowRhein(e.target.checked)}
               />
@@ -151,7 +163,7 @@ export default function Waterlevel() {
             },            
           ]}>
         </LineChart>        
-        <Link href={"https://www.pegelonline.wsv.de"} fontSize={"0.8em"} variant="body2"  mx={3}>API: pegelonline.wsv.de</Link>
+        <Link href={"https://www.pegelonline.wsv.de"} fontSize={"0.8em"} variant="body2" mx={3}>API: pegelonline.wsv.de</Link>
       </Card>
   );
 }

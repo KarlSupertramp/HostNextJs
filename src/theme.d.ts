@@ -13,6 +13,7 @@ declare module "@mui/material/styles" {
 
     border: {
       main: string;
+      secondary: string;
     };
 
     text: {
@@ -30,12 +31,11 @@ declare module "@mui/material/styles" {
       red?: string;
       green?: string;
     };
-
-     border?: {
+    border?: {
       main?: string;
+      secondary?: string;
     };
-
-     text?: {
+    text?: {
       faded?: string;
     };
   }
