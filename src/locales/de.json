@@ -45,5 +45,11 @@
   },
   "Nav": {
     "contact": "Kontakt"
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zur Startseite",
+    "explore": "Erkunden"
   }
 }

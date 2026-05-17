@@ -19,7 +19,6 @@ declare module "@mui/material/styles" {
     text: {
       faded: string;
     };
-
   }
 
   interface PaletteOptions {
@@ -37,6 +36,6 @@ declare module "@mui/material/styles" {
     };
     text?: {
       faded?: string;
-    };
+    };    
   }
 }

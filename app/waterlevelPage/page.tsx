@@ -2,7 +2,7 @@
 
 import { Box, Container } from "@mui/material";
 import Waterlevel from "../components/waterlevel";
-import { BackButton } from "../components/backbutton";
+import { BackButton } from "../sections/backbutton";
 
 export default function WaterlevelPage() {
   return <Container maxWidth="lg" >

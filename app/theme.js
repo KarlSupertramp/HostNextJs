@@ -14,7 +14,8 @@ const theme = createTheme({
       default: "#1b1b1d",
       defaultDark: "#19191b",
       defaultLight: "#202124",
-      blurry: "#32323a52" 
+      blurry: "#32323a52",
+      paper: "#35393f"
     },
     button: {
       default: "#35393f",

@@ -1,11 +1,11 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { useEffect, useState } from 'react';
-import {  Box, Card, Checkbox, FormControlLabel, Link, MenuItem, Select, SelectChangeEvent, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Card, Checkbox, FormControlLabel, Link, MenuItem, Select, SelectChangeEvent, Stack, Typography, useTheme } from '@mui/material';
 import { useTranslations } from 'next-intl';
 
 export default function Waterlevel() {
   const t = useTranslations('Showroom');
-  
+
   type Measurement = {
     timestamp: string;
     value: number | null;
@@ -36,21 +36,21 @@ export default function Waterlevel() {
 
     loadData();
   }, [days]);
-    
+
   async function fetchMeasurements(stationId: string, days: string): Promise<Measurement[]> {
     try {
       const response = await fetch(
         `https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations/${stationId}/W/measurements.json?start=P${days}D`
       );
-      
+
       if (!response.ok) {
         throw new Error(`API error: ${response.status}`);
       }
-      
+
       const data: Measurement[] = await response.json();
       console.log(data.length)
       return data;
-      
+
     } catch (error) {
       console.error("Failed to fetch measurements:", error);
       return [];
@@ -72,92 +72,91 @@ export default function Waterlevel() {
     },
   ].filter(Boolean);
 
-  return (    
-      <Box p={2} height={"80%"}>
-        <Stack gap={1} mx={1} direction={{ xs: "column", sm: "row" }}>   
+  return (
+    <Box p={2} height={"80%"}>
+      <Stack gap={1} mx={1} direction={{ xs: "column", sm: "row" }}>
 
-          <FormControlLabel
-            label={t("days")}
-            control={ 
-            <Select             
-              size="small"                      
+        <FormControlLabel
+          label={t("days")}
+          control={
+            <Select
+              size="small"
               id="daysSelect"
               value={days}
               onChange={handleChange}
               sx={{
                 mr: 1,
-                border:0, 
+                border: 0,
                 backgroundColor: "button.default",
               }}
               MenuProps={{
                 PaperProps: {
                   sx: {
                     backgroundColor: "button.default",
-                  },  
+                  },
                 },
               }}
-              >
+            >
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={3}>3</MenuItem>
               <MenuItem value={7}>7</MenuItem>
               <MenuItem value={14}>14</MenuItem>
               <MenuItem value={30}>30</MenuItem>
-            </Select>   
-          }/>
+            </Select>
+          } />
 
-          <FormControlLabel
-            label="Rhein"
-            control={
-              <Checkbox       
-                checked={showRhein}
-                onChange={(e) => setShowRhein(e.target.checked)}
-              />
-            }
-          />
+        <FormControlLabel
+          label="Rhein"
+          control={
+            <Checkbox
+              checked={showRhein}
+              onChange={(e) => setShowRhein(e.target.checked)}
+            />
+          }
+        />
 
-          <FormControlLabel
-            label="Neckar"
-            control={
-              <Checkbox
-                checked={showNeckar}
-                onChange={(e) => setShowNeckar(e.target.checked)}
-              />
-            }
-          />
+        <FormControlLabel
+          label="Neckar"
+          control={
+            <Checkbox
+              checked={showNeckar}
+              onChange={(e) => setShowNeckar(e.target.checked)}
+            />
+          }
+        />
 
-        </Stack>        
-        <LineChart
-          sx={{
-             "& .MuiChartsAxis-line": {
-              stroke: theme.palette.border.main,
-           },
-           "& .MuiChartsAxis-tick": {
-              stroke: theme.palette.border.main,
+      </Stack>
+      <LineChart
+        colors={[theme.palette.data.cyan, theme.palette.data.blue]}
+        series={series}
+        slotProps={{
+          tooltip: {
+            sx: {
+              '& .MuiPaper-root': {
+                backgroundColor: '#333333', // Change this to your desired background color
+                color: '#ffffff',             // Optional: change text color
+              },
             },
-            "& .MuiChartsAxis-tickLabel": {
-              fill: theme.palette.border.main,
-            }
-          }}
-          colors={[ theme.palette.data.cyan, theme.palette.data.blue ]}
-          series={series}          
-          xAxis={[
-            {
-              data: dataSpeyer.map((d) => d.timestamp),
-              scaleType: 'point',
-              tickInterval: (value: string, index) => value.includes("T00:00"),
-              valueFormatter: (value) => {
-                const date = new Date(value);
-                return date.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  hour: "2-digit",
-                  minute: "2-digit"
-                });
-              },     
-            },            
-          ]}>
-        </LineChart>        
-        <Link href={"https://www.pegelonline.wsv.de"} fontSize={"0.8em"} variant="body2" mx={3}>API: pegelonline.wsv.de</Link>
-      </Box>
+          },
+        }}
+        xAxis={[
+          {
+            data: dataSpeyer.map((d) => d.timestamp),
+            scaleType: 'point',
+            tickInterval: (value: string, index) => value.includes("T00:00"),
+            valueFormatter: (value) => {
+              const date = new Date(value);
+              return date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit"
+              });
+            },
+          },
+        ]}>
+      </LineChart>
+      <Link href={"https://www.pegelonline.wsv.de"} fontSize={"0.8em"} variant="body2" mx={3}>API: pegelonline.wsv.de</Link>
+    </Box>
   );
 }

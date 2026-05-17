@@ -1,6 +1,6 @@
 import { Box, Button, Container, Stack } from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { LocaleSwitcher } from "./localeSwitcher";
+import { LocaleSwitcher } from "../components/localeSwitcher";
 
 export const urlEndWith = (substring) =>
 {

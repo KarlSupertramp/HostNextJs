@@ -14,15 +14,17 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
 import { WaterLevelModal } from "../components/waterlevelModal";
 
-function FeatureContent({title, body, imgSrc})
-{
-  return(
-  <>
-    <Box
+function FeatureContent({ title, body, imgSrc }) {
+  return (
+    <>
+      <Box
         sx={{
           overflow: "hidden",
           height: "40%",
           borderRadius: "4px 4px 0 0",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
         }}
       >
         <img
@@ -30,8 +32,7 @@ function FeatureContent({title, body, imgSrc})
           style={{
             width: "100%",
             maxHeight: "250px",
-            objectFit: "cover",
-            display: "block",
+            objectFit: "cover"
           }}
         />
       </Box>
@@ -62,18 +63,18 @@ function FeatureModal({ title, body, href, imgSrc, onOpen = (href: string, title
       }}
     >
       <FeatureContent body={body} title={title} imgSrc={imgSrc} />
-      {!isMobile ? 
+      {!isMobile ?
         <Button
-          onClick={() => onOpen(href, title)} 
+          onClick={() => onOpen(href, title)}
           sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
           Start
-        </Button> 
-        : 
-        <Button 
+        </Button>
+        :
+        <Button
           href={href}
           sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
           Start
-        </Button> 
+        </Button>
       }
     </Card>
   );
@@ -91,11 +92,11 @@ function FeatureLink({ title, body, href, imgSrc }) {
       }}
     >
       <FeatureContent body={body} title={title} imgSrc={imgSrc} />
-      <Button 
-        href={href}       
+      <Button
+        href={href}
         sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
         Visit
-      </Button>    
+      </Button>
     </Card>
   );
 }
@@ -126,14 +127,14 @@ export default function ShowroomPage({ id }: { id?: string }) {
   const t = useTranslations('Showroom');
 
   return (
-    <Box sx={{bgcolor: "background.defaultDark"}} id={id}>
-      <Container maxWidth="lg" sx={{ py: 6 }}>        
+    <Box sx={{ bgcolor: "background.defaultDark" }} id={id}>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Showroom
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {t("showroomHead")}
-        </Typography>         
+        </Typography>
 
         <Grid container spacing={2} sx={{ mb: 3, mt: 6 }}>
           <Grid item xs={12} sm={4} md={3} >
@@ -142,8 +143,8 @@ export default function ShowroomPage({ id }: { id?: string }) {
               body={t.rich("satellitesDescription")}
               href='/satellites/index.html'
               imgSrc={"/thumbSat.png"}
-              onOpen = {openIframe}
-            />              
+              onOpen={openIframe}
+            />
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
@@ -152,8 +153,8 @@ export default function ShowroomPage({ id }: { id?: string }) {
               body={t.rich("orbitSandboxDescription")}
               href='/orbitSandbox/index.html'
               imgSrc={"/orbitSandbox.jpg"}
-              onOpen = {openIframe}
-            />              
+              onOpen={openIframe}
+            />
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
@@ -161,9 +162,9 @@ export default function ShowroomPage({ id }: { id?: string }) {
               title="Cube Puzzle"
               body={t.rich("cubePuzzleDescription")}
               href='/cubeGame/index.html'
-              imgSrc = {"/thumbCube.png"}
-              onOpen = {openIframe}
-            />              
+              imgSrc={"/thumbCube.png"}
+              onOpen={openIframe}
+            />
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
@@ -172,7 +173,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
               body={t.rich("flutterDescription")}
               href="https://github.com/KarlSupertramp/WebApi-Flutter-Template"
               imgSrc={"/thumbFlutter.png"}
-            />              
+            />
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
@@ -181,8 +182,8 @@ export default function ShowroomPage({ id }: { id?: string }) {
               body={t.rich("droneSimDescription")}
               href='/droneSim/index.html'
               imgSrc={"/thumbDrone.png"}
-              onOpen = {openIframe}
-            />              
+              onOpen={openIframe}
+            />
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
@@ -191,10 +192,10 @@ export default function ShowroomPage({ id }: { id?: string }) {
               body={t.rich("waterlevelHead")}
               href="/waterlevelPage"
               imgSrc={"/thumbWaterlevels.png"}
-              onOpen = {openWaterLevel}
-            />              
+              onOpen={openWaterLevel}
+            />
           </Grid>
-        </Grid>        
+        </Grid>
       </Container>
       <IframeModal open={iframeOpen} url={iframeUrl} title={iframeTitle} onClose={closeIframe} />
       <WaterLevelModal open={waterOpen} title={"Water Levels - Rhein/Neckar"} onClose={closeWaterLevel} />
