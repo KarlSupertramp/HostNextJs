@@ -128,7 +128,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
 
   return (
     <Box sx={{ bgcolor: "background.defaultDark" }} id={id}>
-      <Container maxWidth="lg" sx={{ py: 6 }}>
+      <Container maxWidth="lg" sx={{ py: 15 }}>
         <Typography variant="h4" component="h1" gutterBottom>
           Showroom
         </Typography>

@@ -25,7 +25,7 @@ export default function ContactPage({ id }: { id?: string }) {
 
   return (
     <Box sx={{ bgcolor: "background.defaultDark" }} id={id}>
-      <Container maxWidth="lg" sx={{ py: 6 }}>
+      <Container maxWidth="lg" sx={{ py: 15 }}>
         <Box sx={{ mb: 4 }}>
           <Typography variant="h4" sx={{ mb: 2 }}>
             {t("title")}

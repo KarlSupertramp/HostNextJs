@@ -1,6 +1,7 @@
 import { LineChart } from '@mui/x-charts/LineChart';
 import { useEffect, useState } from 'react';
-import { Box, Card, Checkbox, FormControlLabel, Link, MenuItem, Select, SelectChangeEvent, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, Link, MenuItem,
+   Select, SelectChangeEvent, Stack, useTheme } from '@mui/material';
 import { useTranslations } from 'next-intl';
 
 export default function Waterlevel() {
@@ -73,7 +74,7 @@ export default function Waterlevel() {
   ].filter(Boolean);
 
   return (
-    <Box p={2} height={"80%"}>
+    <Box p={2} minHeight={350} height="100%" display="flex" flexDirection="column">
       <Stack gap={1} mx={1} direction={{ xs: "column", sm: "row" }}>
 
         <FormControlLabel

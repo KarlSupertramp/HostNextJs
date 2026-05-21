@@ -165,7 +165,7 @@ export default function SkillsPage({ id }: { id?: string }){
 
   return (
     <Box id={id} bgcolor={"background.default"} >      
-      <Container  maxWidth="lg" sx={{ py: 6 }}>         
+      <Container  maxWidth="lg" sx={{ py: 15 }}>         
         <Typography variant="h4" component="h1" mb={2}>
          {t("head")}
         </Typography>

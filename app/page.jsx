@@ -16,7 +16,6 @@ export default function Home() {
       <AboutPage/>
       <ShowroomPage id={"showroom-section"}/>
       <SkillsPage id={"skills-section"} />
-      {/*<AboutPage />*/}
       <ContactPage id={"contact-section"} />
       <Footer />
     </>

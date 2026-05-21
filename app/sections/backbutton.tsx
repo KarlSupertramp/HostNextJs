@@ -2,12 +2,6 @@ import { Box, Button, Container, Stack } from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { LocaleSwitcher } from "../components/localeSwitcher";
 
-export const urlEndWith = (substring) =>
-{
-  var href = window.location.href
-  return href.endsWith(substring);
-}
-
 export function BackButton() 
 { 
   return (

@@ -34,7 +34,9 @@ export default function Footer() {
           <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("showroom-section") }} >Showroom</Link>
           <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("skills-section") }}>Skills</Link>
           <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("contact-section") }}>Contact</Link>
-          {/*<Link sx={{ cursor: "pointer" }} href={"/blog"} color="text.dark">Blog</Link>*/}
+        </Stack>
+        <Stack justifyContent={"center"} gap={1} direction={"row"}>            
+          <Link sx={{ fontSize: "0.875rem", cursor: "pointer" }} href={"/ossPage"} color="text.faded">Open Source</Link>
         </Stack>
         <Typography alignSelf={"center"} variant="body2" color="text.faded" mt={2}>
           &copy; {new Date().getFullYear()} Karl Martin - karluwemartin.de
