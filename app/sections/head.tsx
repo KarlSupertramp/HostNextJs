@@ -84,14 +84,13 @@ export default function Head({ id }: { id?: string }) {
           </Stack>
           </Stack>
 
-        <Stack sx={{ justifyContent: "center", alignSelf: { xs: "flex-end", sm: "center" } }} direction={"row"} gap={1}>
+        <Stack sx={{ px: 3, justifyContent: "center", alignSelf: { xs: "flex-end", sm: "center" } }} direction={"row"} gap={1}>
           <NavScrollButton targetId="showroom-section" label="Showroom" />
           <NavScrollButton targetId="skills-section" label="Skills" />
           <NavScrollButton targetId="contact-section" label={t("contact")} />    
-        </Stack>
-        <Box sx={{ justifyContent: "center", alignSelf: { xs: "flex-end", sm: "center" } }}>          
+          |
           <LocaleSwitcher />
-        </Box>
+        </Stack>
       </Container>         
     </Box>  
 }

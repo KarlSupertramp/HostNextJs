@@ -7,9 +7,9 @@ import { useTranslations } from "next-intl";
 
 const socials = [
   {
-    href: "https://github.com/KarlSupertramp/",
+    href: "https://github.com/KarlUweMartin/",
     icon: GitHubIcon,
-    label: "github.com/KarlSupertramp",
+    label: "github.com/KarlUweMartin",
     ariaLabel: "GitHub"
   },
   {

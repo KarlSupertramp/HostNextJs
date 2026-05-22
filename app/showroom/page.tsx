@@ -171,7 +171,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
             <FeatureLink
               title="Shop-App Tempate"
               body={t.rich("flutterDescription")}
-              href="https://github.com/KarlSupertramp/WebApi-Flutter-Template"
+              href="https://github.com/KarlUweMartin/WebApi-Flutter-Template"
               imgSrc={"/thumbFlutter.png"}
             />
           </Grid>

@@ -1,4 +1,5 @@
 import { Box, Container, Link, Stack, Typography } from "@mui/material";
+import { LocaleSwitcher } from "../components/localeSwitcher";
 
 export default function Footer() {
 
@@ -34,6 +35,8 @@ export default function Footer() {
           <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("showroom-section") }} >Showroom</Link>
           <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("skills-section") }}>Skills</Link>
           <Link sx={{ cursor: "pointer" }} onClick={() => { handleScroll("contact-section") }}>Contact</Link>
+          |
+          <LocaleSwitcher />
         </Stack>
         <Stack justifyContent={"center"} gap={1} direction={"row"}>            
           <Link sx={{ fontSize: "0.875rem", cursor: "pointer" }} href={"/ossPage"} color="text.faded">Open Source</Link>

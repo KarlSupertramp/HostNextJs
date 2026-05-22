@@ -86,7 +86,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           minWidth: "120px",      
-          backgroundColor: "#48739b",
+          backgroundColor: "#3e8feb",
           color: "#f3ede3"          
         },     
       },

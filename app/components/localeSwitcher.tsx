@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import { useAppLocale } from '../../src/i18n/ClientIntlProvider';
 import LanguageIcon from '@mui/icons-material/Language';
 
@@ -11,16 +11,18 @@ const otherLang = () => locale == "en" ? "de" : "en";
 
 return (  
     <>    
-        <Button  
-            sx={{        
-                borderRadius: 2,  
-                minWidth: "80px",
-                boxShadow: 1,                   
+        <Link
+            sx={{
+                cursor: "pointer",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 0.2,
             }}
-            onClick={() => setLocale(otherLang())}>
-                <LanguageIcon  sx={{ mr: 1}} />
-                {otherLang()}
-        </Button> 
+            onClick={() => setLocale(otherLang())}
+        >
+            <LanguageIcon sx={{ fontSize: 18 }} />
+            {otherLang().toUpperCase()}
+        </Link>
     </>
   );
 }
