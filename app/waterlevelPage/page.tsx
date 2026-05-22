@@ -7,7 +7,7 @@ import { BackButton } from "../sections/backbutton";
 export default function WaterlevelPage() {
   return (
     <Container maxWidth="lg">
-      <BackButton />
+      <BackButton title="Water Level - Rhein/Neckar" />
       <Box height={"85vh"}>
           <Waterlevel />
       </Box>

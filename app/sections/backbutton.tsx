@@ -1,33 +1,31 @@
-import { Box, Button, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Link, Stack, Typography } from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { LocaleSwitcher } from "../components/localeSwitcher";
 
-export function BackButton() 
+interface BackButtonProps {
+  title?: string | null;
+}
+
+export function BackButton({ title }: BackButtonProps) 
 { 
   return (
     <Box sx={{ display: "flex" }}>
       <Container
         maxWidth="lg"
         sx={{
-          px: 5,
-          py: 2,
+          py: 1,
+          mb: 2,
           bgcolor: "background.defaultLight",
           borderBottomRightRadius: 32,
           borderBottomLeftRadius: 32,
           display: "flex",
-          flexDirection: "column",
-          gap: 2,
+          flexDirection: "column"
         }}>        
-        <Stack justifyContent={"space-between"} direction={"row"} gap={1}>          
-          <Button href={"/"}
-          sx={{
-            boxShadow: 2,
-            borderRadius: 2,
-            maxWidth: "50px",
-            fontWeight: "bold"            
-            }}>
+        <Stack justifyContent={"space-between"} direction={"row"}>          
+          <Link href={"/"}>
             <ChevronLeftIcon />
-          </Button>   
+          </Link>     
+          {title && <Typography variant="body1" alignSelf={"center"}>{title}</Typography>}  
           <LocaleSwitcher/>
         </Stack>
       </Container>

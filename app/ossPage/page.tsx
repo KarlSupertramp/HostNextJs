@@ -6,8 +6,7 @@ import { BackButton } from "../sections/backbutton";
 
 export default function OssPage() {
     return <Container maxWidth="lg">
-        <BackButton />
-        <Typography m={2} variant="h6">Open Source Licenses</Typography>
+        <BackButton title="Open Source Licenses"/>
         <OssLicensesTable />
     </Container>
 }

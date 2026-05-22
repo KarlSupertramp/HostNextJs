@@ -7,11 +7,8 @@ import {
   TableHead,
   TableRow,
   Link,
-  Card,
-  Typography,
-  Container,
+  Card
 } from "@mui/material";
-import { BackButton } from "../sections/backbutton";
 
 type OssLicenseDto = Record<
   string,
