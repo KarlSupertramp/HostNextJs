@@ -8,7 +8,7 @@ const theme = createTheme({
     border: 
     { 
       main: "#e7d192",
-      secondary: "#7ab3e9"
+      secondary: "#609ee6"
     },
     background: {
       default: "#1b1b1d",
@@ -94,7 +94,7 @@ const theme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {     
-          color: "#7ab3e9",
+          color: "#609ee6",
            ":hover": {
             color: "#eda916",
           },

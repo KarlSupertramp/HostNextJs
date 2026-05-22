@@ -1,5 +1,3 @@
-"use client"; 
-
 import { Typography, Stack, Link, Box, Container } from "@mui/material";
 import { LocaleSwitcher } from "../components/localeSwitcher";
 import { useTranslations } from "next-intl";
@@ -51,13 +49,11 @@ export default function Head({ id }: { id?: string }) {
           <Box
             sx={{
               borderRadius: 1,
-              borderColor: "border.secondary",
-              width: 75,
-              height: 75,
+              width: 130,
+              height: 85,
               overflow: "hidden",
               alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
+              justifyContent: "center"
             }}
           > 
             <img
@@ -88,12 +84,12 @@ export default function Head({ id }: { id?: string }) {
           </Stack>
           </Stack>
 
-        <Stack justifyContent={"center"} direction={"row"} gap={2}>
+        <Stack sx={{ justifyContent: "center", alignSelf: { xs: "flex-end", sm: "center" } }} direction={"row"} gap={1}>
           <NavScrollButton targetId="showroom-section" label="Showroom" />
           <NavScrollButton targetId="skills-section" label="Skills" />
           <NavScrollButton targetId="contact-section" label={t("contact")} />    
         </Stack>
-        <Box>          
+        <Box sx={{ justifyContent: "center", alignSelf: { xs: "flex-end", sm: "center" } }}>          
           <LocaleSwitcher />
         </Box>
       </Container>         
