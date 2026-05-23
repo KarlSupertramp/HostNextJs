@@ -93,10 +93,18 @@ export function IframeModal({
         </Typography>
 
         <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-          <IconButton onClick={useFullscreen} aria-label="Fullscreen" size="small">
+          <IconButton 
+              sx={{ backgroundColor: "background.defaultLight" }}
+              onClick={useFullscreen} 
+              aria-label="Fullscreen" 
+              size="small">
             <WebAssetIcon />
           </IconButton>
-          <IconButton onClick={onClose} aria-label="Close" size="small">
+          <IconButton 
+              sx={{ backgroundColor: "background.defaultLight" }} 
+              onClick={onClose} 
+              aria-label="Close" 
+              size="small">
             <CloseIcon />
           </IconButton>
         </Box>

@@ -7,12 +7,14 @@ import {
   Typography,
   Grid,
   Card,
-  Button
+  IconButton,
+  Stack
 } from "@mui/material";
 import { IframeModal } from "../components/iframeModal";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
 import { WaterLevelModal } from "../components/waterlevelModal";
+import PlayIcon from '@mui/icons-material/PlayArrow';
 
 function FeatureContent({ title, body, imgSrc }) {
   return (
@@ -48,9 +50,15 @@ function FeatureContent({ title, body, imgSrc }) {
   );
 }
 
-function FeatureModal({ title, body, href, imgSrc, onOpen = (href: string, title: string) => void {} }) {
-
+function Feature({ title, body, href, imgSrc, onOpen }: { 
+  title: string; 
+  body: React.ReactNode; 
+  href: string; 
+  imgSrc: string; 
+  onOpen?: (href: string, title: string) => void;
+}) {
   const isMobile = useMediaQuery("(max-width:1000px)");
+  const showModal = onOpen && !isMobile;
 
   return (
     <Card
@@ -63,40 +71,12 @@ function FeatureModal({ title, body, href, imgSrc, onOpen = (href: string, title
       }}
     >
       <FeatureContent body={body} title={title} imgSrc={imgSrc} />
-      {!isMobile ?
-        <Button
-          onClick={() => onOpen(href, title)}
-          sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
-          Start
-        </Button>
-        :
-        <Button
-          href={href}
-          sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
-          Start
-        </Button>
-      }
-    </Card>
-  );
-}
-
-function FeatureLink({ title, body, href, imgSrc }) {
-  return (
-    <Card
-      sx={{
-        boxShadow: 0,
-        borderRadius: 2,
-        display: "flex",
-        flexDirection: "column",
-        height: { xs: "auto", sm: "100%" }
-      }}
-    >
-      <FeatureContent body={body} title={title} imgSrc={imgSrc} />
-      <Button
-        href={href}
-        sx={{ boxShadow: 2, borderRadius: 2, width: "auto", m: 2 }}>
-        Visit
-      </Button>
+      <IconButton
+        onClick={showModal ? () => onOpen(href, title) : undefined}
+        href={showModal ? undefined : href}
+        sx={{ boxShadow: 1, borderRadius: "50%", width: 44, height: 44, m: 2, ml: "auto" }}>
+        <PlayIcon />
+      </IconButton>
     </Card>
   );
 }
@@ -138,7 +118,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
 
         <Grid container spacing={2} sx={{ mb: 3, mt: 6 }}>
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureModal
+            <Feature
               title="Satellites"
               body={t.rich("satellitesDescription")}
               href='/satellites/index.html'
@@ -148,7 +128,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureModal
+            <Feature
               title="Orbit Sandbox"
               body={t.rich("orbitSandboxDescription")}
               href='/orbitSandbox/index.html'
@@ -158,7 +138,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureModal
+            <Feature
               title="Cube Puzzle"
               body={t.rich("cubePuzzleDescription")}
               href='/cubeGame/index.html'
@@ -168,7 +148,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureLink
+            <Feature
               title="Shop-App Tempate"
               body={t.rich("flutterDescription")}
               href="https://github.com/KarlUweMartin/WebApi-Flutter-Template"
@@ -177,7 +157,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureModal
+            <Feature
               title="Drone Simulator"
               body={t.rich("droneSimDescription")}
               href='/droneSim/index.html'
@@ -187,7 +167,7 @@ export default function ShowroomPage({ id }: { id?: string }) {
           </Grid>
 
           <Grid item xs={12} sm={4} md={3} >
-            <FeatureModal
+            <Feature
               title="Water Levels"
               body={t.rich("waterlevelHead")}
               href="/waterlevelPage"
