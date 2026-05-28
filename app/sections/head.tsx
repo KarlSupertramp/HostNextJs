@@ -22,76 +22,78 @@ function NavScrollButton({ targetId, label }: { targetId: string; label: string 
 }
 
 export default function Head({ id }: { id?: string }) {
-
+  
   const t = useTranslations('Nav');  
 
-  return <Box id={id} 
-      sx={{ 
-        justifyContent: "center",
-        display: "flex",
-        bgcolor: "background.default" }}>
-
-      <Container
-        maxWidth="lg"
-        sx={{
-          py: 2,
-          bgcolor: "background.defaultLight",
-          borderBottomRightRadius: 32,
-          borderBottomLeftRadius: 32,
-          gap: 2,
+  return (
+    <Box id={id} 
+        sx={{ 
+          justifyContent: "center",
           display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          alignItems: { xs: "flex-start", sm: "center" },
-          justifyContent: "space-between"      
-        }}>
+          bgcolor: "background.default" }}>
 
-        <Stack sx={{ flexDirection: "row", gap: 2, alignItems: "center" }}>
-          <Box
-            sx={{
-              borderRadius: 1,
-              width: 130,
-              height: 85,
-              overflow: "hidden",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          > 
-            <img
-              src="https://avatars.githubusercontent.com/u/12151775?v=4"
-              alt="ProfilePicture"
-              style={{ 
-                width: "100%", 
-                height: "100%",
-                 objectFit: "cover" 
-                }}
-            />
-          </Box>
+        <Container
+          maxWidth="lg"
+          sx={{
+            py: 2,
+            bgcolor: "background.defaultLight",
+            borderBottomRightRadius: 32,
+            borderBottomLeftRadius: 32,
+            gap: 2,
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: { xs: "flex-start", sm: "center" },
+            justifyContent: "space-between"      
+          }}>
 
-          <Stack>
-            <Typography
+          <Stack sx={{ flexDirection: "row", gap: 2, alignItems: "center" }}>
+            <Box
               sx={{
-                color: "text.primary",     
+                borderRadius: 1,
+                width: 130,
+                height: 85,
+                overflow: "hidden",
+                alignItems: "center",
+                justifyContent: "center"
               }}
-              variant="h5"
-            >
-              Karl Martin
-            </Typography>
-            <Typography 
-            variant="body2"
-            sx={{ color: "text.faded" }}>
-              UX Technologist
-            </Typography>
-          </Stack>
-          </Stack>
+            > 
+              <img
+                src="https://avatars.githubusercontent.com/u/12151775?v=4"
+                alt="ProfilePicture"
+                style={{ 
+                  width: "100%", 
+                  height: "100%",
+                  objectFit: "cover" 
+                  }}
+              />
+            </Box>
 
-        <Stack sx={{ px: 3, justifyContent: "center", alignSelf: { xs: "flex-end", sm: "center" } }} direction={"row"} gap={1}>
-          <NavScrollButton targetId="showroom-section" label="Showroom" />
-          <NavScrollButton targetId="skills-section" label="Skills" />
-          <NavScrollButton targetId="contact-section" label={t("contact")} />    
-          |
-          <LocaleSwitcher />
-        </Stack>
-      </Container>         
-    </Box>  
+            <Stack>
+              <Typography
+                sx={{
+                  color: "text.primary",     
+                }}
+                variant="h5"
+              >
+                Karl Martin
+              </Typography>
+              <Typography 
+              variant="body2"
+              sx={{ color: "text.faded" }}>
+                UX Technologist
+              </Typography>
+            </Stack>
+            </Stack>
+
+          <Stack sx={{ px: 3, justifyContent: "center", alignSelf: { xs: "flex-end", sm: "center" } }} direction={"row"} gap={1}>
+            <NavScrollButton targetId="showroom-section" label="Showroom" />
+            <NavScrollButton targetId="skills-section" label="Skills" />
+            <NavScrollButton targetId="contact-section" label={t("contact")} />    
+            |
+            <LocaleSwitcher />
+          </Stack>
+        </Container>         
+      </Box>
+  );
 }
 
