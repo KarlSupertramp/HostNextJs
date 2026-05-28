@@ -128,14 +128,14 @@ export function IframeModal({
         )}
 
         {shouldRenderIframe && url ? (
-          <Box
+          <Box<'iframe'>
             component="iframe"
             ref={iframeRef}
             key={url}
             src={url}
             onLoad={() => setLoading(false)}
             sx={{ width: "100%", height: "100%", border: "none", display: "block", backgroundColor: "background.default" }}
-            allow="clipboard-read; clipboard-write; fullscreen"            
+            allow="clipboard-read; clipboard-write; fullscreen"
           />
         ) : (
           <Box sx={{ p: 3 }}>
