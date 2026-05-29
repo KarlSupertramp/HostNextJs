@@ -25,21 +25,34 @@ export default function AboutPage() {
           mx: "auto",
           my: 3, 
           p: 6,
-          bgcolor: "background.defaultLight",
-          border: 1,
+          bgcolor: "background.defaultDark",
+          border: .1,
           borderColor: "border.secondary",   
           borderBottomLeftRadius: 100,
           borderBottomRightRadius: 100,
           borderTopRightRadius: 100,
           position: "relative",
-          overflow: "hidden" }}>
-          <Box sx={{ borderRadius: 100, backgroundColor: "#00000000", zIndex: 1, position: "relative", py: 1, backdropFilter: "blur(2px)"}}>                
-            <Typography cursor="none" color="text.primary" variant="h5" sx={{ textAlign: "center", fontStyle: "italic", position: "relative", zIndex: 1 }}>
-              " Every <b>THING</b> is an interface! "
-            </Typography>
-          </Box>
+          overflow: "hidden" }}>                          
+          <Typography 
+              color="text.secondary"
+              variant="h6" 
+              sx={{ 
+                textAlign: "center",
+                fontStyle: "italic",
+                position: "relative",
+                zIndex: 1 
+              }}>
+            " Every <span style={{ fontWeight: 'bold', color: '#eda916' }}>THING</span> is an interface! "
+          </Typography>        
           <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
-            <SineWaveBox color="#b4d1f1" yAmount={25} />
+            <SineWaveBox 
+              color="#6e95b9"
+              xDensity={0.08} 
+              yDensity={0.08} 
+              xAmount={350}
+              yAmount={50}
+              timeScale={1.1}
+            />
           </Box>
         </Box>
 

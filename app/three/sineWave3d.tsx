@@ -59,6 +59,10 @@ function SineWave(props: ThreeElements['points'] & SineWaveProps & { cursorPos: 
     return new Float32Array(basePositions)
   }, [basePositions])
 
+  const animatedSizes = useMemo(() => {
+    return new Float32Array(xAmount * yAmount).fill(1.2)
+  }, [xAmount, yAmount])
+
   const baseSizes = useMemo(() => {
     return new Float32Array(xAmount * yAmount).fill(1.2)
   }, [xAmount, yAmount])
@@ -68,7 +72,9 @@ function SineWave(props: ThreeElements['points'] & SineWaveProps & { cursorPos: 
 
     const geometry = pointsRef.current.geometry
     const positionAttribute = geometry.attributes.position
+    const sizeAttribute = geometry.attributes.size as THREE.BufferAttribute
     const positions = positionAttribute.array as Float32Array
+    const sizes = sizeAttribute.array as Float32Array
 
     for (let i = 0; i < positions.length; i += 3) {
       const x = basePositions[i]
@@ -77,7 +83,7 @@ function SineWave(props: ThreeElements['points'] & SineWaveProps & { cursorPos: 
 
       const wave =
         Math.sin(x * 1.2 + time * 2.0) * 0.2 +
-        Math.cos(y * 3 + time * 1.2) * 0.1
+        Math.cos(y * 1 + time * 1.2) * 0.45
 
       // Calculate distance to cursor
       const dx = x - props.cursorPos[0]
@@ -97,9 +103,14 @@ function SineWave(props: ThreeElements['points'] & SineWaveProps & { cursorPos: 
       positions[i] = x
       positions[i + 1] = y
       positions[i + 2] = z + wave + magnetEffect
+
+      // Update particle size based on magnetic effect
+      const pointIndex = i / 3
+      sizes[pointIndex] = baseSizes[pointIndex] + magnetEffect * 3
     }
 
     positionAttribute.needsUpdate = true
+    sizeAttribute.needsUpdate = true
   })
 
   return (
@@ -111,15 +122,36 @@ function SineWave(props: ThreeElements['points'] & SineWaveProps & { cursorPos: 
           array={animatedPositions}
           itemSize={3}
         />
+        <bufferAttribute
+          attach="attributes-size"
+          count={animatedSizes.length}
+          array={animatedSizes}
+          itemSize={1}
+        />
       </bufferGeometry>
 
-      <pointsMaterial
-        color={props.color || "white"}
-        size={1.4}
-        sizeAttenuation={false}
-        transparent
+      <shaderMaterial
         blending={THREE.AdditiveBlending}
         depthWrite={false}
+        transparent
+        vertexShader={`
+          attribute float size;
+          void main() {
+            gl_PointSize = size * 2.0;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `}
+        fragmentShader={`
+          uniform vec3 color;
+          void main() {
+            float dist = length(gl_PointCoord - vec2(0.5));
+            if (dist > 0.5) discard;
+            gl_FragColor = vec4(color, 1.0);
+          }
+        `}
+        uniforms={{
+          color: { value: new THREE.Color(props.color || "white") }
+        }}
       />
     </points>
   )
@@ -145,12 +177,36 @@ export function SineWaveBox(props: SineWaveProps) {
       const normalizedX = (x / rect.width) * 2 - 1
       const normalizedY = -(y / rect.height) * 2 + 1
 
-      const multiplier = 80
+      const multiplier = 90
+      setCursorPos([normalizedX * rect.width / multiplier, normalizedY * rect.height / multiplier])
+    }
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const touch = e.touches[0]
+      if (!touch) return
+
+      const rect = canvasElement.getBoundingClientRect()
+      if (touch.clientX < rect.left || touch.clientX > rect.right ||
+          touch.clientY < rect.top || touch.clientY > rect.bottom) {
+        return
+      }
+
+      const x = touch.clientX - rect.left
+      const y = touch.clientY - rect.top
+
+      const normalizedX = (x / rect.width) * 2 - 1
+      const normalizedY = -(y / rect.height) * 2 + 1
+
+      const multiplier = 90
       setCursorPos([normalizedX * rect.width / multiplier, normalizedY * rect.height / multiplier])
     }
 
     window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    window.addEventListener('touchmove', handleTouchMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('touchmove', handleTouchMove)
+    }
   }, [])
 
   return (
