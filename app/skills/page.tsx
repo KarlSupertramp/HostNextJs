@@ -12,7 +12,6 @@ import { ReactElement } from "react";
 import DrawIcon from '@mui/icons-material/Draw';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import PhonelinkIcon from '@mui/icons-material/Phonelink';
-import VideogameAssetIcon from '@mui/icons-material/VideogameAsset';
 
 import Image from "next/image";
 import UnityLogo from "../../public/UnityLogo_White.svg";
@@ -20,52 +19,52 @@ import UnityLogo from "../../public/UnityLogo_White.svg";
 
 export default function SkillsPage({ id }: { id?: string }){
   const devTools = [
-    "Unity",
-    "Visual Studio / VS Code",
-    "Mixed Reality Toolkit",
-    "React",
-    "React Native",
-    "Flutter",
-    "Next.js",
-    "Figma",
-    "Framer",
+    { name: "Unity", url: "https://unity.com/" },
+    { name: "Visual Studio / VS Code", url: "https://code.visualstudio.com/" },
+    { name: "Mixed Reality Toolkit", url: "https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk3-overview/" },
+    { name: "React", url: "https://react.dev/" },
+    { name: "React Native", url: "https://reactnative.dev/" },
+    { name: "Flutter", url: "https://flutter.dev/" },
+    { name: "Next.js", url: "https://nextjs.org/" },
+    { name: "Figma", url: "https://www.figma.com/" },
+    { name: "Framer", url: "https://www.framer.com/" },
   ];
 
   const languages = [
-    "C# / .NET / ASP.NET", 
-    "JavaScript", 
-    "TypeScript", 
-    "Dart",
-    "HTML / CSS", 
-    ];
+    { name: "C# / .NET / ASP.NET", url: "https://dotnet.microsoft.com/" }, 
+    { name: "JavaScript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/" }, 
+    { name: "TypeScript", url: "https://www.typescriptlang.org/" }, 
+    { name: "Dart", url: "https://dart.dev/" },
+    { name: "HTML / CSS", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/" }, 
+  ];
 
   const platforms = [
-    "Windows",
-    "Universal Windows Platform",
-    "HoloLens 1, 2",
-    "Magic Leap 2",
-    "Android",
-    "iOS",
-    "Android VR",
-    "Web",
+    { name: "Windows", url: "https://www.microsoft.com/en-us/windows" },
+    { name: "Universal Windows Platform", url: "https://learn.microsoft.com/en-us/windows/uwp/" },
+    { name: "HoloLens 1, 2", url: "https://www.microsoft.com/en-us/hololens/" },
+    { name: "Magic Leap 2", url: "https://www.magicleap.com/" },
+    { name: "Android", url: "https://www.android.com/" },
+    { name: "iOS", url: "https://www.apple.com/ios/" },
+    { name: "Android VR", url: "https://developer.android.com/distribute/play-services/play-vr" },
+    { name: "Web", url: "https://www.w3.org/" },
   ];
 
   const creativeTools = [
-    "Cinema 4D",
-    "Blender",
-    "Adobe Photoshop",
-    "Adobe Illustrator",
-    "Adobe Premiere",
-    "Adobe After Effects",
-    "Office 365"
+    { name: "Cinema 4D", url: "https://www.maxon.net/en/cinema-4d" },
+    { name: "Blender", url: "https://www.blender.org/" },
+    { name: "Adobe Photoshop", url: "https://www.adobe.com/products/photoshop.html" },
+    { name: "Adobe Illustrator", url: "https://www.adobe.com/products/illustrator.html" },
+    { name: "Adobe Premiere", url: "https://www.adobe.com/products/premiere.html" },
+    { name: "Adobe After Effects", url: "https://www.adobe.com/products/aftereffects.html" },
+    { name: "Office 365", url: "https://www.microsoft.com/en-us/microsoft-365/" }
   ];
 
   const devOps = [
-    "Git",
-    "Azure DevOps",
-    "SCRUM / Secure SCRUM",
-    "Kubernetes",
-    "Docker"
+    { name: "Git", url: "https://git-scm.com/" },
+    { name: "Azure DevOps", url: "https://azure.microsoft.com/en-us/products/devops/" },
+    { name: "SCRUM / Secure SCRUM", url: "https://www.scrum.org/" },
+    { name: "Kubernetes", url: "https://kubernetes.io/" },
+    { name: "Docker", url: "https://www.docker.com/" }
   ];
   
   const ChipSection = ({ title, items, icon }) => (
@@ -78,12 +77,29 @@ export default function SkillsPage({ id }: { id?: string }){
       <Divider sx={{ my: 2, borderColor: "border.secondary"}} />
       
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
-        {items.map((item) => (
-          <Chip           
-            key={item} 
-            label={item}  
-          />
-        ))}
+        {items.map((item) => {
+          const itemName = typeof item === 'string' ? item : item.name;
+          const itemUrl = typeof item === 'string' ? null : item.url;
+          
+          return (
+            <Chip           
+              key={itemName} 
+              label={itemName}
+              onClick={() => itemUrl && window.open(itemUrl, '_blank')}
+              sx={{
+                cursor: itemUrl ? 'pointer' : 'default',
+                transition: 'all 0.2s ease',
+                ...(itemUrl && {
+                  '&:hover': {
+         
+                    bgcolor: "#eda916",  
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                  }
+                })
+              }}
+            />
+          );
+        })}
       </Stack>
     </Box>
   );
@@ -174,26 +190,30 @@ export default function SkillsPage({ id }: { id?: string }){
           bgIcon={<DrawIcon sx={{ color:"white", fontSize: 220 }} />}
           title="User Experience Design"
           paragraphs={[t("ux1")]}
-          chips={["Usability", "Design Thinking", "User Focussed"]}/>
+          chips={["Usability", "Design Thinking", "User Focussed"]}
+        />
 
         <SkillArticle
           bgIcon={<AssignmentIcon sx={{ color:"white", fontSize: 220 }} />}
           title="Project Management"         
           paragraphs={[t("management1"), t("management2")]}
-          chips={["Product Owner", "Scrum Master"]}/>
+          chips={["Product Owner", "Scrum Master"]}
+        />
 
         <SkillArticle  
           bgIcon={<PhonelinkIcon sx={{ color:"white", fontSize: 220 }} />}
           title="Frontend & Mobile Development"
           paragraphs={[t("frontend1"), t("frontend2")]}
-          chips={["Cross Platform", "Responsive Layout"]}/>
+          chips={["Cross Platform", "Responsive Layout"]}
+        />
 
         <SkillArticle
           bgIcon={<Image width={250} src={UnityLogo} alt={"unity"}/>}
           title="Unity Development"
           paragraphs={[t("unity1"), t("unity2"), t("unity3")]}
-          chips={["Automotive Interfaces", "Mixed Reality", "Realtime 3D", "Data Visualization", "Prototyping" ]}/>
-
+          chips={["Automotive Interfaces", "Mixed Reality", "Realtime 3D", "Data Visualization", "Prototyping"]}
+        />
+        
         <Typography mt={6} mb={2} variant="h5" component="h1">
           {t("tools")}
         </Typography>

@@ -47,11 +47,11 @@ export default function AboutPage() {
           <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
             <SineWaveBox 
               color="#6e95b9"
-              xDensity={0.08} 
-              yDensity={0.08} 
+              xDensity={0.22} 
+              yDensity={0.22} 
               xAmount={350}
               yAmount={50}
-              timeScale={1.1}
+              timeScale={.1}
             />
           </Box>
         </Box>

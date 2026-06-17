@@ -80,7 +80,7 @@ export default function Head({ id }: { id?: string }) {
               <Typography 
               variant="body2"
               sx={{ color: "text.faded" }}>
-                UX Technologist
+                UX-Technologist | IT-Product Consultant | Product Owner
               </Typography>
             </Stack>
             </Stack>
