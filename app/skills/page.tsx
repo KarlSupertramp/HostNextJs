@@ -15,6 +15,7 @@ import Image from "next/image";
 import UnityLogo from "../../public/UnityLogo_White.svg";
 import { BackButton } from "../sections/backbutton";
 import WebAssetIcon from '@mui/icons-material/WebAsset';
+import React from "react";
 
 export default function SkillsPage({ id }: { id?: string }){
   const devTools = [
@@ -177,7 +178,11 @@ export default function SkillsPage({ id }: { id?: string }){
   );
 
   const t = useTranslations('Skills');
-  const singlePage = window.location.pathname.toLocaleLowerCase().endsWith("/skills");
+
+  const [singlePage, setSinglePage] = React.useState(false);
+  React.useEffect(() => {
+    setSinglePage(window.location.pathname.toLocaleLowerCase().endsWith("/skills"));
+  }, []);
 
   return (
     <Box id={id} bgcolor={"background.default"} >      

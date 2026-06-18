@@ -107,7 +107,12 @@ export default function ShowroomPage({ id }: { id?: string }) {
   const closeIframe = () => setIframeOpen(false);
   const closeWaterLevel = () => setWaterOpen(false);
   const t = useTranslations('Showroom');
-  const singlePage = window.location.pathname.toLocaleLowerCase().endsWith("/showroom");
+
+  const [singlePage, setSinglePage] = React.useState(false);
+  React.useEffect(() => {
+    setSinglePage(window.location.pathname.toLocaleLowerCase().endsWith("/showroom"));
+  }, []);
+
 
   return (
     <Box sx={{ bgcolor: "background.defaultDark" }} id={id}>
