@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import OssLicensesTable from "../components/ossLicenseTable";
 import { BackButton } from "../sections/backbutton";
 

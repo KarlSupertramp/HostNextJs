@@ -1,15 +1,24 @@
-import { Box, Button, Container, Link, Stack, Typography } from "@mui/material";
+import { Box, Container, Link, Stack, Typography } from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { LocaleSwitcher } from "../components/localeSwitcher";
+import { useEffect, useState } from "react";
 
 interface BackButtonProps {
   title?: string | null;
+  disabled?: boolean;
 }
 
-export function BackButton({ title }: BackButtonProps) 
+export function BackButton({ title, disabled = false }: BackButtonProps) 
 { 
+  const [embedded, setEmbedded] = useState(true);
+
+  useEffect(() => {
+    const isEmbedded = window.location.search.includes("?embedded");
+    setEmbedded(isEmbedded);
+  }, []);
+
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: (embedded || disabled) ? "none" : "flex" }}>
       <Container
         maxWidth="lg"
         sx={{

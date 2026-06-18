@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Typography,  Chip, Stack, Divider, Grid } from "@mui/material";
+import { Box, Container, Typography,  Chip, Stack, Divider, Grid, IconButton } from "@mui/material";
 import HandymanIcon from '@mui/icons-material/Handyman';
 import CodeIcon from '@mui/icons-material/SettingsEthernet';
 import BrushIcon from '@mui/icons-material/Brush';
@@ -8,14 +8,13 @@ import DevicesOtherIcon from '@mui/icons-material/DevicesOther';
 import CloudSyncIcon from '@mui/icons-material/CloudSync';
 import { useTranslations } from "next-intl";
 import { ReactElement } from "react";
-
 import DrawIcon from '@mui/icons-material/Draw';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import PhonelinkIcon from '@mui/icons-material/Phonelink';
-
 import Image from "next/image";
 import UnityLogo from "../../public/UnityLogo_White.svg";
-
+import { BackButton } from "../sections/backbutton";
+import WebAssetIcon from '@mui/icons-material/WebAsset';
 
 export default function SkillsPage({ id }: { id?: string }){
   const devTools = [
@@ -178,26 +177,34 @@ export default function SkillsPage({ id }: { id?: string }){
   );
 
   const t = useTranslations('Skills');
+  const singlePage = window.location.pathname.toLocaleLowerCase().endsWith("/skills");
 
   return (
     <Box id={id} bgcolor={"background.default"} >      
-      <Container  maxWidth="lg" sx={{ py: 15 }}>         
-        <Typography variant="h4" component="h1" mb={2}>
-         {t("head")}
-        </Typography>
+      <BackButton title={"Skills"} disabled={!singlePage} />
+      <Container  maxWidth="lg" sx={{ py: singlePage ? 2 : 5 }}>         
+          {!singlePage && 
+          <Stack mb={2} direction={"row"} alignItems={"center"}  justifyContent={"space-between"}>
+            <Typography variant="h4" component="h1" gutterBottom>
+              Skills
+            </Typography>
+            <IconButton title="Fullscreen" href={"/skills"} aria-label="Fullscreen" size="small">
+              <WebAssetIcon />
+            </IconButton>
+          </Stack>
+        }
+        <SkillArticle
+          bgIcon={<AssignmentIcon sx={{ color:"white", fontSize: 220 }} />}
+          title="Project Management"         
+          paragraphs={[t("management1"), t("management2")]}
+          chips={["Product Owner", "Scrum Master"]}
+        />
 
        <SkillArticle
           bgIcon={<DrawIcon sx={{ color:"white", fontSize: 220 }} />}
           title="User Experience Design"
           paragraphs={[t("ux1")]}
           chips={["Usability", "Design Thinking", "User Focussed"]}
-        />
-
-        <SkillArticle
-          bgIcon={<AssignmentIcon sx={{ color:"white", fontSize: 220 }} />}
-          title="Project Management"         
-          paragraphs={[t("management1"), t("management2")]}
-          chips={["Product Owner", "Scrum Master"]}
         />
 
         <SkillArticle  

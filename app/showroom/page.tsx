@@ -15,6 +15,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTranslations } from "next-intl";
 import { WaterLevelModal } from "../components/waterlevelModal";
 import PlayIcon from '@mui/icons-material/PlayArrow';
+import { BackButton } from "../sections/backbutton";
+import WebAssetIcon from '@mui/icons-material/WebAsset';
 
 function FeatureContent({ title, body, imgSrc }) {
   return (
@@ -105,13 +107,22 @@ export default function ShowroomPage({ id }: { id?: string }) {
   const closeIframe = () => setIframeOpen(false);
   const closeWaterLevel = () => setWaterOpen(false);
   const t = useTranslations('Showroom');
+  const singlePage = window.location.pathname.toLocaleLowerCase().endsWith("/showroom");
 
   return (
     <Box sx={{ bgcolor: "background.defaultDark" }} id={id}>
-      <Container maxWidth="lg" sx={{ py: 15 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Showroom
-        </Typography>
+      <BackButton title={"Showroom"} disabled={!singlePage} />
+      <Container  maxWidth="lg" sx={{ py: singlePage ? 2 : 5 }}>     
+        {!singlePage && 
+          <Stack direction={"row"} alignItems={"center"}  justifyContent={"space-between"}>
+            <Typography variant="h4" component="h1" gutterBottom>
+              Showroom
+            </Typography>
+            <IconButton title="Fullscreen" href={"/showroom"} aria-label="Fullscreen" size="small">
+              <WebAssetIcon />
+            </IconButton>
+          </Stack>
+        }
         <Typography variant="body2" color="text.secondary">
           {t("showroomHead")}
         </Typography>
