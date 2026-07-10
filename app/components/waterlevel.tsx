@@ -38,6 +38,19 @@ export default function Waterlevel() {
     loadData();
   }, [days]);
 
+  function limitMeasurements(data: Measurement[]): Measurement[] {
+    const maxEntries = 250;
+
+    if (data.length <= maxEntries) {
+      return data;
+    }
+
+    return Array.from({ length: maxEntries }, (_, index) => {
+      const position = index * (data.length - 1) / (maxEntries - 1);
+      return data[Math.round(position)];
+    });
+  }
+
   async function fetchMeasurements(stationId: string, days: string): Promise<Measurement[]> {
     try {
       const response = await fetch(
@@ -49,8 +62,7 @@ export default function Waterlevel() {
       }
 
       const data: Measurement[] = await response.json();
-      console.log(data.length)
-      return data;
+      return limitMeasurements(data);
 
     } catch (error) {
       console.error("Failed to fetch measurements:", error);
