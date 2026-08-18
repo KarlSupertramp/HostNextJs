@@ -19,23 +19,20 @@ import React from "react";
 
 export default function SkillsPage({ id }: { id?: string }){
   const devTools = [
-    { name: "Unity", url: "https://unity.com/" },
     { name: "Visual Studio / VS Code", url: "https://code.visualstudio.com/" },
-    { name: "Mixed Reality Toolkit", url: "https://learn.microsoft.com/en-us/windows/mixed-reality/mrtk-unity/mrtk3-overview/" },
     { name: "React", url: "https://react.dev/" },
     { name: "React Native", url: "https://reactnative.dev/" },
     { name: "Flutter", url: "https://flutter.dev/" },
     { name: "Next.js", url: "https://nextjs.org/" },
+    { name: "Unity", url: "https://unity.com/" },
     { name: "Figma", url: "https://www.figma.com/" },
-    { name: "Framer", url: "https://www.framer.com/" },
   ];
 
   const languages = [
-    { name: "C# / .NET / ASP.NET", url: "https://dotnet.microsoft.com/" }, 
-    { name: "JavaScript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/" }, 
-    { name: "TypeScript", url: "https://www.typescriptlang.org/" }, 
-    { name: "Dart", url: "https://dart.dev/" },
+    { name: "C# / .NET", url: "https://dotnet.microsoft.com/" }, 
     { name: "HTML / CSS", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/" }, 
+    { name: "JavaScript / TypeScript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/" },
+    { name: "Dart", url: "https://dart.dev/" },
   ];
 
   const platforms = [
@@ -52,10 +49,7 @@ export default function SkillsPage({ id }: { id?: string }){
   const creativeTools = [
     { name: "Cinema 4D", url: "https://www.maxon.net/en/cinema-4d" },
     { name: "Blender", url: "https://www.blender.org/" },
-    { name: "Adobe Photoshop", url: "https://www.adobe.com/products/photoshop.html" },
-    { name: "Adobe Illustrator", url: "https://www.adobe.com/products/illustrator.html" },
-    { name: "Adobe Premiere", url: "https://www.adobe.com/products/premiere.html" },
-    { name: "Adobe After Effects", url: "https://www.adobe.com/products/aftereffects.html" },
+    { name: "Adobe Creative Cloud", url: "https://www.adobe.com/products/photoshop.html" },
     { name: "Office 365", url: "https://www.microsoft.com/en-us/microsoft-365/" }
   ];
 
