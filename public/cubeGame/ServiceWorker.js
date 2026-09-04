@@ -1,4 +1,4 @@
-const cacheName = "Karl-Cube Puzzle-0.1";
+const cacheName = "KarlUweMartin.de-Cube Puzzle-0.1";
 const contentToCache = [
     "Build/CubePuzzle_PWA.loader.js",
     "Build/CubePuzzle_PWA.framework.js",
